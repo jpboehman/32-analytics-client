@@ -9,7 +9,7 @@ import AuthService from './services/auth.service';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
 import Register from './components/Register';
-import Home from './components/Home';
+import Home from './components/AboutUs/Home';
 import Profile from './components/Profile';
 import BoardUser from './components/BoardUser';
 import BoardModerator from './components/BoardModerator';
@@ -19,7 +19,7 @@ import StatsAndGrades from './components/StatsAndGrades';
 import { Menu } from 'antd';
 
 import EventBus from './common/EventBus';
-import { css, cx } from '@emotion/css';
+import { css, } from '@emotion/css';
 
 const App = () => {
 	const { Header, Footer, Content } = Layout;

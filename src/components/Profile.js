@@ -1,7 +1,7 @@
 import React from 'react';
 import AuthService from '../services/auth.service';
 import { Typography, Descriptions, PageHeader } from 'antd';
-import { css, cx } from '@emotion/css';
+import { css } from '@emotion/css';
 
 // This is the current entry point for the applicaiton - start editing here!
 const Profile = () => {

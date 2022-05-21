@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import UserService from '../services/user.service';
+import UserService from '../../services/user.service';
+
+import AboutUsHeader from '../../components/AboutUs/AboutUsComponents/AboutUsHeader';
 
 import { Row, Col, PageHeader, Layout } from 'antd';
 
-import { css } from '@emotion/css';
+import { css, cx } from '@emotion/css';
 
-export const Overview = () => {
+export const Home = () => {
 	const { Header, Footer, Sider, Content } = Layout;
 
+	// Start building in NavBar here
 	return (
 		<div className={css`width: 100%;`}>
 			<Layout>
-				<Content style={{ padding: '0 50px' }}>
-					<PageHeader title="Our stats explained" subTitle="Learn more about each statistic" />
+				<Content style={{ padding: '0 25px' }}>
+					<PageHeader title="About Us" subTitle="About 32Analytics" />
 					<div
 						className={css`
 							min-height: 80vh;
@@ -21,7 +24,7 @@ export const Overview = () => {
 							background: #fff;
 						`}
 					>
-						Content
+						<AboutUsHeader />
 					</div>
 				</Content>
 				<Footer style={{ textAlign: 'center' }}>ThirtyTwo Analytics ©2020</Footer>
@@ -36,4 +39,4 @@ export const Overview = () => {
 	);
 };
 
-export default Overview;
+export default Home;
