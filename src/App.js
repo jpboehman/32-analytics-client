@@ -62,18 +62,7 @@ const App = () => {
 							width: 100%;
 						`}
 					/>
-					<Menu
-						theme="dark"
-						mode="horizontal"
-						defaultSelectedKeys={[ '2' ]}
-						items={new Array(15).fill(null).map((_, index) => {
-							const key = index + 1;
-							return {
-								key,
-								label: `nav ${key}`
-							};
-						})}
-					>
+					<Menu theme="dark" mode="horizontal" defaultSelectedKeys={[ '0' ]}>
 						<Menu.Item>
 							<Link to="/">32Analytics</Link>
 						</Menu.Item>
@@ -83,15 +72,15 @@ const App = () => {
 						<Menu.Item>
 							<Link to="/stats-and-grades">Statistics And Grades</Link>
 						</Menu.Item>
-            <Menu.Item>
+						<Menu.Item>
 							<Link to="/contact-us">Contact Us</Link>
 						</Menu.Item>
 					</Menu>
 				</Header>
 				<Content />
 			</Layout>
-			<div className="container">
-				{/* Update these routes based on 32Analytics NavBar and Page structure */}
+			<div>
+        {/* TODO: Determine what routes to keep and what to refactor */}
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/contact-us" element={<ContactUs />} />

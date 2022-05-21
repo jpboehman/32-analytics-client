@@ -10,7 +10,7 @@ export const StatsAndGrades = () => {
 	const [ content, setContent ] = useState('');
 	const { Header, Footer, Sider, Content } = Layout;
 
-	// Likely replace to get actual content
+    // TODO: Replace with api call to fetch spreadsheet data
 	useEffect(() => {
 		UserService.getPublicContent().then(
 			(response) => {

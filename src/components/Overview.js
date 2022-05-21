@@ -26,7 +26,6 @@ export const Overview = () => {
 		);
 	}, []);
 
-	// Start building in NavBar here
 	return (
 		<div className={css`width: 100%;`}>
 			<Layout>
