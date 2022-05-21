@@ -8,7 +8,7 @@ import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/
 
 import { css, cx } from '@emotion/css';
 
-export const Home = () => {
+export const ContactUs = () => {
 	const [ content, setContent ] = useState('');
 	const { Header, Footer, Sider, Content } = Layout;
 
@@ -31,7 +31,7 @@ export const Home = () => {
 		<div className={css`width: 100%;`}>
 			<Layout>
 				<Content style={{ padding: '0 50px' }}>
-					<PageHeader title="32Analytics" subTitle="Analysis Beyond The Box Score" />
+					<PageHeader title="TODO: Create contact form" subTitle="Please fill out our contact form and we will get back to you as soon as possible!" />
 					<div
 						className={css`
 							min-height: 80vh;
@@ -54,4 +54,4 @@ export const Home = () => {
 	);
 };
 
-export default Home;
+export default ContactUs;

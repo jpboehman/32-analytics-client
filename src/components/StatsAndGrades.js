@@ -4,11 +4,9 @@ import UserService from '../services/user.service';
 
 import { Row, Col, PageHeader, Menu, Breadcrumb, Layout } from 'antd';
 
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-
 import { css, cx } from '@emotion/css';
 
-export const Home = () => {
+export const StatsAndGrades = () => {
 	const [ content, setContent ] = useState('');
 	const { Header, Footer, Sider, Content } = Layout;
 
@@ -31,7 +29,7 @@ export const Home = () => {
 		<div className={css`width: 100%;`}>
 			<Layout>
 				<Content style={{ padding: '0 50px' }}>
-					<PageHeader title="32Analytics" subTitle="Analysis Beyond The Box Score" />
+					<PageHeader title="Make this a dropdown" subTitle="Dropdown drawer coming!" />
 					<div
 						className={css`
 							min-height: 80vh;
@@ -54,4 +52,4 @@ export const Home = () => {
 	);
 };
 
-export default Home;
+export default StatsAndGrades;
