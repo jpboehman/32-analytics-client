@@ -19,7 +19,7 @@ import StatsAndGrades from './components/StatsAndGrades';
 import { Menu } from 'antd';
 
 import EventBus from './common/EventBus';
-import { css, } from '@emotion/css';
+import { css } from '@emotion/css';
 
 const App = () => {
 	const { Header, Footer, Content } = Layout;
@@ -75,16 +75,20 @@ const App = () => {
 						<Menu.Item>
 							<Link to="/contact-us">Contact Us</Link>
 						</Menu.Item>
+						<Menu.Item>
+							<Link to="/login">Login / Register</Link>
+						</Menu.Item>
 					</Menu>
 				</Header>
 				<Content />
 			</Layout>
 			<div>
-        {/* TODO: Determine what routes to keep and what to refactor */}
+				{/* TODO: Determine what routes to keep and what to refactor */}
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/contact-us" element={<ContactUs />} />
 					<Route path="/home" element={<Home />} />
+					{/* // Ensure that the login page is the inital landing page */}
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
 					<Route path="/profile" element={<Profile />} />

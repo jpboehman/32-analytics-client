@@ -21,10 +21,17 @@
 		"start": "react-scripts --openssl-legacy-provider start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
-		"eject": "react-scripts eject"
+		"eject": "react-scripts eject",
+		"lint": "npx eslint src test",
+		"lint:fix": "yarn lint -- --fix",
+		"prettier": "npx prettier src test --check",
+		"prettier:fix": "yarn run prettier -- --write"
 	},
 	"eslintConfig": {
-		"extends": "react-app"
+		"extends": "react-app",
+		"rules": {
+			"no-unused-vars": "warn"
+		}
 	},
 	"browserslist": {
 		"production": [

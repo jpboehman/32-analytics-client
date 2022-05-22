@@ -1,10 +1,9 @@
 import React from 'react';
 
-import UserService from '../services/user.service';
-
 import { Row, Col, PageHeader, Layout } from 'antd';
 
 import { css } from '@emotion/css';
+import UserService from '../services/user.service';
 
 export const ContactUs = () => {
 	const { Footer, Content } = Layout;

@@ -1,12 +1,11 @@
 import React from 'react';
 
-import UserService from '../services/user.service';
-
 import { Row, Col, PageHeader, Layout } from 'antd';
 
 import { css } from '@emotion/css';
+import UserService from '../services/user.service';
 
-export const Overview = () => {
+export function Overview() {
 	const { Header, Footer, Sider, Content } = Layout;
 
 	return (
@@ -34,6 +33,6 @@ export const Overview = () => {
 			<Row />
 		</div>
 	);
-};
+}
 
 export default Overview;

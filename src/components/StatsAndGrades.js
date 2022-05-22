@@ -4,11 +4,11 @@ import { Row, Col, PageHeader, Layout } from 'antd';
 
 import { css } from '@emotion/css';
 
-export const StatsAndGrades = () => {
+export function StatsAndGrades() {
 	// const [ content, setContent ] = useState('');
 	const { Footer, Content } = Layout;
 
-    // TODO: Replace with api call to fetch spreadsheet data
+	// TODO: Replace with api call to fetch spreadsheet data
 	// useEffect(() => {
 	// 	UserService.getPublicContent().then(
 	// 		(response) => {
@@ -48,6 +48,6 @@ export const StatsAndGrades = () => {
 			<Row />
 		</div>
 	);
-};
+}
 
 export default StatsAndGrades;
