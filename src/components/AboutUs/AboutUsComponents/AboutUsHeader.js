@@ -1,8 +1,11 @@
 import React from 'react';
 
-import { Row, Layout, Descriptions, Typography, Divider } from 'antd';
+import { Layout, Descriptions, Typography, Divider } from 'antd';
 
 import { css } from '@emotion/css';
+
+import { WhereToFindUs } from '../../common/WhereToFindUs';
+
 
 export function AboutUsHeader() {
 	const { Title } = Typography;
@@ -16,6 +19,7 @@ export function AboutUsHeader() {
 					<OurFounding />
 					<br />
 					<OurMission />
+					<WhereToFindUs />
 				</div>
 			</Content>
 		</Layout>
@@ -26,7 +30,14 @@ const About32Analytics = () => {
 	const about32 = 'About 32 Analytics';
 	return (
 		<div style={{ textAlign: 'center', justifyContent: 'center' }}>
-			<h1 className={css`padding: 30px;`}>{about32}</h1>
+			<h1
+				className={css`
+					padding: 30px;
+					font-size: 100px;
+				`}
+			>
+				{about32}
+			</h1>
 		</div>
 	);
 };
@@ -41,7 +52,10 @@ const OurFounding = () => {
 
 	return (
 		<div>
-			<h1 className={css`margin: 0 30px;`}>{ourFounding}</h1>
+			{/* <h1 className={css`margin: 0 30px;`}>{ourFounding}</h1> */}
+			<Typography.Title level={1} style={{ margin: 30 }}>
+				{ourFounding}
+			</Typography.Title>
 			<Divider />
 			{/* box-decoration-break: clone; Each box fragment is rendered independently with the specified border, 
             padding and margin wrapping each fragment. The border-radius, border-image and box-shadow, 
@@ -50,6 +64,7 @@ const OurFounding = () => {
 				className={css`
 					margin-left: 30px;
 					box-decoration-break: clone;
+					font-size: 20px;
 				`}
 			>
 				{ourFoundingDescription}
@@ -64,17 +79,16 @@ const OurMission = () => {
     Our hope is that you enjoy the analysis beyond the box score as much as we do.`;
 
 	return (
-		<div className={css`background-color: black;`}>
+		<div>
 			<h1
 				className={css`
 					margin: 0 30px;
-                    color: white;
-                    font-family: sans-serif;
+					font-family: sans-serif;
 				`}
 			>
 				{ourMission}
 			</h1>
-			<Divider className={css`background-color: white;`} />
+			<Divider />
 			{/* box-decoration-break: clone; Each box fragment is rendered independently with the specified border, 
             padding and margin wrapping each fragment. The border-radius, border-image and box-shadow, 
             are applied to each fragment independently. */}
@@ -82,9 +96,8 @@ const OurMission = () => {
 				className={css`
 					margin-left: 30px;
 					box-decoration-break: clone;
-                    color: white;
-                    font-family: sans-serif;
-                    font-size: 20px;
+					font-family: sans-serif;
+					font-size: 20px;
 				`}
 			>
 				{ourMissionDescription}
