@@ -8,8 +8,8 @@ import { InstagramOutlined, FacebookOutlined, TwitterOutlined } from '@ant-desig
 
 export const WhereToFindUs = () => {
 	return (
-		<div className={css`margin: 30px;`}>
-			<Typography.Title level={1}>Where To Find Us:</Typography.Title>
+		<div className={css`margin-top: 50px; margin-left: 250px; margin-right: 200px;`}>
+			<Typography.Title level={1} style={{ marginLeft: 20 }}>Where To Find Us:</Typography.Title>
 			<Divider />
 			<div className={css`display: flex;`}>
 				<TwitterOutlined style={{ fontSize: '800%' }} />

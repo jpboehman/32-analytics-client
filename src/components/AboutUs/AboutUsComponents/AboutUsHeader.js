@@ -6,10 +6,8 @@ import { css } from '@emotion/css';
 
 import { WhereToFindUs } from '../../common/WhereToFindUs';
 
-
 export function AboutUsHeader() {
-	const { Title } = Typography;
-	const { Header, Footer, Sider, Content } = Layout;
+	const { Content } = Layout;
 
 	return (
 		<Layout>
@@ -51,8 +49,12 @@ const OurFounding = () => {
 								into an opportunity to provide the world with the data we have created.`;
 
 	return (
-		<div>
-			{/* <h1 className={css`margin: 0 30px;`}>{ourFounding}</h1> */}
+		<div
+			className={css`
+				margin-left: 250px;
+				margin-right: 200px;
+			`}
+		>
 			<Typography.Title level={1} style={{ margin: 30 }}>
 				{ourFounding}
 			</Typography.Title>
@@ -79,7 +81,13 @@ const OurMission = () => {
     Our hope is that you enjoy the analysis beyond the box score as much as we do.`;
 
 	return (
-		<div>
+		<div
+			className={css`
+				margin-top: 30px;
+				margin-left: 250px;
+				margin-right: 200px;
+			`}
+		>
 			<h1
 				className={css`
 					margin: 0 30px;
