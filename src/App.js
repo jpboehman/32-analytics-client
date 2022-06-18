@@ -14,8 +14,8 @@ import Profile from './components/Profile';
 import BoardUser from './components/BoardUser';
 import BoardModerator from './components/BoardModerator';
 import BoardAdmin from './components/BoardAdmin';
-import Overview from './components/Overview';
-import StatsAndGrades from './components/StatsAndGrades';
+import OurStatsExplained from './components/OurStatsExplained';
+// import StatsAndGrades from './components/StatsAndGrades';
 import { Menu } from 'antd';
 
 import EventBus from './common/EventBus';
@@ -95,8 +95,8 @@ const App = () => {
 					<Route path="/user" element={<BoardUser />} />
 					<Route path="/mod" element={<BoardModerator />} />
 					<Route path="/admin" element={<BoardAdmin />} />
-					<Route path="/overview" element={<Overview />} />
-					<Route path="/stats-and-grades" element={<StatsAndGrades />} />
+					<Route path="/overview" element={<OurStatsExplained />} />
+					{/* <Route path="/stats-and-grades" element={<StatsAndGrades />} /> */}
 				</Routes>
 			</div>
 		</div>

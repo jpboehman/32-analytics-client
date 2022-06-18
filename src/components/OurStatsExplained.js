@@ -1,36 +1,35 @@
 import React, { useEffect, useState } from 'react';
 
-import Tabletop from "tabletop";
+import Tabletop from 'tabletop';
 
-import OurStatsExplained from './OurStatsExplained/OurStatsExplainedBody';
+import { OurStatsExplainedHeader } from './OurStatsExplained/OurStatsExplainedHeader';
+import { OurStatsExplainedBody } from './OurStatsExplained/OurStatsExplainedBody';
+
 
 import { Row, Col, PageHeader, Layout } from 'antd';
 
 import { css } from '@emotion/css';
 
-// TODO: Fix this component
-export function StatsAndGrades() {
+export function OurStatsExplained() {
 	const [ content, setContent ] = useState([]);
 	const { Footer, Content } = Layout;
 
 	// Attempting to fetch data from spreadsheet
 	// Starting with 'NBA Player Grades & EPS'
 	useEffect(() => {
-    Tabletop.init({
-      key: "1TgIA3e6zXmauUg9XG7DZi_GmS6ZPHgplA4wCt3M8JM4",
-      simpleSheet: true
-    })
-      .then((content) => setContent(content))
-      .catch((err) => console.warn(err));
-  }, []);
-
-  console.log(content)
+		Tabletop.init({
+			key: '1TgIA3e6zXmauUg9XG7DZi_GmS6ZPHgplA4wCt3M8JM4',
+			simpleSheet: true
+		})
+			.then((content) => setContent(content))
+			.catch((err) => console.warn(err));
+	}, []);
 
 	return (
 		<div className={css`width: 100%;`}>
 			<Layout>
 				<Content style={{ padding: '0 25px' }}>
-					<PageHeader title="About Us" subTitle="About 32Analytics" />
+					<PageHeader title="Our Statistics Explained" />
 					<div
 						className={css`
 							min-height: 80vh;
@@ -38,7 +37,8 @@ export function StatsAndGrades() {
 							background: #fff;
 						`}
 					>
-						<OurStatsExplained />
+						<OurStatsExplainedHeader />
+						<OurStatsExplainedBody />
 					</div>
 				</Content>
 				<Footer style={{ textAlign: 'center' }}>ThirtyTwo Analytics ©2020</Footer>
@@ -53,4 +53,4 @@ export function StatsAndGrades() {
 	);
 }
 
-export default StatsAndGrades;
+export default OurStatsExplained;

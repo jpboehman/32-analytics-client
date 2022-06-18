@@ -16,6 +16,7 @@
 		"react-router-dom": "^6.2.2",
 		"react-scripts": "5.0.",
 		"react-validation": "^3.0.7",
+		"tabletop": "^1.6.3",
 		"validator": "^13.0.0"
 	},
 	"scripts": {
