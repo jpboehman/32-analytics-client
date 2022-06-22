@@ -9,6 +9,7 @@ import { WhereToFindUs } from '../common/WhereToFindUs';
 // TODO: Add images to background of text content
 export const OurStatsExplainedBody = () => {
 	const ourStatsExplainedBodyTitle = 'Player Season Grade';
+	const ourStatsExplainedBodyQuestion = 'What are Player Season Grades?';
 	const ourStatsExplainedBodyDescription = `The Player Season Grade statistic grades a player’s season on a scale of 0-100.
     The grade is calculated through the use of traditional box score stats, advanced stats, and our very own EPS statistic.
     The main purpose of Player Season Grades is to take all the statistics that go into evaluating a player’s performance and simplify it down to one number.
@@ -25,10 +26,11 @@ export const OurStatsExplainedBody = () => {
 			<Typography.Title level={1} style={{ margin: 30 }}>
 				{ourStatsExplainedBodyTitle}
 			</Typography.Title>
+			<Typography.Title level={4} style={{ marginLeft: 30 }}>
+				{ourStatsExplainedBodyQuestion}
+			</Typography.Title>
 			<Divider />
-			{/* box-decoration-break: clone; Each box fragment is rendered independently with the specified border, 
-            padding and margin wrapping each fragment. The border-radius, border-image and box-shadow, 
-            are applied to each fragment independently. */}
+			
 			<span
 				className={css`
 					margin-left: 30px;
