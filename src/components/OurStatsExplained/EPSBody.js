@@ -36,14 +36,14 @@ export const EPSBody = () => {
         EPSS and win percentage are both strongly related.
         The higher the EPSS, the higher the win percentage. The lower the EPSS, the lower the win percentage.`;
 
-    const expectedWinsSectionHeader = `EXPECTED WINS`;
+	const expectedWinsSectionHeader = `EXPECTED WINS`;
 	const expectedWinsBodySectionHeader = `What are Expected Wins?`;
-    const whatAreExpectedWinsBodySectionBody = `Through the use of our EPS statistic,
+	const whatAreExpectedWinsBodySectionBody = `Through the use of our EPS statistic,
         we are able to project a team’s win percentage which then allows us to project how many wins a team is expected to have.
         These projections are a unique way to understand whether a team has played better or worse than their record indicates.`;
 
-    const howAccurateIsExpectedWins = `How accurate is Expected Wins?`;
-	const howAccurateIsEPSBody = `For the NBA, there is a 95% average accuracy across the league by the end of the season. 
+	const howAccurateIsExpectedWins = `How accurate is Expected Wins?`;
+	const howAccurateIsEPSExpectedWinsBody = `For the NBA, there is a 95% average accuracy across the league by the end of the season. 
         An example of this accuracy from last season:
         The Milwaukee Bucks owned a record of 46-26 (0.638) at the end of the season. 
         Our Expected Wins Through Games Played model expected Milwaukee to have a (0.639) win percentage that equates to an expected record of 46-26. 
@@ -121,12 +121,12 @@ export const EPSBody = () => {
 			>
 				{howAccurateIsEPSBody}
 			</span>
-            <Divider />
+			<Divider />
 			<Typography.Title level={1} style={{ marginLeft: 30 }}>
-				{epssSectionHeader}
+				{expectedWinsSectionHeader}
 			</Typography.Title>
 			<Typography.Title level={4} style={{ marginLeft: 30 }}>
-				{epssBodySectionHeader}
+				{expectedWinsBodySectionHeader}
 			</Typography.Title>
 			<Divider />
 			<span
@@ -136,7 +136,22 @@ export const EPSBody = () => {
 					font-size: 20px;
 				`}
 			>
-				{epssBodySectionBody}
+				{whatAreExpectedWinsBodySectionBody}
+			</span>
+			<Divider />
+			<Typography.Title level={4} style={{ marginLeft: 30 }}>
+				{howAccurateIsExpectedWins}
+			</Typography.Title>
+			<Divider />
+			<span
+				className={css`
+                    margin-left: 30px;
+                    margin-bottom: 10px;
+					box-decoration-break: clone;
+					font-size: 20px;
+				`}
+			>
+				{howAccurateIsEPSExpectedWinsBody}
 			</span>
 		</div>
 	);
