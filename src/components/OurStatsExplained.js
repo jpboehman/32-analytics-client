@@ -12,25 +12,26 @@ import { css } from '@emotion/css';
 import EPSBody from './OurStatsExplained/EPSBody';
 
 export function OurStatsExplained() {
-	const [ data, setData ] = useState({});
+	const [ topEPSData, setTopEPSData ] = useState({});
 	const { Footer, Content } = Layout;
 
 	// Attempting to fetch data from spreadsheet
 	// Starting with 'NBA Player Grades & EPS'
 	useEffect(() => {
 		Papa.parse(
-			'https://docs.google.com/spreadsheets/d/1SJ8LxWmaxKBTgDJLvfD9NZLctBT931x19--qH2yLxck/pub?output=csv',
+			'https://docs.google.com/spreadsheets/d/e/2PACX-1vRsWOjSYH9x30FEv-z4Pom-P6cvzkphmdHOpD1eFarNJi0XmkmPb5fzCEyAMX8xs9ttaFpRsWVYTPHx/pub?output=csv',
 			{
 				download: true,
 				header: true,
 				complete: (results) => {
-					setData(results.data);
+					setTopEPSData(results.data);
 				}
 			}
 		);
 	}, []);
 
-	console.log(data);
+
+	console.log(topEPSData[0]);
 
 	return (
 		<div className={css`width: 100%;`}>
