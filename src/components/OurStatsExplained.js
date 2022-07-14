@@ -30,6 +30,8 @@ export function OurStatsExplained() {
 		);
 	}, []);
 
+	console.log(topEPSData);
+
 	let topEpsDataTop10 = [];
 	if (topEPSData[0]) {
 		for (let i = 0; i < 10; i++) {
@@ -152,6 +154,7 @@ export function OurStatsExplained() {
 						) : (
 							<SmallLoader />
 						)}
+						<RecentMVPsSeasonGradeRank />
 					</div>
 				</Content>
 				<Footer style={{ textAlign: 'center' }}>ThirtyTwo Analytics ©2020</Footer>
@@ -178,5 +181,41 @@ export const SmallLoader = () => (
 		</Space>
 	</div>
 );
+
+// Construct NBA MVP list component
+
+const recentMVPs2022Current = [
+	{ year: 2022, playerName: 'Nikola Jokic', seasonRank: '97.42 (1st)' },
+	{ year: 2021, playerName: 'Nikola Jokic', seasonRank: '97.42 (1st)' },
+	{ year: 2020, playerName: 'Giannis Antetokounmpo', seasonRank: '94.05 (1st)' },
+	{ year: 2019, playerName: 'Giannis Antetokounmpo', seasonRank: '95.56 (2nd)' },
+	{ year: 2020, playerName: 'James Harden', seasonRank: '94.33 (1st)' },
+	{ year: 2020, playerName: 'Russell Westbrook', seasonRank: '97.87 (1st)' },
+	{ year: 2020, playerName: 'Stephen Curry', seasonRank: '96.89 (1st)' },
+	{ year: 2020, playerName: 'Stephen Curry', seasonRank: '92.11 (4th)' },
+	{ year: 2020, playerName: 'Kevin Durant', seasonRank: '97.10 (1st)' },
+	{ year: 2020, playerName: 'LeBron James', seasonRank: '96.74 (1st)' }
+];
+
+export const RecentMVPsSeasonGradeRank = () => {
+	const columns = [
+		{
+			title: 'YEAR',
+			dataIndex: 'year',
+			key: 'year'
+		},
+		{
+			title: 'NBA MVP',
+			dataIndex: 'playerName',
+			
+		},
+		{
+			title: 'Player Saeson Grade Rank',
+			dataIndex: 'seasonRank',
+		},
+	];
+
+	return <Table columns={columns} dataSource={recentMVPs2022Current} className={css`margin: 50px;`} />;
+};
 
 export default OurStatsExplained;
