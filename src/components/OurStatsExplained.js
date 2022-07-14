@@ -182,19 +182,17 @@ export const SmallLoader = () => (
 	</div>
 );
 
-// Construct NBA MVP list component
-
 const recentMVPs2022Current = [
-	{ year: 2022, playerName: 'Nikola Jokic', seasonRank: '97.42 (1st)' },
-	{ year: 2021, playerName: 'Nikola Jokic', seasonRank: '97.42 (1st)' },
-	{ year: 2020, playerName: 'Giannis Antetokounmpo', seasonRank: '94.05 (1st)' },
-	{ year: 2019, playerName: 'Giannis Antetokounmpo', seasonRank: '95.56 (2nd)' },
-	{ year: 2020, playerName: 'James Harden', seasonRank: '94.33 (1st)' },
-	{ year: 2020, playerName: 'Russell Westbrook', seasonRank: '97.87 (1st)' },
-	{ year: 2020, playerName: 'Stephen Curry', seasonRank: '96.89 (1st)' },
-	{ year: 2020, playerName: 'Stephen Curry', seasonRank: '92.11 (4th)' },
-	{ year: 2020, playerName: 'Kevin Durant', seasonRank: '97.10 (1st)' },
-	{ year: 2020, playerName: 'LeBron James', seasonRank: '96.74 (1st)' }
+	{ year: 2022, playerName: 'Nikola Jokic', seasonRank: '97.42', rankPosition: '1st' },
+	{ year: 2021, playerName: 'Nikola Jokic', seasonRank: '97.42', rankPosition: '1st' },
+	{ year: 2020, playerName: 'Giannis Antetokounmpo', seasonRank: '94.05', rankPosition: '1st' },
+	{ year: 2019, playerName: 'Giannis Antetokounmpo', seasonRank: '95.56', rankPosition: '2nd' },
+	{ year: 2020, playerName: 'James Harden', seasonRank: '94.33', rankPosition: '1st' },
+	{ year: 2020, playerName: 'Russell Westbrook', seasonRank: '97.87', rankPosition: '1st' },
+	{ year: 2020, playerName: 'Stephen Curry', seasonRank: '96.89', rankPosition: '1st' },
+	{ year: 2020, playerName: 'Stephen Curry', seasonRank: '92.11', rankPosition: '4th' },
+	{ year: 2020, playerName: 'Kevin Durant', seasonRank: '97.10', rankPosition: '1st' },
+	{ year: 2020, playerName: 'LeBron James', seasonRank: '96.74', rankPosition: '1st' }
 ];
 
 export const RecentMVPsSeasonGradeRank = () => {
@@ -202,20 +200,52 @@ export const RecentMVPsSeasonGradeRank = () => {
 		{
 			title: 'YEAR',
 			dataIndex: 'year',
-			key: 'year'
+			key: 'year',
+			sorter: (a, b) => a.year - b.year,
+			sortDirections: [ 'ascend', 'descend' ],
+			width: '10%',
 		},
 		{
 			title: 'NBA MVP',
 			dataIndex: 'playerName',
-			
+			key: 'playerName',
+			sorter: (a, b) => a.playerName.localeCompare(b.playerName),
+			sortDirections: [ 'ascend', 'descend' ],
+			width: '15%',
 		},
 		{
-			title: 'Player Saeson Grade Rank',
+			title: 'Player Season Grade Rank',
 			dataIndex: 'seasonRank',
+			key: 'seasonRank',
+			render: (seasonRank) => {
+				return (
+					<div
+						className={css`
+							white-space: nowrap !important;
+							text-overflow: ellipsis !important;
+							overflow-x: hidden !important;
+							overflow-y: hidden !important;
+						`}
+						style={{ maxWidth: 50 }}
+					>
+						{seasonRank}
+					</div>
+				);
+			},
+			sorter: (a, b) => a.seasonRank > b.seasonRank,
+			sortDirections: [ 'ascend', 'descend' ],
+			width: '10%'
 		},
+		{
+			title: 'Rank',
+			dataIndex: 'rankPosition',
+			key: 'rankPosition',
+			
+		}
 	];
 
-	return <Table columns={columns} dataSource={recentMVPs2022Current} className={css`margin: 50px;`} />;
+	return <Table columns={columns} dataSource={recentMVPs2022Current} className={css`margin: 50px;`}
+	size="middle"/>;
 };
 
 export default OurStatsExplained;
