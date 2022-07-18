@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react';
 
-const useApi = (url) => {
+export const useApi = (url) => {
 	const [ isLoading, setIsLoading ] = useState(true);
 	const [ data, setData ] = useState(null);
 
-	// function to fetch from the passed-in url parameter
+	// Function called to get the response from the api and return it as JSON
 	const fetchApi = () => {
-		fetch(url).then((response) => response.json()).then((json) => {
-			console.log(json);
-			setData(json);
-			setIsLoading(false);
-		});
+		fetch(url)
+			.then((response) => response.json())
+			.then((json) => {
+				console.log(json);
+				setData(json);
+				setIsLoading(false);
+			})
+			.catch((error) => console.error(JSON.stringify(error)));
 	};
 
-	// useEffect to call fetchApi function
+	// From the custom useApi hook, utilize a useEffect hook to call the fetchApi() function when the useApi hook is called
 	useEffect(() => {
 		fetchApi();
-	}, []); // Using empty dependency array to ensure the fetchApi() call is only made once
-
-	return { isLoading, data };
+	}, []);
 };
