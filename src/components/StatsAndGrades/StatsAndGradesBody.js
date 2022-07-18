@@ -1,32 +1,41 @@
 import React from 'react';
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-import { Button, List, Typography, Divider } from 'antd';
+import { Button, Card, Col, List, Typography, Divider, Row } from 'antd';
 
 import { css } from '@emotion/css';
 
 import { AreaChartOutlined, BarChartOutlined, FormOutlined, RiseOutlined } from '@ant-design/icons';
 
-
 // TODO: Add images to background of text content
 export const StatsAndGradesBody = () => {
+	const navigate = useNavigate();
 	const statsAndGradesBodyTitle = 'Read each bullet below to learn more about our statistic offerings';
 	const statsAndGradesBodySection = 'What are Player Season Grades?';
-	const navigate = useNavigate();
-	
+
+	// Card summaries
+	const playerSeasonGradeDescription = `The Player Season Grade statistic grades a player's season on
+	a scale of 0-100 through the use of traditional and advanced statistics.`;
+	const efficientProductionScoreDescription = `Efficient Production Score attempts to measure a player’s
+	performance by applying linear weights to traditional box score statistics.`;
+	const efficientProductionScoreSpreadDescription = `EPSS is used to measure team performance by finding the
+	difference/spread between a team’s EPS and their opponent’s EPS.`;
+	const expectedWinsDescription = `Expected Wins offers an expected win total through games played and expected win
+	percentage for each team based on our EPS statistic.`;
+
 	const dataSource = [
 		{ icon: <FormOutlined />, text: 'Player Season Grades' },
 		{ icon: <AreaChartOutlined />, text: 'Efficient Production Score' },
 		{ icon: <BarChartOutlined />, text: 'Efficient Production Score Spread' },
-		{ icon: <RiseOutlined />, text: 'Expected Wins' },
-	]
+		{ icon: <RiseOutlined />, text: 'Expected Wins' }
+	];
 
 	// TODO: Also update the navbar selectedIndex
 	const handleLearnMore = (event) => {
 		event.preventDefault();
-		navigate('../overview', { replace: true })
-	}
+		navigate('../overview', { replace: true });
+	};
 
 	return (
 		<div
@@ -42,20 +51,44 @@ export const StatsAndGradesBody = () => {
 				{statsAndGradesBodySection}
 			</Typography.Title>
 			<Divider />
-			<Button type="link" onClick={handleLearnMore}>Learn More</Button>
+			<Button type="link" onClick={handleLearnMore}>
+				Learn More
+			</Button>
 
 			<List
-				header={<>
-				<strong>Read each bullet below to learn more about our statistic offerings</strong> </>}
+				header={<strong>Read each bullet below to learn more about our statistic offerings</strong>}
 				dataSource={dataSource}
 				renderItem={(item) => (
 					<List.Item>
-						{item.icon}{`${item.text}`}
+						{item.icon}
+						{`${item.text}`}
 					</List.Item>
 				)}
 			/>
 
+			<Divider />
 
+			<Row>
+				<Col>
+					<Card title="Player Season Grades" style={{ width: 250 }}>
+						<Typography.Text>{playerSeasonGradeDescription}</Typography.Text>
+						{/* // TODO: Insert image */}
+					</Card>
+				</Col>
+
+				<Card title="Efficient Production Score" style={{ width: 250 }}>
+					<Typography.Text>{efficientProductionScoreDescription}</Typography.Text>
+					{/* // TODO: Insert image */}
+				</Card>
+				<Card title="Efficient Production Score Spread" style={{ width: 350 }}>
+					<Typography.Text>{efficientProductionScoreSpreadDescription}</Typography.Text>
+					{/* // TODO: Insert image */}
+				</Card>
+				<Card title="Expected Wins" style={{ width: 250 }}>
+					<Typography.Text>{expectedWinsDescription}</Typography.Text>
+					{/* // TODO: Insert image */}
+				</Card>
+			</Row>
 		</div>
 	);
 };

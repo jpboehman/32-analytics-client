@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import UserService from '../../services/user.service';
+// import UserService from '../../services/user.service';
 
 import AboutUsHeader from '../../components/AboutUs/AboutUsComponents/AboutUsHeader';
 
@@ -9,7 +9,7 @@ import { Row, Col, PageHeader, Layout } from 'antd';
 import { css, cx } from '@emotion/css';
 
 export const Home = () => {
-	const { Header, Footer, Sider, Content } = Layout;
+	const { Footer, Content } = Layout;
 
 	return (
 		<div className={css`width: 100%;`}>
