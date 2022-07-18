@@ -72,7 +72,8 @@ export const StatsAndGradesBody = () => {
 				<Col>
 					<Card title="Player Season Grades" style={{ width: 250 }}>
 						<Typography.Text>{playerSeasonGradeDescription}</Typography.Text>
-						{/* // TODO: Insert image */}
+						<Divider />
+						<img src={require('../../assets/GiannisPic.jpeg')} style={{ maxWidth: 200, marginRight: 10 }} />
 					</Card>
 				</Col>
 

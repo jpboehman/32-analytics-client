@@ -26,7 +26,6 @@ const App = () => {
 	const [ showModeratorBoard, setShowModeratorBoard ] = useState(false);
 	const [ showAdminBoard, setShowAdminBoard ] = useState(false);
 	const [ currentUser, setCurrentUser ] = useState(undefined);
-	
 
 	useEffect(() => {
 		const user = AuthService.getCurrentUser();
@@ -83,7 +82,7 @@ const App = () => {
 								`}
 							>
 								<Link to="/stats-and-grades">NBA Statistics And Grades</Link>
-								<Menu.ItemGroup key="NBA">
+								<Menu.ItemGroup key="NBA" className={css`margin-bottom: 20px;`}>
 									<Menu.Item key="nbaPlayer">NBA Player Season Grades and EPS</Menu.Item>
 									<Menu.Item key="nbaTeam">NBA Team EPSS</Menu.Item>
 									<Menu.Item key="nbaExpectedWins">NBA Expected Wins</Menu.Item>
