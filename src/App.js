@@ -45,6 +45,8 @@ const App = () => {
 		};
 	}, []);
 
+	// TODO: Make another effect for when the selected index is changed via a link in another component to make sure navbar reflects correctly
+
 	const logOut = () => {
 		AuthService.logout();
 		setShowModeratorBoard(false);

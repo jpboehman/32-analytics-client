@@ -11,7 +11,6 @@ import { css, cx } from '@emotion/css';
 export const Home = () => {
 	const { Header, Footer, Sider, Content } = Layout;
 
-	// Start building in NavBar here
 	return (
 		<div className={css`width: 100%;`}>
 			<Layout>
