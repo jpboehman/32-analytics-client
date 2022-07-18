@@ -15,14 +15,14 @@ import BoardUser from './components/BoardUser';
 import BoardModerator from './components/BoardModerator';
 import BoardAdmin from './components/BoardAdmin';
 import OurStatsExplained from './components/OurStatsExplained';
-// import StatsAndGrades from './components/StatsAndGrades';
+import StatsAndGrades from './components/StatsAndGrades';
 import { Menu } from 'antd';
 
 import EventBus from './common/EventBus';
 import { css } from '@emotion/css';
 
 const App = () => {
-	const { Header, Footer, Content } = Layout;
+	const { Header, Content } = Layout;
 	const [ showModeratorBoard, setShowModeratorBoard ] = useState(false);
 	const [ showAdminBoard, setShowAdminBoard ] = useState(false);
 	const [ currentUser, setCurrentUser ] = useState(undefined);
@@ -92,11 +92,11 @@ const App = () => {
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
 					<Route path="/profile" element={<Profile />} />
+					<Route path="/stats-and-grades" element={<StatsAndGrades />} />
 					<Route path="/user" element={<BoardUser />} />
 					<Route path="/mod" element={<BoardModerator />} />
 					<Route path="/admin" element={<BoardAdmin />} />
 					<Route path="/overview" element={<OurStatsExplained />} />
-					{/* <Route path="/stats-and-grades" element={<StatsAndGrades />} /> */}
 				</Routes>
 			</div>
 		</div>

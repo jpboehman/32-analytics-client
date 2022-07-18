@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { Layout, Descriptions, Typography, Divider } from 'antd';
+import { Typography, Divider } from 'antd';
 
 import { css } from '@emotion/css';
-
-import { WhereToFindUs } from '../common/WhereToFindUs';
 
 // TODO: Add images to background of text content
 export const OurStatsExplainedBody = () => {
