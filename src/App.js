@@ -26,6 +26,7 @@ const App = () => {
 	const [ showModeratorBoard, setShowModeratorBoard ] = useState(false);
 	const [ showAdminBoard, setShowAdminBoard ] = useState(false);
 	const [ currentUser, setCurrentUser ] = useState(undefined);
+	
 
 	useEffect(() => {
 		const user = AuthService.getCurrentUser();
@@ -71,9 +72,32 @@ const App = () => {
 						<Menu.Item>
 							<Link to="/overview">Our Stats Explained</Link>
 						</Menu.Item>
-						<Menu.Item>
+						{/* <Menu.Item>
 							<Link to="/stats-and-grades">Statistics And Grades</Link>
-						</Menu.Item>
+						</Menu.Item> */}
+						<Menu.SubMenu title="Statistics And Grades">
+							<div
+								className={css`
+									margin-left: 10px;
+									margin-top: 20px;
+								`}
+							>
+								<Link to="/stats-and-grades">NBA Statistics And Grades</Link>
+								<Menu.ItemGroup key="NBA">
+									<Menu.Item key="nbaPlayer">NBA Player Season Grades and EPS</Menu.Item>
+									<Menu.Item key="nbaTeam">NBA Team EPSS</Menu.Item>
+									<Menu.Item key="nbaExpectedWins">NBA Expected Wins</Menu.Item>
+								</Menu.ItemGroup>
+								{/* // TODO: Fix this link once ready */}
+								<Link to="/stats-and-grades">NCAA Statistics And Grades</Link>
+								<Menu.ItemGroup key="NCAA">
+									<Menu.Item key="ncaaPlayer">NCAA Player Season Grades and EPS</Menu.Item>
+									<Menu.Item key="ncaaTeam">NCAA Team EPSS</Menu.Item>
+									<Menu.Item key="ncaaExpectedWins">NCAA Expected Wins</Menu.Item>
+								</Menu.ItemGroup>
+							</div>
+							<Menu.Item key="NCAA" />
+						</Menu.SubMenu>
 						<Menu.Item>
 							<Link to="/contact-us">Contact Us</Link>
 						</Menu.Item>
