@@ -25,10 +25,10 @@ export const StatsAndGradesBody = () => {
 	percentage for each team based on our EPS statistic.`;
 
 	const dataSource = [
-		{ icon: <FormOutlined />, text: 'Player Season Grades' },
-		{ icon: <AreaChartOutlined />, text: 'Efficient Production Score' },
-		{ icon: <BarChartOutlined />, text: 'Efficient Production Score Spread' },
-		{ icon: <RiseOutlined />, text: 'Expected Wins' }
+		{ icon: <FormOutlined />, text: ' Player Season Grades' },
+		{ icon: <AreaChartOutlined />, text: ' Efficient Production Score' },
+		{ icon: <BarChartOutlined />, text: ' Efficient Production Score Spread' },
+		{ icon: <RiseOutlined />, text: ' Expected Wins' }
 	];
 
 	// TODO: Also update the navbar selectedIndex
@@ -71,23 +71,29 @@ export const StatsAndGradesBody = () => {
 			<Row>
 				<Col>
 					<Card title="Player Season Grades" style={{ width: 250 }}>
-						<Typography.Text>{playerSeasonGradeDescription}</Typography.Text>
+						<img
+							src={require('../../assets/NBA_Giannis.jpeg')}
+							style={{ maxWidth: 200, marginRight: 10 }}
+						/>
 						<Divider />
-						<img src={require('../../assets/GiannisPic.jpeg')} style={{ maxWidth: 200, marginRight: 10 }} />
+						<Typography.Text>{playerSeasonGradeDescription}</Typography.Text>
 					</Card>
 				</Col>
 
 				<Card title="Efficient Production Score" style={{ width: 250 }}>
+					<img src={require('../../assets/NCAA_Indiana.jpeg')} style={{ maxWidth: 200, marginRight: 10 }} />
+					<Divider />
 					<Typography.Text>{efficientProductionScoreDescription}</Typography.Text>
-					{/* // TODO: Insert image */}
 				</Card>
 				<Card title="Efficient Production Score Spread" style={{ width: 350 }}>
+					<img src={require('../../assets/NBA_Brooklyn.jpeg')} style={{ maxWidth: 280, marginRight: 10 }} />
+					<Divider />
 					<Typography.Text>{efficientProductionScoreSpreadDescription}</Typography.Text>
-					{/* // TODO: Insert image */}
 				</Card>
 				<Card title="Expected Wins" style={{ width: 250 }}>
+					<img src={require('../../assets/NCAA_UCLA.jpeg')} style={{ maxWidth: 200, marginRight: 10 }} />
+					<Divider />
 					<Typography.Text>{expectedWinsDescription}</Typography.Text>
-					{/* // TODO: Insert image */}
 				</Card>
 			</Row>
 		</div>
