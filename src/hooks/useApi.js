@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
-export const useApi = (url) => {
+import axios from 'axios';
+
+const useApi = (url) => {
 	const [ isLoading, setIsLoading ] = useState(true);
 	const [ data, setData ] = useState(null);
 
@@ -20,4 +22,8 @@ export const useApi = (url) => {
 	useEffect(() => {
 		fetchApi();
 	}, []);
+
+	return { isLoading, data };
 };
+
+export default useApi;

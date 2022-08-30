@@ -4,6 +4,7 @@ import Papa from 'papaparse';
 
 import { OurStatsExplainedHeader } from './OurStatsExplained/OurStatsExplainedHeader';
 import { OurStatsExplainedBody } from './OurStatsExplained/OurStatsExplainedBody';
+import { SmallLoader } from './common/Loaders/SmallLoader';
 
 import { Row, Col, PageHeader, Layout, Divider, Space, Spin, Table } from 'antd';
 
@@ -169,19 +170,6 @@ export function OurStatsExplained() {
 	);
 }
 
-export const SmallLoader = () => (
-	<div
-		className={css`
-			justify-content: center;
-			align-items: center;
-		`}
-	>
-		<Space size="middle">
-			<Spin size="large" />
-		</Space>
-	</div>
-);
-
 const recentMVPs2022Current = [
 	{ year: 2022, playerName: 'Nikola Jokic', seasonRank: '97.42', rankPosition: '1st' },
 	{ year: 2021, playerName: 'Nikola Jokic', seasonRank: '97.42', rankPosition: '1st' },
@@ -203,7 +191,7 @@ export const RecentMVPsSeasonGradeRank = () => {
 			key: 'year',
 			sorter: (a, b) => a.year - b.year,
 			sortDirections: [ 'ascend', 'descend' ],
-			width: '10%',
+			width: '10%'
 		},
 		{
 			title: 'NBA MVP',
@@ -211,7 +199,7 @@ export const RecentMVPsSeasonGradeRank = () => {
 			key: 'playerName',
 			sorter: (a, b) => a.playerName.localeCompare(b.playerName),
 			sortDirections: [ 'ascend', 'descend' ],
-			width: '15%',
+			width: '15%'
 		},
 		{
 			title: 'Player Season Grade Rank',
@@ -239,13 +227,11 @@ export const RecentMVPsSeasonGradeRank = () => {
 		{
 			title: 'Rank',
 			dataIndex: 'rankPosition',
-			key: 'rankPosition',
-			
+			key: 'rankPosition'
 		}
 	];
 
-	return <Table columns={columns} dataSource={recentMVPs2022Current} className={css`margin: 50px;`}
-	size="middle"/>;
+	return <Table columns={columns} dataSource={recentMVPs2022Current} className={css`margin: 50px;`} size="middle" />;
 };
 
 export default OurStatsExplained;

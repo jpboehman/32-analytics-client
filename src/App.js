@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import { Routes, Route, Link } from 'react-router-dom';
 import { Routes, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Layout } from 'antd';
@@ -16,6 +17,8 @@ import BoardModerator from './components/BoardModerator';
 import BoardAdmin from './components/BoardAdmin';
 import OurStatsExplained from './components/OurStatsExplained';
 import StatsAndGrades from './components/StatsAndGrades';
+import NBAPlayerSeasonGradesAndEPSPage from './components/NBAPlayerSeasonGradesAndEPS/NBAPlayerSeasonGradesAndEPSPage';
+import NBATeamEPSSPage from './components/NBATeamEPSS/NBATeamEPSSPage';
 import { Menu } from 'antd';
 
 import EventBus from './common/EventBus';
@@ -83,11 +86,14 @@ const App = () => {
 							>
 								<Link to="/stats-and-grades">NBA Statistics And Grades</Link>
 								<Menu.ItemGroup key="NBA" className={css`margin-bottom: 20px;`}>
-									<Menu.Item key="nbaPlayer">NBA Player Season Grades and EPS</Menu.Item>
-									<Menu.Item key="nbaTeam">NBA Team EPSS</Menu.Item>
+									<Link to="/nba-player-season-grades-eps">
+										<Menu.Item key="nbaPlayer">NBA Player Season Grades and EPS</Menu.Item>
+									</Link>
+									<Link to="/nba-team-epss">
+										<Menu.Item key="nbaTeam">NBA Team EPSS</Menu.Item>
+									</Link>
 									<Menu.Item key="nbaExpectedWins">NBA Expected Wins</Menu.Item>
 								</Menu.ItemGroup>
-								{/* // TODO: Fix this link once ready */}
 								<Link to="/stats-and-grades">NCAA Statistics And Grades</Link>
 								<Menu.ItemGroup key="NCAA">
 									<Menu.Item key="ncaaPlayer">NCAA Player Season Grades and EPS</Menu.Item>
@@ -118,6 +124,8 @@ const App = () => {
 					<Route path="/register" element={<Register />} />
 					<Route path="/profile" element={<Profile />} />
 					<Route path="/stats-and-grades" element={<StatsAndGrades />} />
+					<Route path="/nba-player-season-grades-eps" element={<NBAPlayerSeasonGradesAndEPSPage />} />
+					<Route path="/nba-team-epss" element={<NBATeamEPSSPage />} />
 					<Route path="/user" element={<BoardUser />} />
 					<Route path="/mod" element={<BoardModerator />} />
 					<Route path="/admin" element={<BoardAdmin />} />

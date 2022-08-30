@@ -8,11 +8,14 @@ import { Row, Col, PageHeader, Layout } from 'antd';
 import { css } from '@emotion/css';
 
 import Papa from 'papaparse';
+import useApi from '../hooks/useApi';
 
 // TODO: Fix this component
 export function StatsAndGrades() {
 	const [ content, setContent ] = useState([]);
+	// const { isLoading, data } = useApi(`https://jsonplaceholder.typicode.com/users`); // Testing out this custom hook
 	const { Footer, Content } = Layout;
+	
 
 	// Attempting to fetch data from spreadsheet
 	// Starting with 'NBA Player Grades & EPS'
@@ -34,7 +37,8 @@ export function StatsAndGrades() {
 		);
 	}, []);
 
-	console.log(content);
+	// console.log(isLoading);
+	// console.log(data);
 
 	return (
 		<div className={css`width: 100%;`}>
