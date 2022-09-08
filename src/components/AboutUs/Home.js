@@ -3,6 +3,7 @@ import React from 'react';
 // import UserService from '../../services/user.service';
 
 import AboutUsHeader from '../../components/AboutUs/AboutUsComponents/AboutUsHeader';
+import SiteFooter from '../common/static/SiteFooter';
 
 import { Row, Col, PageHeader, Layout } from 'antd';
 
@@ -15,7 +16,6 @@ export const Home = () => {
 		<div className={css`width: 100%;`}>
 			<Layout>
 				<Content style={{ padding: '0 25px' }}>
-					<PageHeader title="About Us" subTitle="About 32Analytics" />
 					<div
 						className={css`
 							min-height: 80vh;
@@ -26,6 +26,7 @@ export const Home = () => {
 						<AboutUsHeader />
 					</div>
 				</Content>
+				<SiteFooter />
 				<Footer style={{ textAlign: 'center' }}>ThirtyTwo Analytics ©2020</Footer>
 			</Layout>
 			<Row>

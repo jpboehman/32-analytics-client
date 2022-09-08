@@ -5,6 +5,8 @@ import { Layout, Divider, Typography, Table } from 'antd';
 
 import Papa from 'papaparse';
 import SmallLoader from '../common/Loaders/SmallLoader';
+import SubscribeToday from '../common/static/SubscribeToday';
+import PlayerSeasonGradesDesc from '../common/static/PlayerSeasonGradesDesc';
 
 // TODO: Add images to background of text content
 export const NBAPlayerSeasonGradesAndEPSPage = () => {
@@ -108,10 +110,11 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
 				{fixedHeaderText}
 			</Typography.Title>
 			<Divider />
-
+			<SubscribeToday />
 			<div>
 				{nbaPlayerRatings.length ? <Table dataSource={nbaPlayerRatings} columns={columns} /> : <SmallLoader />}
 			</div>
+			<PlayerSeasonGradesDesc />
 		</div>
 	);
 };

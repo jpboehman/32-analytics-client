@@ -67,16 +67,18 @@ const App = () => {
 							width: 100%;
 						`}
 					/>
-					<Menu theme="dark" mode="horizontal" defaultSelectedKeys={[ '0' ]}>
+					<Menu
+						theme="dark"
+						mode="horizontal"
+						defaultSelectedKeys={[ '0' ]}
+						style={{ justifyContent: 'center', alignItems: 'center' }}
+					>
 						<Menu.Item>
 							<Link to="/">32Analytics</Link>
 						</Menu.Item>
 						<Menu.Item>
 							<Link to="/overview">Our Stats Explained</Link>
 						</Menu.Item>
-						{/* <Menu.Item>
-							<Link to="/stats-and-grades">Statistics And Grades</Link>
-						</Menu.Item> */}
 						<Menu.SubMenu title="Statistics And Grades">
 							<div
 								className={css`

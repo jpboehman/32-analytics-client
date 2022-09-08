@@ -15,7 +15,6 @@ export function StatsAndGrades() {
 	const [ content, setContent ] = useState([]);
 	// const { isLoading, data } = useApi(`https://jsonplaceholder.typicode.com/users`); // Testing out this custom hook
 	const { Footer, Content } = Layout;
-	
 
 	// Attempting to fetch data from spreadsheet
 	// Starting with 'NBA Player Grades & EPS'
@@ -44,7 +43,6 @@ export function StatsAndGrades() {
 		<div className={css`width: 100%;`}>
 			<Layout>
 				<Content style={{ padding: '0 25px' }}>
-					<PageHeader title="About Us" subTitle="About 32Analytics" />
 					<div
 						className={css`
 							min-height: 80vh;

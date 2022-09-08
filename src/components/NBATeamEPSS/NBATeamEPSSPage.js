@@ -28,14 +28,12 @@ export const NBATeamEPSSPage = () => {
 		);
 	}, []);
 
-	console.log(nbaTeamEPSS);
-
 	const fixedHeaderText = 'NBA Team EPSS';
 	const columns = [
 		{
 			title: 'Team',
 			dataIndex: 'Team',
-			key: 'Team'
+			key: 'T'
 		},
 		{
 			title: 'G',
