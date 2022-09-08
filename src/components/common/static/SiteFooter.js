@@ -15,7 +15,7 @@ export const SiteFooter = () => (
 		`}
 	>
 		{/* TODO: Add button that takes user to subscription */}
-		<Card bordered>
+		<Card bordered style={{ width: 400 }}>
 			{/* Within each card, have a menu with links */}
 			<Menu
 				theme="dark"
