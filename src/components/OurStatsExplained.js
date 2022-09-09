@@ -11,6 +11,7 @@ import { Row, Col, PageHeader, Layout, Divider, Space, Spin, Table } from 'antd'
 import { css } from '@emotion/css';
 
 import EPSBody from './OurStatsExplained/EPSBody';
+import SiteFooter from './common/static/SiteFooter';
 
 export function OurStatsExplained() {
 	const [ topEPSData, setTopEPSData ] = useState({});
@@ -138,7 +139,6 @@ export function OurStatsExplained() {
 		<div className={css`width: 100%;`}>
 			<Layout>
 				<Content style={{ padding: '0 25px' }}>
-					<PageHeader title="Our Statistics Explained" />
 					<div
 						className={css`
 							min-height: 80vh;
@@ -157,6 +157,7 @@ export function OurStatsExplained() {
 						)}
 						<RecentMVPsSeasonGradeRank />
 					</div>
+					<SiteFooter />
 				</Content>
 				<Footer style={{ textAlign: 'center' }}>ThirtyTwo Analytics ©2020</Footer>
 			</Layout>
@@ -227,7 +228,8 @@ export const RecentMVPsSeasonGradeRank = () => {
 		{
 			title: 'Rank',
 			dataIndex: 'rankPosition',
-			key: 'rankPosition'
+			key: 'rankPosition',
+			width: '10%'
 		}
 	];
 

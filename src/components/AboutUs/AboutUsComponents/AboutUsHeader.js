@@ -4,8 +4,6 @@ import { Layout, Descriptions, Typography, Divider } from 'antd';
 
 import { css } from '@emotion/css';
 
-import { WhereToFindUs } from '../../common/WhereToFindUs';
-
 export function AboutUsHeader() {
 	const { Content } = Layout;
 
@@ -17,7 +15,6 @@ export function AboutUsHeader() {
 					<OurFounding />
 					<br />
 					<OurMission />
-					<WhereToFindUs />
 				</div>
 			</Content>
 		</Layout>

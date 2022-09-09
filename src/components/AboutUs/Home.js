@@ -2,7 +2,7 @@ import React from 'react';
 
 // import UserService from '../../services/user.service';
 
-import AboutUsHeader from '../../components/AboutUs/AboutUsComponents/AboutUsHeader';
+import AboutUsHeader from './AboutUsComponents/AboutUsHeader';
 import SiteFooter from '../common/static/SiteFooter';
 
 import { Row, Col, PageHeader, Layout } from 'antd';
@@ -18,7 +18,7 @@ export const Home = () => {
 				<Content style={{ padding: '0 25px' }}>
 					<div
 						className={css`
-							min-height: 80vh;
+							min-height: 60vh;
 							min-width: 50vh;
 							background: #fff;
 						`}

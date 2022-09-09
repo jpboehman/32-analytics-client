@@ -4,8 +4,6 @@ import { Layout, Descriptions, Typography, Divider } from 'antd';
 
 import { css } from '@emotion/css';
 
-import { WhereToFindUs } from '../common/WhereToFindUs';
-
 // TODO: Add images to background of text content
 export const EPSBody = () => {
 	const epsBodyTitle = 'Efficent Production Score';
@@ -145,8 +143,8 @@ export const EPSBody = () => {
 			<Divider />
 			<span
 				className={css`
-                    margin-left: 30px;
-                    margin-bottom: 10px;
+					margin-left: 30px;
+					margin-bottom: 10px;
 					box-decoration-break: clone;
 					font-size: 20px;
 				`}

@@ -4,6 +4,7 @@ import { Row, Col, PageHeader, Layout } from 'antd';
 
 import { css } from '@emotion/css';
 import UserService from '../services/user.service';
+import SiteFooter from './common/static/SiteFooter';
 
 export const ContactUs = () => {
 	const { Footer, Content } = Layout;
@@ -25,6 +26,7 @@ export const ContactUs = () => {
 					>
 						Content
 					</div>
+					<SiteFooter />
 				</Content>
 				<Footer style={{ textAlign: 'center' }}>ThirtyTwo Analytics ©2020</Footer>
 			</Layout>

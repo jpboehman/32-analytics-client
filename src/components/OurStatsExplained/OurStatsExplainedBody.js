@@ -3,6 +3,7 @@ import React from 'react';
 import { Typography, Divider } from 'antd';
 
 import { css } from '@emotion/css';
+import SiteFooter from '../common/static/SiteFooter';
 
 // TODO: Add images to background of text content
 export const OurStatsExplainedBody = () => {
@@ -48,6 +49,7 @@ export const OurStatsExplainedBody = () => {
 				<Divider />
 				{howAccurateArePlayerSeasonGrades}
 			</span>
+			<Divider />
 		</div>
 	);
 };

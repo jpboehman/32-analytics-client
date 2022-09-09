@@ -128,6 +128,10 @@ const App = () => {
 					<Route path="/stats-and-grades" element={<StatsAndGrades />} />
 					<Route path="/nba-player-season-grades-eps" element={<NBAPlayerSeasonGradesAndEPSPage />} />
 					<Route path="/nba-team-epss" element={<NBATeamEPSSPage />} />
+					{/* TODO: Update the pages for these links */}
+					<Route path="/ncaa-player-season-grades-eps" element={<NBAPlayerSeasonGradesAndEPSPage />} />
+					<Route path="/ncaa-team-epss" element={<NBATeamEPSSPage />} />
+					<Route path="/ncaa-expected-wins" element={<NBATeamEPSSPage />} />
 					<Route path="/user" element={<BoardUser />} />
 					<Route path="/mod" element={<BoardModerator />} />
 					<Route path="/admin" element={<BoardAdmin />} />
