@@ -23,6 +23,8 @@ import { Menu } from 'antd';
 
 import EventBus from './common/EventBus';
 import { css } from '@emotion/css';
+import NCAAPlayerSeasonGradesAndEPSPage from './components/NCAAPlayerSeasonGradesAndEPS/NCAAPlayerSeasonGradesAndEPSPage';
+import NCAATeamEPSSPage from './components/NCAATeamEPSS/NCAATeamEPSSPage';
 
 const App = () => {
 	const { Header, Content } = Layout;
@@ -98,8 +100,12 @@ const App = () => {
 								</Menu.ItemGroup>
 								<Link to="/stats-and-grades">NCAA Statistics And Grades</Link>
 								<Menu.ItemGroup key="NCAA">
-									<Menu.Item key="ncaaPlayer">NCAA Player Season Grades and EPS</Menu.Item>
-									<Menu.Item key="ncaaTeam">NCAA Team EPSS</Menu.Item>
+									<Link to="/ncaa-player-season-grades-eps">
+										<Menu.Item key="ncaaPlayer">NCAA Player Season Grades and EPS</Menu.Item>
+									</Link>
+									<Link to="/ncaa-team-epss">
+										<Menu.Item key="ncaaTeam">NCAA Team EPSS</Menu.Item>
+									</Link>
 									<Menu.Item key="ncaaExpectedWins">NCAA Expected Wins</Menu.Item>
 								</Menu.ItemGroup>
 							</div>
@@ -129,8 +135,8 @@ const App = () => {
 					<Route path="/nba-player-season-grades-eps" element={<NBAPlayerSeasonGradesAndEPSPage />} />
 					<Route path="/nba-team-epss" element={<NBATeamEPSSPage />} />
 					{/* TODO: Update the pages for these links */}
-					<Route path="/ncaa-player-season-grades-eps" element={<NBAPlayerSeasonGradesAndEPSPage />} />
-					<Route path="/ncaa-team-epss" element={<NBATeamEPSSPage />} />
+					<Route path="/ncaa-player-season-grades-eps" element={<NCAAPlayerSeasonGradesAndEPSPage />} />
+					<Route path="/ncaa-team-epss" element={<NCAATeamEPSSPage />} />
 					<Route path="/ncaa-expected-wins" element={<NBATeamEPSSPage />} />
 					<Route path="/user" element={<BoardUser />} />
 					<Route path="/mod" element={<BoardModerator />} />

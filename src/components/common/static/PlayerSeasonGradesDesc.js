@@ -4,7 +4,7 @@ import { css } from '@emotion/css';
 
 const { Title } = Typography;
 
-export const PlayerSeasonGradesDesc = () => (
+export const PlayerSeasonGradesDesc = ({ leagueType }) => (
 	<div
 		className={css`
 			justify-content: center;
@@ -12,7 +12,11 @@ export const PlayerSeasonGradesDesc = () => (
 		`}
 	>
 		{/* TODO: Add button that takes user to subscription */}
-		<Card title="WHAT ARE NBA PLAYER SEASON GRADES?" bordered style={{ width: 1000, margin: 30 }}>
+		<Card
+			title={leagueType === 'NCAA' ? 'What are NCAA Player Season Grades?' : 'What are NBA Player Season Grades'}
+			bordered
+			style={{ width: 1000, margin: 30 }}
+		>
 			<Title level={4}>
 				The Player Season Grade statistic grades a player’s season on a scale of 0-100. The grade is calculated
 				through the use of traditional box score stats, advanced stats, and our very own EPS statistic. The main
