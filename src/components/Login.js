@@ -6,6 +6,7 @@ import CheckButton from 'react-validation/build/button';
 
 import AuthService from '../services/auth.service';
 import { css } from '@emotion/css';
+import SiteFooter from './common/static/SiteFooter';
 
 const required = (value) => {
 	if (!value) {
@@ -68,9 +69,29 @@ function Login() {
 	};
 
 	return (
-		<div className={css`padding: 500px;`}>
-			<div>
-				<Form onSubmit={handleLogin} ref={form}>
+		<div
+			className={css`
+				text-align: center;
+				justify-content: center;
+			`}
+		>
+			<div
+				className={css`
+					padding-top: 500px;
+					padding-right: 300px;
+					padding-left: 300px;
+					margin-right: 400px;
+					margin-left: 400px;
+				`}
+			>
+				<Form
+					onSubmit={handleLogin}
+					ref={form}
+					labelCol={{ span: 4 }}
+					wrapperCol={{ span: 14 }}
+					layout="vertical"
+					size="default"
+				>
 					<div className="form-group">
 						<label htmlFor="username">Username</label>
 						<Input
@@ -112,6 +133,7 @@ function Login() {
 					<CheckButton style={{ display: 'none' }} ref={checkBtn} />
 				</Form>
 			</div>
+			<SiteFooter />
 		</div>
 	);
 }

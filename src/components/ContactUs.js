@@ -117,14 +117,18 @@ export const ContactUs = () => {
 	return (
 		<div className={css`width: 100%;`}>
 			<Layout>
+				
 				<Content style={{ padding: '0 30px' }}>
 					<div
 						className={css`
 							min-height: 80vh;
 							min-width: 50vh;
 							background: #fff;
+							text-align: center;
+							justify-content: center;
 						`}
 					>
+						<img src={require('../assets/32AnalyticsLogoFULL.png')} style={{ maxWidth: 400 }} />
 						<ContactUsHeader />
 						<FillOutOurContactForm />
 					</div>

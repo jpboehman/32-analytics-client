@@ -7,6 +7,7 @@ import Papa from 'papaparse';
 import SmallLoader from '../common/Loaders/SmallLoader';
 import SubscribeToday from '../common/static/SubscribeToday';
 import PlayerSeasonGradesDesc from '../common/static/PlayerSeasonGradesDesc';
+import SiteFooter from '../common/static/SiteFooter';
 
 // TODO: Add images to background of text content
 export const NCAATeamEPSSPage = () => {
@@ -30,7 +31,7 @@ export const NCAATeamEPSSPage = () => {
 		);
 	}, []);
 
-	const fixedHeaderText = 'NCAA Player Season Grades & EPS';
+	const fixedHeaderText = 'NCAA Team EPSS';
 	const columns = [
 		{
 			title: 'School',
@@ -125,6 +126,7 @@ export const NCAATeamEPSSPage = () => {
 			<Divider />
 			<PlayerSeasonGradesDesc leagueType="NCAA" />
 			<div>{ncaaTeamEpss.length ? <Table dataSource={ncaaTeamEpss} columns={columns} /> : <SmallLoader />}</div>
+            <SiteFooter />
 		</div>
 	);
 };

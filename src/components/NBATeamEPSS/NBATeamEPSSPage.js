@@ -5,6 +5,7 @@ import { Layout, Divider, Typography, Table } from 'antd';
 
 import Papa from 'papaparse';
 import SmallLoader from '../common/Loaders/SmallLoader';
+import SiteFooter from '../common/static/SiteFooter';
 
 // TODO: Add images to background of text content
 export const NBATeamEPSSPage = () => {
@@ -110,6 +111,7 @@ export const NBATeamEPSSPage = () => {
 			<Divider />
 
 			<div>{nbaTeamEPSS.length ? <Table dataSource={nbaTeamEPSS} columns={columns} /> : <SmallLoader />}</div>
+			<SiteFooter />
 		</div>
 	);
 };

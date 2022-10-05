@@ -7,10 +7,11 @@ export const StatsAndGradesHeader = () => {
 	const analysisBeyongTheBoxScoreHeaderText = 'Analysis Beyond The Box Score';
 	return (
 		<div style={{ textAlign: 'center', justifyContent: 'center' }}>
+			<img src={require('../../assets/32AnalyticsLogoFULL.png')} style={{ maxWidth: 400, marginRight: 10 }} />
 			<h1
 				className={css`
 					padding: 30px;
-					font-size: 100px;
+					font-size: 80px;
 				`}
 			>
 				{analysisBeyongTheBoxScoreHeaderText}

@@ -21,8 +21,11 @@ export const Home = () => {
 							min-height: 60vh;
 							min-width: 50vh;
 							background: #fff;
+							text-align: center;
+							justify-content: center;
 						`}
 					>
+						<img src={require('../../assets/32AnalyticsLogoFULL.png')} style={{ maxWidth: 400 }} />
 						<AboutUsHeader />
 					</div>
 				</Content>

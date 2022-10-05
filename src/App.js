@@ -25,6 +25,8 @@ import EventBus from './common/EventBus';
 import { css } from '@emotion/css';
 import NCAAPlayerSeasonGradesAndEPSPage from './components/NCAAPlayerSeasonGradesAndEPS/NCAAPlayerSeasonGradesAndEPSPage';
 import NCAATeamEPSSPage from './components/NCAATeamEPSS/NCAATeamEPSSPage';
+import NCAAExpectedWinsPage from './components/NCAAExpectedWins/NCAAExpectedWins';
+import NBAExpectedWinsPage from './components/NBAExpectedWins/NBAExpectedWinsPage';
 
 const App = () => {
 	const { Header, Content } = Layout;
@@ -96,7 +98,9 @@ const App = () => {
 									<Link to="/nba-team-epss">
 										<Menu.Item key="nbaTeam">NBA Team EPSS</Menu.Item>
 									</Link>
-									<Menu.Item key="nbaExpectedWins">NBA Expected Wins</Menu.Item>
+									<Link to="/nba-expected-wins">
+										<Menu.Item key="nbaExpectedWins">NBA Expected Wins</Menu.Item>
+									</Link>
 								</Menu.ItemGroup>
 								<Link to="/stats-and-grades">NCAA Statistics And Grades</Link>
 								<Menu.ItemGroup key="NCAA">
@@ -106,7 +110,9 @@ const App = () => {
 									<Link to="/ncaa-team-epss">
 										<Menu.Item key="ncaaTeam">NCAA Team EPSS</Menu.Item>
 									</Link>
-									<Menu.Item key="ncaaExpectedWins">NCAA Expected Wins</Menu.Item>
+									<Link to="ncaa-expected-wins">
+										<Menu.Item key="ncaaExpectedWins">NCAA Expected Wins</Menu.Item>
+									</Link>
 								</Menu.ItemGroup>
 							</div>
 							<Menu.Item key="NCAA" />
@@ -134,10 +140,10 @@ const App = () => {
 					<Route path="/stats-and-grades" element={<StatsAndGrades />} />
 					<Route path="/nba-player-season-grades-eps" element={<NBAPlayerSeasonGradesAndEPSPage />} />
 					<Route path="/nba-team-epss" element={<NBATeamEPSSPage />} />
-					{/* TODO: Update the pages for these links */}
+					<Route path="/nba-expected-wins" element={<NBAExpectedWinsPage />} />
 					<Route path="/ncaa-player-season-grades-eps" element={<NCAAPlayerSeasonGradesAndEPSPage />} />
 					<Route path="/ncaa-team-epss" element={<NCAATeamEPSSPage />} />
-					<Route path="/ncaa-expected-wins" element={<NBATeamEPSSPage />} />
+					<Route path="/ncaa-expected-wins" element={<NCAAExpectedWinsPage />} />
 					<Route path="/user" element={<BoardUser />} />
 					<Route path="/mod" element={<BoardModerator />} />
 					<Route path="/admin" element={<BoardAdmin />} />

@@ -7,6 +7,7 @@ import Papa from 'papaparse';
 import SmallLoader from '../common/Loaders/SmallLoader';
 import SubscribeToday from '../common/static/SubscribeToday';
 import PlayerSeasonGradesDesc from '../common/static/PlayerSeasonGradesDesc';
+import SiteFooter from '../common/static/SiteFooter';
 
 // TODO: Add images to background of text content
 export const NCAAPlayerSeasonGradesAndEPSPage = () => {
@@ -135,6 +136,7 @@ export const NCAAPlayerSeasonGradesAndEPSPage = () => {
 					<SmallLoader />
 				)}
 			</div>
+			<SiteFooter />
 		</div>
 	);
 };

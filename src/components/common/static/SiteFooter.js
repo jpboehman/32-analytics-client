@@ -19,7 +19,7 @@ export const SiteFooter = () => (
 		{/* TODO: Add button that takes user to subscription */}
 		<Row>
 			<Divider />
-			<Card bordered title="Our statistics and Grades" style={{ width: 400 }}>
+			<Card bordered title="Our statistics and Grades" style={{ width: 350 }}>
 				{/* Within each card, have a menu with links */}
 				<Menu
 					theme="dark"
@@ -59,7 +59,7 @@ export const SiteFooter = () => (
 					</Menu.Item>
 				</Menu>
 			</Card>
-			<Card bordered title="Useful Links" style={{ width: 400 }}>
+			<Card bordered title="Useful Links" style={{ width: 250 }}>
 				<Menu
 					theme="dark"
 					mode="vertical"
@@ -108,7 +108,7 @@ export const SiteFooter = () => (
 					</Menu.Item>
 				</Menu>
 			</Card>
-			<Card bordered title="Contact 32Analytics" style={{ width: 400 }}>
+			<Card bordered title="Contact 32Analytics" style={{ width: 380 }}>
 				<Menu
 					theme="dark"
 					mode="vertical"
