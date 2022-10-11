@@ -1,15 +1,17 @@
 import React from 'react';
 
-import { Layout, Descriptions, Typography, Divider } from 'antd';
+import { Layout, Image, Descriptions, Typography, Divider, Row, Col, Card } from 'antd';
 
 import { css } from '@emotion/css';
 
 export function AboutUsHeader() {
 	const { Content } = Layout;
 
+	// TODO: Update this component to be Analysis Beyond the Box Score
 	return (
 		<Layout>
 			<Content>
+				<Image display="flex" src={require('../../../assets/StephCurrey.jpeg')} />
 				<div className={css`background: #fff;`}>
 					<About32Analytics />
 					<OurFounding />
@@ -107,6 +109,122 @@ const OurMission = () => {
 			>
 				{ourMissionDescription}
 			</span>
+			<div>
+				<Row>
+					<Col>
+						<Card title="Player Season Grades" style={{ width: 250 }}>
+							<img
+								src={require('../../../assets/NBA_Giannis.jpeg')}
+								style={{ maxWidth: 200, marginRight: 10 }}
+							/>
+							<Divider />
+							<Typography.Text>
+								The Player Season Grade statistic grades a player’s season on a scale of 0-100 through
+								the use of traditional and advanced statistics.
+							</Typography.Text>
+						</Card>
+					</Col>
+
+					<Card title="Efficient Production Score" style={{ width: 250 }}>
+						<img
+							src={require('../../../assets/NCAA_Indiana.jpeg')}
+							style={{ maxWidth: 200, marginRight: 10 }}
+						/>
+						<Divider />
+						<Typography.Text>
+							Efficient Production Score attempts to measure a player’s performance by applying linear
+							weights to traditional box score statistics.
+						</Typography.Text>
+					</Card>
+					<Card title="Efficient Production Score Spread" style={{ width: 350 }}>
+						<img
+							src={require('../../../assets/NBA_Brooklyn.jpeg')}
+							style={{ maxWidth: 280, marginRight: 10 }}
+						/>
+						<Divider />
+						<Typography.Text>
+							EPSS is used to measure team performance by finding the difference/spread between a team’s
+							EPS and their opponent’s EPS.
+						</Typography.Text>
+					</Card>
+					<Card title="Expected Wins" style={{ width: 250 }}>
+						<img
+							src={require('../../../assets/NCAA_UCLA.jpeg')}
+							style={{ maxWidth: 200, marginRight: 10 }}
+						/>
+						<Divider />
+						<Typography.Text>
+							Expected Wins offers an expected win total through games played and expected win percentage
+							for each team based on our EPS statistic.
+						</Typography.Text>
+					</Card>
+				</Row>
+
+				{/* New col starting here */}
+				<Row>
+					<Col>
+						<Card title="Stat Accuracy" style={{ width: 250 }}>
+							<Typography.Text strong>NBA</Typography.Text>
+							<br />
+							<Typography.Text>
+								In 9 of the past 10 seasons, the NBA MVP has finished within the top 2 of Player Grades
+								for that season
+							</Typography.Text>
+							<br />
+							<br />
+							<Typography.Text strong>NCAA</Typography.Text>
+							<br />
+							<Typography.Text>
+								In 7 of the past 10 seasons, the AP Player of the Year has finished in the top 3 of
+								Player Grades for that season
+							</Typography.Text>
+						</Card>
+					</Col>
+
+					<Card title="Stat Accuracy" style={{ width: 250 }}>
+						<Typography.Text strong>NBA</Typography.Text>
+						<br />
+						<Typography.Text>
+							Nikola Jokić, the 2020-2021 NBA MVP, led the league in EPS last season
+						</Typography.Text>
+						<br />
+						<br />
+						<Typography.Text strong>NCAA</Typography.Text>
+						<br />
+						<Typography.Text>
+							Luka Garza, the 2020-2021 AP National Player of the Year, led the country in EPS last season
+						</Typography.Text>
+					</Card>
+					<Card title="Stat Accuracy" style={{ width: 350 }}>
+						<Typography.Text strong>NBA</Typography.Text>
+						<br />
+						<Typography.Text>
+							EPSS is strongly correlated (0.93) with winning percentage in the NBA
+						</Typography.Text>
+						<br />
+						<br />
+						<Typography.Text strong>NCAA</Typography.Text>
+						<br />
+						<Typography.Text>
+							EPSS is strongly correlated (0.89) with winning percentage in the NCAA
+						</Typography.Text>
+					</Card>
+					<Card title="Stat Accuracy" style={{ width: 250 }}>
+						<Typography.Text strong>NBA</Typography.Text>
+						<br />
+						<Typography.Text>
+							Average accuracy of 95% across the NBA by the end of the season
+						</Typography.Text>
+						<br />
+						<br />
+						<Typography.Text strong>NCAA</Typography.Text>
+						<br />
+						<Typography.Text>
+							Average accuracy of 93% across the NCAA by the end of the season
+						</Typography.Text>
+					</Card>
+				</Row>
+			</div>
 		</div>
 	);
 };
