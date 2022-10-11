@@ -8,6 +8,9 @@ import AuthService from '../services/auth.service';
 import { css } from '@emotion/css';
 import SiteFooter from './common/static/SiteFooter';
 
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Card } from 'antd';
+
 const required = (value) => {
 	if (!value) {
 		return (
@@ -84,54 +87,62 @@ function Login() {
 					margin-left: 400px;
 				`}
 			>
-				<Form
-					onSubmit={handleLogin}
-					ref={form}
-					labelCol={{ span: 4 }}
-					wrapperCol={{ span: 14 }}
-					layout="vertical"
-					size="default"
-				>
-					<div className="form-group">
-						<label htmlFor="username">Username</label>
-						<Input
-							type="text"
-							className="form-control"
-							name="username"
-							value={username}
-							onChange={onChangeUsername}
-							validations={[ required ]}
-						/>
-					</div>
-
-					<div className="form-group">
-						<label htmlFor="password">Password</label>
-						<Input
-							type="password"
-							className="form-control"
-							name="password"
-							value={password}
-							onChange={onChangePassword}
-							validations={[ required ]}
-						/>
-					</div>
-
-					<div className="form-group">
-						<button className="btn btn-primary btn-block" disabled={loading}>
-							{loading && <span className="spinner-border spinner-border-sm" />}
-							<span>Login</span>
-						</button>
-					</div>
-
-					{message && (
+				<Card title={`Login`}>
+					<Form
+						onSubmit={handleLogin}
+						ref={form}
+						labelCol={{ span: 4 }}
+						wrapperCol={{ span: 14 }}
+						layout="vertical"
+						size="default"
+					>
 						<div className="form-group">
-							<div className="alert alert-danger" role="alert">
-								{message}
-							</div>
+							<label htmlFor="username" className={css`margin-right: 5px;`}>
+								Username
+							</label>
+							<UserOutlined />
+							<Input
+								type="text"
+								className="form-control"
+								name="username"
+								value={username}
+								onChange={onChangeUsername}
+								validations={[ required ]}
+							/>
 						</div>
-					)}
-					<CheckButton style={{ display: 'none' }} ref={checkBtn} />
-				</Form>
+
+						<div className="form-group">
+							<label htmlFor="password" className={css`margin-right: 5px;`}>
+								Password
+							</label>{' '}
+							<LockOutlined />
+							<Input
+								type="password"
+								className="form-control"
+								name="password"
+								value={password}
+								onChange={onChangePassword}
+								validations={[ required ]}
+							/>
+						</div>
+
+						<div className="form-group">
+							<button className="btn btn-primary btn-block" disabled={loading}>
+								{loading && <span className="spinner-border spinner-border-sm" />}
+								<span>Login</span>
+							</button>
+						</div>
+
+						{message && (
+							<div className="form-group">
+								<div className="alert alert-danger" role="alert">
+									{message}
+								</div>
+							</div>
+						)}
+						<CheckButton style={{ display: 'none' }} ref={checkBtn} />
+					</Form>
+				</Card>
 			</div>
 			<SiteFooter />
 		</div>

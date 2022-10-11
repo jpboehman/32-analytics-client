@@ -31,7 +31,7 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
 		);
 	}, []);
 
-	const fixedHeaderText = 'NBA Payer Season Grades & EPS';
+	const fixedHeaderText = 'NBA Player Season Grades & EPS';
 	const columns = [
 		{
 			title: 'PLAYER',

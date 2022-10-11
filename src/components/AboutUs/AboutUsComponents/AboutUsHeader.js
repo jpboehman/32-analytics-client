@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Layout, Image, Descriptions, Typography, Divider, Row, Col, Card } from 'antd';
+import { Button, Layout, Image, Descriptions, Typography, Divider, Row, Col, Card } from 'antd';
 
 import { css } from '@emotion/css';
 
@@ -12,7 +12,7 @@ export function AboutUsHeader() {
 		<Layout>
 			<Content>
 				<Image display="flex" src={require('../../../assets/StephCurrey.jpeg')} />
-				<div className={css`background: #fff;`}>
+				<div>
 					<About32Analytics />
 					<OurFounding />
 					<br />
@@ -31,6 +31,7 @@ const About32Analytics = () => {
 				className={css`
 					padding: 30px;
 					font-size: 100px;
+					
 				`}
 			>
 				{about32}
@@ -96,9 +97,7 @@ const OurMission = () => {
 				{ourMission}
 			</h1>
 			<Divider />
-			{/* box-decoration-break: clone; Each box fragment is rendered independently with the specified border, 
-            padding and margin wrapping each fragment. The border-radius, border-image and box-shadow, 
-            are applied to each fragment independently. */}
+
 			<span
 				className={css`
 					margin-left: 30px;
@@ -122,6 +121,10 @@ const OurMission = () => {
 								The Player Season Grade statistic grades a player’s season on a scale of 0-100 through
 								the use of traditional and advanced statistics.
 							</Typography.Text>
+							<br />
+							<br />
+							<Button>NCAA</Button>
+							<Button>NBA</Button>
 						</Card>
 					</Col>
 
@@ -135,6 +138,10 @@ const OurMission = () => {
 							Efficient Production Score attempts to measure a player’s performance by applying linear
 							weights to traditional box score statistics.
 						</Typography.Text>
+						<br />
+						<br />
+						<Button>NCAA</Button>
+						<Button>NBA</Button>
 					</Card>
 					<Card title="Efficient Production Score Spread" style={{ width: 350 }}>
 						<img
@@ -146,6 +153,10 @@ const OurMission = () => {
 							EPSS is used to measure team performance by finding the difference/spread between a team’s
 							EPS and their opponent’s EPS.
 						</Typography.Text>
+						<br />
+						<br />
+						<Button>NCAA</Button>
+						<Button>NBA</Button>
 					</Card>
 					<Card title="Expected Wins" style={{ width: 250 }}>
 						<img
@@ -157,6 +168,10 @@ const OurMission = () => {
 							Expected Wins offers an expected win total through games played and expected win percentage
 							for each team based on our EPS statistic.
 						</Typography.Text>
+						<br />
+						<br />
+						<Button>NCAA</Button>
+						<Button>NBA</Button>
 					</Card>
 				</Row>
 

@@ -20,7 +20,7 @@ export const Home = () => {
 						className={css`
 							min-height: 60vh;
 							min-width: 50vh;
-							background: #fff;
+							
 							text-align: center;
 							justify-content: center;
 						`}

@@ -5,11 +5,12 @@ import { css } from '@emotion/css';
 export const SmallLoader = () => (
 	<div
 		className={css`
+			display: flex;
 			justify-content: center;
 			align-items: center;
 		`}
 	>
-		<Space size="middle">
+		<Space size="large">
 			<Spin size="large" />
 		</Space>
 	</div>

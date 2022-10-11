@@ -47,7 +47,7 @@ export function StatsAndGrades() {
 						className={css`
 							min-height: 80vh;
 							min-width: 50vh;
-							background: #fff;
+							
 						`}
 					>
 						<StatsAndGradesHeader />

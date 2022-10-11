@@ -14,7 +14,7 @@ export const SubscribeToday = () => (
 		{/* TODO: Add button that takes user to subscription */}
 		<Card title="SUBSCRIBE" bordered style={{ width: 1000, margin: 30 }}>
 			<Title level={3}>
-				Subscribe Today for $30 to Receive Unlimited Access To Our Statistics from the Past 5 Years
+				Subscribe Today for $30 to Receive Unlimited Access To Our Statistics from the Past 5 Years!
 			</Title>
 		</Card>
 	</div>

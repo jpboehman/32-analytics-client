@@ -6,6 +6,8 @@ import { Layout, Divider, Typography, Table } from 'antd';
 import Papa from 'papaparse';
 import SmallLoader from '../common/Loaders/SmallLoader';
 import SiteFooter from '../common/static/SiteFooter';
+import SubscribeToday from '../common/static/SubscribeToday';
+import TeamEPSSDesc from '../common/static/teamEPSSStatistics';
 
 // TODO: Add images to background of text content
 export const NBATeamEPSSPage = () => {
@@ -98,6 +100,11 @@ export const NBATeamEPSSPage = () => {
 		}
 	];
 
+	// Add description text component
+	const teamEPSSDescription = `Efficient Production Score Spread (EPSS) is the difference or spread between a team’s Efficient Production Score (EPS) and their opponent’s EPS. The EPSS stat is our way to measure team performance. Historically, a team’s EPSS and win percentage are strongly correlated. 
+
+EPSS = (Team EPS – Opponent EPS)`;
+
 	return (
 		<div
 			className={css`
@@ -105,9 +112,12 @@ export const NBATeamEPSSPage = () => {
 				margin-right: 200px;
 			`}
 		>
+			<SubscribeToday />
 			<Typography.Title level={1} style={{ margin: 30 }}>
 				{fixedHeaderText}
 			</Typography.Title>
+			<TeamEPSSDesc />
+			{teamEPSSDescription}
 			<Divider />
 
 			<div>{nbaTeamEPSS.length ? <Table dataSource={nbaTeamEPSS} columns={columns} /> : <SmallLoader />}</div>

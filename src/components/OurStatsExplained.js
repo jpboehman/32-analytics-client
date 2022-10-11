@@ -143,7 +143,7 @@ export function OurStatsExplained() {
 						className={css`
 							min-height: 80vh;
 							min-width: 50vh;
-							background: #fff;
+							
 						`}
 					>
 						<OurStatsExplainedHeader />
