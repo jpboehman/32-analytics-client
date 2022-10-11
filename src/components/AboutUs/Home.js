@@ -5,7 +5,7 @@ import React from 'react';
 import AboutUsHeader from './AboutUsComponents/AboutUsHeader';
 import SiteFooter from '../common/static/SiteFooter';
 
-import { Row, Col, PageHeader, Layout } from 'antd';
+import { Row, Col, Divider, Layout } from 'antd';
 
 import { css, cx } from '@emotion/css';
 
@@ -27,6 +27,7 @@ export const Home = () => {
 					>
 						<img src={require('../../assets/32AnalyticsLogoFULL.png')} style={{ maxWidth: 400 }} />
 						<AboutUsHeader />
+						<Divider />
 					</div>
 				</Content>
 				<SiteFooter />
