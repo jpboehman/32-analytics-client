@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Layout, Image, Descriptions, Typography, Divider, Row, Col, Card } from 'antd';
+import { Button, Layout, Image, Typography, Divider, Row, Col, Card } from 'antd';
 
 import { css } from '@emotion/css';
 
@@ -31,7 +31,6 @@ const About32Analytics = () => {
 				className={css`
 					padding: 30px;
 					font-size: 100px;
-					
 				`}
 			>
 				{about32}
@@ -110,23 +109,21 @@ const OurMission = () => {
 			</span>
 			<div>
 				<Row>
-					<Col>
-						<Card title="Player Season Grades" style={{ width: 250 }}>
-							<img
-								src={require('../../../assets/NBA_Giannis.jpeg')}
-								style={{ maxWidth: 200, marginRight: 10 }}
-							/>
-							<Divider />
-							<Typography.Text>
-								The Player Season Grade statistic grades a player’s season on a scale of 0-100 through
-								the use of traditional and advanced statistics.
-							</Typography.Text>
-							<br />
-							<br />
-							<Button>NCAA</Button>
-							<Button>NBA</Button>
-						</Card>
-					</Col>
+					<Card title="Player Season Grades" style={{ width: 250 }}>
+						<img
+							src={require('../../../assets/NBA_Giannis.jpeg')}
+							style={{ maxWidth: 200, marginRight: 10 }}
+						/>
+						<Divider />
+						<Typography.Text>
+							The Player Season Grade statistic grades a player’s season on a scale of 0-100 through the
+							use of traditional and advanced statistics.
+						</Typography.Text>
+						<br />
+						<br />
+						<Button className={css`margin: 10px;`}>NCAA</Button>
+						<Button classname={css`margin: 10px;`}>NBA</Button>
+					</Card>
 
 					<Card title="Efficient Production Score" style={{ width: 250 }}>
 						<img
@@ -140,8 +137,8 @@ const OurMission = () => {
 						</Typography.Text>
 						<br />
 						<br />
-						<Button>NCAA</Button>
-						<Button>NBA</Button>
+						<Button className={css`margin: 10px;`}>NCAA</Button>
+						<Button classname={css`margin: 10px;`}>NBA</Button>
 					</Card>
 					<Card title="Efficient Production Score Spread" style={{ width: 350 }}>
 						<img
@@ -155,8 +152,8 @@ const OurMission = () => {
 						</Typography.Text>
 						<br />
 						<br />
-						<Button>NCAA</Button>
-						<Button>NBA</Button>
+						<Button className={css`margin: 10px;`}>NCAA</Button>
+						<Button classname={css`margin: 10px;`}>NBA</Button>
 					</Card>
 					<Card title="Expected Wins" style={{ width: 250 }}>
 						<img
@@ -170,8 +167,9 @@ const OurMission = () => {
 						</Typography.Text>
 						<br />
 						<br />
-						<Button>NCAA</Button>
-						<Button>NBA</Button>
+
+						<Button className={css`margin: 10px;`}>NCAA</Button>
+						<Button classname={css`margin: 10px;`}>NBA</Button>
 					</Card>
 				</Row>
 
