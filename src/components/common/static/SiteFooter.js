@@ -18,55 +18,73 @@ export const SiteFooter = () => (
 		`}
 	>
 		{/* TODO: Add button that takes user to subscription */}
+		{/* backgroundImage: `url(${require('../src/assets/BackgroundBanner.jpeg')})` */}
 		<Row>
 			<Divider />
-			<Card bordered title="Our statistics and Grades" style={{ width: 700 }}>
-				{/* Within each card, have a menu with links */}
+			<Card
+				bordered
+				style={{ width: 700, backgroundImage: `url(${require('../../../assets/BackgroundBanner.jpeg')})` }}
+			>
+				<h1>Our statistics and Grades</h1>
 				<Menu
-					theme="dark"
 					mode="vertical"
 					defaultSelectedKeys={[ '0' ]}
 					style={{
 						justifyContent: 'center',
-						alignItems: 'center',
-						
+						alignItems: 'center'
 					}}
 				>
 					<Menu.Item>
 						<Link to="/nba-player-season-grades-eps">
-							<Menu.Item key="nbaPlayer">NBA Player Season Grades and EPS</Menu.Item>
+							<Menu.Item key="nbaPlayer">
+								<span className={css`color: black;`}>NBA Player Season Grades and EPS</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/nba-team-epss">
-							<Menu.Item key="nbaTeam">NBA Team EPSS</Menu.Item>
+							<Menu.Item key="nbaTeam">
+								<span className={css`color: black;`}>NBA Team EPSS</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/nba-expected-wins">
-							<Menu.Item key="nbaTeam">NBA Expected Wins</Menu.Item>
+							<Menu.Item key="nbaTeam">
+								<span className={css`color: black;`}>NBA Expected Wins</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/ncaa-player-season-grades-eps">
-							<Menu.Item key="ncaaaPlayerEps">NCAA Player Season Grades and EPS</Menu.Item>
+							<Menu.Item key="ncaaaPlayerEps">
+								<span className={css`color: black;`}>NCAA Player Season Grades and EPS</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/ncaa-team-epss">
-							<Menu.Item key="ncaaaPlayerEps">NCAA Team EPSS</Menu.Item>
+							<Menu.Item key="ncaaaPlayerEps">
+								<span className={css`color: black;`}>NCAA Team EPSS</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/ncaa-team-expected-wins">
-							<Menu.Item key="ncaaaPlayerEps">NCAA Expected Wins</Menu.Item>
+							<Menu.Item key="ncaaaPlayerEps">
+								<span className={css`color: black;`}>NCAA Expected Wins</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 				</Menu>
 			</Card>
-			<Card bordered title="Useful Links" style={{ width: 400 }}>
+			<Card
+				bordered
+				style={{ width: 400, backgroundImage: `url(${require('../../../assets/BackgroundBanner.jpeg')})` }}
+			>
+				<h1>Useful Links</h1>
 				<Menu
-					theme="dark"
+					// theme="dark"
 					mode="vertical"
 					defaultSelectedKeys={[ '0' ]}
 					style={{
@@ -76,49 +94,68 @@ export const SiteFooter = () => (
 				>
 					<Menu.Item>
 						<Link to="/subscribe">
-							<Menu.Item key="subscribe">Subscribe</Menu.Item>
+							<Menu.Item key="subscribe">
+								<span className={css`color: black;`}>Subscribe</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/">
-							<Menu.Item key="aboutUs">About Us</Menu.Item>
+							<Menu.Item key="aboutUs">
+								<span className={css`color: black;`}>About Us</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/contact-us">
-							<Menu.Item key="contactUs">Contact Us</Menu.Item>
+							<Menu.Item key="contactUs">
+								<span className={css`color: black;`}>Contact Us</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/stats-and-grades">
-							<Menu.Item key="statsAndGrades">Stats and Grades</Menu.Item>
+							<Menu.Item key="statsAndGrades">
+								<span className={css`color: black;`}>Stats and grades</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/overview">
-							<Menu.Item key="ourStatsExplained">Our Stats Explained</Menu.Item>
+							<Menu.Item key="ourStatsExplained">
+								<span className={css`color: black;`}>Our Stats Explained</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/profile">
-							<Menu.Item key="ncaaPlayerEps">Account</Menu.Item>
+							<Menu.Item key="ncaaPlayerEps">
+								<span className={css`color: black;`}>Account</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/terms-and-conditions">
-							<Menu.Item key="termsAndConditions">Terms and Conditions</Menu.Item>
+							<Menu.Item key="termsAndConditions">
+								<span className={css`color: black;`}>Terms and Conditions</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 					<Menu.Item>
 						<Link to="/privacy-policy">
-							<Menu.Item key="privacyPolicy">Privacy Policy</Menu.Item>
+							<Menu.Item key="privacyPolicy">
+								<span className={css`color: black;`}>Privacy Policy</span>
+							</Menu.Item>
 						</Link>
 					</Menu.Item>
 				</Menu>
 			</Card>
-			<Card bordered title="Contact 32Analytics" style={{ width: 500 }}>
+			<Card
+				style={{ width: 500, backgroundImage: `url(${require('../../../assets/BackgroundBanner.jpeg')})` }}
+				bordered={false}
+			>
+				<h1>Contact 32 Analytics</h1>
 				<Menu
-					theme="dark"
 					mode="vertical"
 					defaultSelectedKeys={[ '0' ]}
 					style={{ justifyContent: 'center', alignItems: 'center' }}
@@ -130,7 +167,7 @@ export const SiteFooter = () => (
 								margin-top: 20px;
 								margin-left: 40px;
 								font-size: 20px;
-								color: white;
+								color: black;
 							`}
 						>
 							32_ANALYTICS
@@ -143,7 +180,7 @@ export const SiteFooter = () => (
 								margin-top: 20px;
 								margin-left: 40px;
 								font-size: 20px;
-								color: white;
+								color: black;
 							`}
 						>
 							32_ANALYTICS
@@ -156,7 +193,7 @@ export const SiteFooter = () => (
 								margin-top: 20px;
 								margin-left: 40px;
 								font-size: 20px;
-								color: white;
+								color: black;
 							`}
 						>
 							32_ANALYTICS

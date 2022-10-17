@@ -1,1 +1,9 @@
 @import '~antd/dist/antd.css';
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+	background: transparent;
+}
+
+.ant-menu {
+	background: transparent;
+}

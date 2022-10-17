@@ -111,7 +111,7 @@ export const NBATeamEPSSPage = () => {
 			<Typography.Title level={1} style={{ margin: 30 }}>
 				{fixedHeaderText}
 			</Typography.Title>
-			<TeamEPSSDesc />
+			<TeamEPSSDesc style={{  }} />
 			<Divider />
 			<div>{nbaTeamEPSS.length ? <Table dataSource={nbaTeamEPSS} columns={columns} /> : <SmallLoader />}</div>
 			<SiteFooter />
