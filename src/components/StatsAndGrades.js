@@ -36,9 +36,6 @@ export function StatsAndGrades() {
 		);
 	}, []);
 
-	// console.log(isLoading);
-	// console.log(data);
-
 	return (
 		<div className={css`width: 100%;`}>
 			<Layout>
@@ -47,7 +44,6 @@ export function StatsAndGrades() {
 						className={css`
 							min-height: 80vh;
 							min-width: 50vh;
-							
 						`}
 					>
 						<StatsAndGradesHeader />

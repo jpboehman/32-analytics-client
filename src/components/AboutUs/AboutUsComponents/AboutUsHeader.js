@@ -1,8 +1,12 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 
 import { Button, Layout, Image, Typography, Divider, Row, Col, Card } from 'antd';
 
 import { css } from '@emotion/css';
+
+import styles from '../../../common/ImageModule.css';
+import Picture from '../../../common/Picture';
 
 export function AboutUsHeader() {
 	const { Content } = Layout;
@@ -11,7 +15,10 @@ export function AboutUsHeader() {
 	return (
 		<Layout>
 			<Content>
-				<Image display="flex" src={require('../../../assets/StephCurrey.jpeg')} />
+				{/* Get codementor to help with this? */}
+				{/* <Picture />
+				<h1 className={styles.header}>Testing here!</h1> */}
+
 				<div>
 					<About32Analytics />
 					<OurFounding />
@@ -121,8 +128,12 @@ const OurMission = () => {
 						</Typography.Text>
 						<br />
 						<br />
-						<Button className={css`margin: 10px;`}>NCAA</Button>
-						<Button classname={css`margin: 10px;`}>NBA</Button>
+						<Button className={css`margin: 10px;`} type="link" href="/ncaa-player-season-grades-eps">
+							NCAA
+						</Button>
+						<Button classname={css`margin: 10px;`} type="link" href="/nba-player-season-grades-eps">
+							NBA
+						</Button>
 					</Card>
 
 					<Card title="Efficient Production Score" style={{ width: 250 }}>
@@ -137,8 +148,12 @@ const OurMission = () => {
 						</Typography.Text>
 						<br />
 						<br />
-						<Button className={css`margin: 10px;`}>NCAA</Button>
-						<Button classname={css`margin: 10px;`}>NBA</Button>
+						<Button className={css`margin: 10px;`} type="link" href="/ncaa-player-season-grades-eps">
+							NCAA
+						</Button>
+						<Button classname={css`margin: 10px;`} type="link" href="/nba-player-season-grades-eps">
+							NBA
+						</Button>
 					</Card>
 					<Card title="Efficient Production Score Spread" style={{ width: 350 }}>
 						<img
@@ -152,8 +167,12 @@ const OurMission = () => {
 						</Typography.Text>
 						<br />
 						<br />
-						<Button className={css`margin: 10px;`}>NCAA</Button>
-						<Button classname={css`margin: 10px;`}>NBA</Button>
+						<Button className={css`margin: 10px;`} type="link" href="/ncaa-team-epss">
+							NCAA
+						</Button>
+						<Button classname={css`margin: 10px;`} type="link" href="/nba-team-epss">
+							NBA
+						</Button>
 					</Card>
 					<Card title="Expected Wins" style={{ width: 250 }}>
 						<img
@@ -168,8 +187,12 @@ const OurMission = () => {
 						<br />
 						<br />
 
-						<Button className={css`margin: 10px;`}>NCAA</Button>
-						<Button classname={css`margin: 10px;`}>NBA</Button>
+						<Button className={css`margin: 10px;`} type="link" href="/ncaa-expected-wins">
+							NCAA
+						</Button>
+						<Button classname={css`margin: 10px;`} type="link" href="/nba-expected-wins">
+							NBA
+						</Button>
 					</Card>
 				</Row>
 

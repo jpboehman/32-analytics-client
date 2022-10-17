@@ -14,12 +14,13 @@ export const SiteFooter = () => (
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			\
 		`}
 	>
 		{/* TODO: Add button that takes user to subscription */}
 		<Row>
 			<Divider />
-			<Card bordered title="Our statistics and Grades" style={{ width: 350 }}>
+			<Card bordered title="Our statistics and Grades" style={{ width: 700 }}>
 				{/* Within each card, have a menu with links */}
 				<Menu
 					theme="dark"
@@ -59,7 +60,7 @@ export const SiteFooter = () => (
 					</Menu.Item>
 				</Menu>
 			</Card>
-			<Card bordered title="Useful Links" style={{ width: 250 }}>
+			<Card bordered title="Useful Links" style={{ width: 400 }}>
 				<Menu
 					theme="dark"
 					mode="vertical"
@@ -108,7 +109,7 @@ export const SiteFooter = () => (
 					</Menu.Item>
 				</Menu>
 			</Card>
-			<Card bordered title="Contact 32Analytics" style={{ width: 380 }}>
+			<Card bordered title="Contact 32Analytics" style={{ width: 500 }}>
 				<Menu
 					theme="dark"
 					mode="vertical"
@@ -122,7 +123,7 @@ export const SiteFooter = () => (
 								margin-top: 20px;
 								margin-left: 40px;
 								font-size: 20px;
-								color: white
+								color: white;
 							`}
 						>
 							32_ANALYTICS
@@ -135,7 +136,7 @@ export const SiteFooter = () => (
 								margin-top: 20px;
 								margin-left: 40px;
 								font-size: 20px;
-								color: white
+								color: white;
 							`}
 						>
 							32_ANALYTICS
@@ -148,7 +149,7 @@ export const SiteFooter = () => (
 								margin-top: 20px;
 								margin-left: 40px;
 								font-size: 20px;
-								color: white
+								color: white;
 							`}
 						>
 							32_ANALYTICS
