@@ -100,11 +100,6 @@ export const NBATeamEPSSPage = () => {
 		}
 	];
 
-	// Add description text component
-	const teamEPSSDescription = `Efficient Production Score Spread (EPSS) is the difference or spread between a team’s Efficient Production Score (EPS) and their opponent’s EPS. The EPSS stat is our way to measure team performance. Historically, a team’s EPSS and win percentage are strongly correlated. 
-
-EPSS = (Team EPS – Opponent EPS)`;
-
 	return (
 		<div
 			className={css`
@@ -117,9 +112,7 @@ EPSS = (Team EPS – Opponent EPS)`;
 				{fixedHeaderText}
 			</Typography.Title>
 			<TeamEPSSDesc />
-			{teamEPSSDescription}
 			<Divider />
-
 			<div>{nbaTeamEPSS.length ? <Table dataSource={nbaTeamEPSS} columns={columns} /> : <SmallLoader />}</div>
 			<SiteFooter />
 		</div>

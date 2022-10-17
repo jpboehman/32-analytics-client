@@ -150,12 +150,12 @@ export function OurStatsExplained() {
 						<OurStatsExplainedBody />
 						<Divider />
 						<EPSBody />
-						{data ? (
+						{/* {data ? (
 							<Table columns={columns} dataSource={data} className={css`margin: 50px;`} />
 						) : (
 							<SmallLoader />
-						)}
-						<RecentMVPsSeasonGradeRank />
+						)} */}
+						{/* <RecentMVPsSeasonGradeRank /> */}
 					</div>
 					<SiteFooter />
 				</Content>
