@@ -106,8 +106,7 @@ const OurMission = () => {
 
 			<span
 				className={css`
-					margin-left: 30px;
-					box-decoration-break: clone;
+					margins: clone;
 					font-family: sans-serif;
 					font-size: 20px;
 				`}
@@ -118,6 +117,8 @@ const OurMission = () => {
 				className={css`
 					align-items: center;
 					justify-content: center;
+					margin-left: 200px;
+					margin-top: 25px;
 				`}
 			>
 				<Row>
