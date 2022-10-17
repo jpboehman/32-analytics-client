@@ -26,7 +26,11 @@ export const SiteFooter = () => (
 					theme="dark"
 					mode="vertical"
 					defaultSelectedKeys={[ '0' ]}
-					style={{ justifyContent: 'center', alignItems: 'center' }}
+					style={{
+						justifyContent: 'center',
+						alignItems: 'center',
+						
+					}}
 				>
 					<Menu.Item>
 						<Link to="/nba-player-season-grades-eps">
@@ -65,7 +69,10 @@ export const SiteFooter = () => (
 					theme="dark"
 					mode="vertical"
 					defaultSelectedKeys={[ '0' ]}
-					style={{ justifyContent: 'center', alignItems: 'center' }}
+					style={{
+						justifyContent: 'center',
+						alignItems: 'center'
+					}}
 				>
 					<Menu.Item>
 						<Link to="/subscribe">

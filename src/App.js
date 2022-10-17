@@ -64,7 +64,7 @@ const App = () => {
 	return (
 		<div>
 			<Layout>
-				<Header>
+				<Header style={{ backgroundImage: `url(${require('../src/assets/BackgroundBanner.jpeg')})` }}>
 					<div
 						className={css`
 							float: center;
@@ -75,15 +75,23 @@ const App = () => {
 						theme="dark"
 						mode="horizontal"
 						defaultSelectedKeys={[ '0' ]}
-						style={{ justifyContent: 'center', alignItems: 'center' }}
+						style={{
+							justifyContent: 'center',
+							alignItems: 'center',
+							backgroundImage: `url(${require('../src/assets/BackgroundBanner.jpeg')})`
+						}}
 					>
 						<Menu.Item>
-							<Link to="/">32Analytics</Link>
+							<Link to="/">
+								<span className={css`color: black;`}>32Analytics</span>
+							</Link>
 						</Menu.Item>
 						<Menu.Item>
-							<Link to="/overview">Our Stats Explained</Link>
+							<Link to="/overview">
+								<span className={css`color: black;`}>Our Stats Explained</span>
+							</Link>
 						</Menu.Item>
-						<Menu.SubMenu title="Statistics And Grades">
+						<Menu.SubMenu title="Statistics & Grades" style={{ color: 'black' }}>
 							<div
 								className={css`
 									margin-left: 10px;
@@ -118,10 +126,14 @@ const App = () => {
 							<Menu.Item key="NCAA" />
 						</Menu.SubMenu>
 						<Menu.Item>
-							<Link to="/contact-us">Contact Us</Link>
+							<Link to="/contact-us">
+								<span className={css`color: black;`}>Contact Us</span>
+							</Link>
 						</Menu.Item>
 						<Menu.Item>
-							<Link to="/login">Login / Register</Link>
+							<Link to="/login">
+								<span className={css`color: black;`}>Login / Register</span>
+							</Link>
 						</Menu.Item>
 					</Menu>
 				</Header>

@@ -45,8 +45,6 @@ const FillOutOurContactForm = () => {
 	return (
 		<div style={{ textAlign: 'center', justifyContent: 'center' }}>
 			<h3 className={css`padding: 15px;`}>
-				<Divider />
-				{/* Insert web form here */}
 				<div
 					className={css`
 						display: flex;
