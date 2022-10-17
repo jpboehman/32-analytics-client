@@ -58,7 +58,7 @@ const OurFounding = () => {
 		<div
 			className={css`
 				margin-left: 250px;
-				margin-right: 200px;
+				margin-right: 100px;
 			`}
 		>
 			<Typography.Title level={1} style={{ margin: 30 }}>
@@ -91,7 +91,7 @@ const OurMission = () => {
 			className={css`
 				margin-top: 30px;
 				margin-left: 250px;
-				margin-right: 200px;
+				margin-right: 100px;
 			`}
 		>
 			<h1
@@ -114,7 +114,12 @@ const OurMission = () => {
 			>
 				{ourMissionDescription}
 			</span>
-			<div>
+			<div
+				className={css`
+					align-items: center;
+					justify-content: center;
+				`}
+			>
 				<Row>
 					<Card title="Player Season Grades" style={{ width: 250 }}>
 						<img
