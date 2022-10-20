@@ -115,6 +115,27 @@ export const NCAAPlayerSeasonGradesAndEPSPage = () => {
 		}
 	];
 
+	const Background = () => {
+		return (
+			<div
+				style={{
+					backgroundImage: `url(${require('../../assets/NCAA_PLAYER_GRADES_EPS.png')})`,
+					height: '40vh',
+					backgroundPosition: 'center',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'cover'
+				}}
+			>
+				<Typography.Title level={1} style={{ color: 'white', marginLeft: 20 }}>
+					{fixedHeaderText}
+				</Typography.Title>
+				<Typography.Title style={{ color: 'white', marginLeft: 20 }} level={5}>
+					--------------------------------------------------------
+				</Typography.Title>
+			</div>
+		);
+	};
+
 	return (
 		<div
 			className={css`
@@ -125,7 +146,7 @@ export const NCAAPlayerSeasonGradesAndEPSPage = () => {
 			<Typography.Title level={1} style={{ margin: 30 }}>
 				{fixedHeaderText}
 			</Typography.Title>
-			<Divider />
+			<Background />
 			<SubscribeToday />
 			<Divider />
 			<PlayerSeasonGradesDesc leagueType="NCAA" />

@@ -103,7 +103,7 @@ export const NBATeamEPSSPage = () => {
 		return (
 			<div
 				style={{
-					backgroundImage: `url(${require('../../assets/NBA_EPS.png')})`,
+					backgroundImage: `url(${require('../../assets/NBA_TEAM_EPSS.png')})`,
 					height: '30vh',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
@@ -115,14 +115,6 @@ export const NBATeamEPSSPage = () => {
 				</Typography.Title>
 				<Typography.Title style={{ color: 'white', marginLeft: 20 }} level={5}>
 					--------------------------------------------------------
-				</Typography.Title>
-				<Typography.Title level={4} style={{ color: 'white', marginLeft: 20, maxWidth: 750 }}>
-					Efficient Production Score Spread (EPSS) is the difference or spread between a team’s Efficient
-					Production Score (EPS) and their opponent’s EPS. The EPSS stat is our way to measure team
-					performance. Historically, a team’s EPSS and win percentage are strongly correlated.
-				</Typography.Title>
-				<Typography.Title level={4} style={{ color: 'white', marginLeft: 20, maxWidth: 750 }}>
-					EPSS = (Team EPS – Opponent EPS)
 				</Typography.Title>
 			</div>
 		);

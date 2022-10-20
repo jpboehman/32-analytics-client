@@ -91,6 +91,27 @@ export const NBAExpectedWinsPage = () => {
 		}
 	];
 
+	const Background = () => {
+		return (
+			<div
+				style={{
+					backgroundImage: `url(${require('../../assets/NBA_EXPECTED_WINS.png')})`,
+					height: '60vh',
+					backgroundPosition: 'center',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'cover'
+				}}
+			>
+				<Typography.Title level={1} style={{ marginLeft: 20, marginTop: 20, color: 'white' }}>
+					{fixedHeaderText}
+				</Typography.Title>
+				<Typography.Title style={{ color: 'white', marginLeft: 20 }} level={5}>
+					--------------------------------------------------------
+				</Typography.Title>
+			</div>
+		);
+	};
+
 	return (
 		<div
 			className={css`
@@ -98,10 +119,7 @@ export const NBAExpectedWinsPage = () => {
 				margin-right: 200px;
 			`}
 		>
-			<Typography.Title level={1} style={{ margin: 30 }}>
-				{fixedHeaderText}
-			</Typography.Title>
-			<Divider />
+			<Background />
 			<SubscribeToday />
 			<Divider />
 			<NBAxpectedWinsDesc leagueType="NBA" />

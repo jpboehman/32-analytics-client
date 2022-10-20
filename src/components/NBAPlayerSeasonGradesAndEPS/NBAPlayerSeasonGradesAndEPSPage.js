@@ -100,6 +100,27 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
 		}
 	];
 
+	const Background = () => {
+		return (
+			<div
+				style={{
+					backgroundImage: `url(${require('../../assets/NBA_PLAYER_GRADES_EPS.png')})`,
+					height: '30vh',
+					backgroundPosition: 'center',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'cover'
+				}}
+			>
+				<Typography.Title level={1} style={{ color: 'white', marginLeft: 20 }}>
+					{fixedHeaderText}
+				</Typography.Title>
+				<Typography.Title style={{ color: 'white', marginLeft: 20 }} level={5}>
+					--------------------------------------------------------
+				</Typography.Title>
+			</div>
+		);
+	};
+
 	return (
 		<div
 			className={css`
@@ -112,7 +133,7 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
 			</Typography.Title>
 			<Divider />
 			<SubscribeToday />
-			<Divider />
+			<Background />
 			<PlayerSeasonGradesDesc />
 			<div>
 				{nbaPlayerRatings.length ? <Table dataSource={nbaPlayerRatings} columns={columns} /> : <SmallLoader />}
