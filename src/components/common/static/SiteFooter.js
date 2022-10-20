@@ -14,7 +14,6 @@ export const SiteFooter = () => (
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			\
 		`}
 	>
 		{/* TODO: Add button that takes user to subscription */}
@@ -22,8 +21,8 @@ export const SiteFooter = () => (
 		<Row>
 			<Divider />
 			<Card
-				bordered
-				style={{ width: 700, backgroundImage: `url(${require('../../../assets/BackgroundBanner.jpeg')})` }}
+				bordered={false}
+				style={{ width: 700, backgroundImage: `url(${require('../../../assets/hardwood3chop.jpeg')})` }}
 			>
 				<h1>Our statistics and Grades</h1>
 				<Menu
@@ -79,8 +78,8 @@ export const SiteFooter = () => (
 				</Menu>
 			</Card>
 			<Card
-				bordered
-				style={{ width: 400, backgroundImage: `url(${require('../../../assets/BackgroundBanner.jpeg')})` }}
+				style={{ width: 400, backgroundImage: `url(${require('../../../assets/hardwood3chop.jpeg')})` }}
+				bordered={false}
 			>
 				<h1>Useful Links</h1>
 				<Menu
@@ -88,8 +87,8 @@ export const SiteFooter = () => (
 					mode="vertical"
 					defaultSelectedKeys={[ '0' ]}
 					style={{
-						justifyContent: 'center',
-						alignItems: 'center'
+						// justifyContent: 'center',
+						// alignItems: 'center'
 					}}
 				>
 					<Menu.Item>
@@ -151,7 +150,7 @@ export const SiteFooter = () => (
 				</Menu>
 			</Card>
 			<Card
-				style={{ width: 500, backgroundImage: `url(${require('../../../assets/BackgroundBanner.jpeg')})` }}
+				style={{ width: 500, backgroundImage: `url(${require('../../../assets/hardwood3chop.jpeg')})` }}
 				bordered={false}
 			>
 				<h1>Contact 32 Analytics</h1>

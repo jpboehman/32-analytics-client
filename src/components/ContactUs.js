@@ -61,7 +61,6 @@ const FillOutOurContactForm = () => {
 							validateMessages={validateMessages}
 						>
 							{/* This is the hidden field that the netlify-honeypot uses. */}
-
 							<Form.Item
 								className={css`width: 400px;`}
 								label="Name"
@@ -114,7 +113,6 @@ export const ContactUs = () => {
 						className={css`
 							min-height: 80vh;
 							min-width: 50vh;
-							background: #fff;
 							text-align: center;
 							justify-content: center;
 						`}

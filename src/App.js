@@ -19,7 +19,7 @@ import OurStatsExplained from './components/OurStatsExplained';
 import StatsAndGrades from './components/StatsAndGrades';
 import NBAPlayerSeasonGradesAndEPSPage from './components/NBAPlayerSeasonGradesAndEPS/NBAPlayerSeasonGradesAndEPSPage';
 import NBATeamEPSSPage from './components/NBATeamEPSS/NBATeamEPSSPage';
-import { Menu } from 'antd';
+import { Menu, Typography } from 'antd';
 
 import EventBus from './common/EventBus';
 import { css } from '@emotion/css';
@@ -64,7 +64,7 @@ const App = () => {
 	return (
 		<div>
 			<Layout>
-				<Header style={{ backgroundImage: `url(${require('../src/assets/BackgroundBanner.jpeg')})` }}>
+				<Header style={{ backgroundImage: `url(${require('../src/assets/hardwood3chop.jpeg')})` }}>
 					<div
 						className={css`
 							float: center;
@@ -78,20 +78,31 @@ const App = () => {
 						style={{
 							justifyContent: 'center',
 							alignItems: 'center',
-							backgroundImage: `url(${require('../src/assets/BackgroundBanner.jpeg')})`
+							backgroundImage: `url(${require('../src/assets/hardwood3chop.jpeg')})`
 						}}
 					>
 						<Menu.Item>
 							<Link to="/">
-								<span className={css`color: black;`}>32Analytics</span>
+								<Typography.Title className={css`color: black;`} level={3}>
+									32Analytics
+								</Typography.Title>
 							</Link>
 						</Menu.Item>
 						<Menu.Item>
 							<Link to="/overview">
-								<span className={css`color: black;`}>Our Stats Explained</span>
+								<Typography.Title className={css`color: black;`} level={3}>
+									Our Stats Explained
+								</Typography.Title>
 							</Link>
 						</Menu.Item>
-						<Menu.SubMenu title="Statistics & Grades" style={{ color: 'black' }}>
+						<Menu.SubMenu
+							title={
+								<Typography.Title className={css`color: black;`} level={3}>
+									Statistics & Grades
+								</Typography.Title>
+							}
+							style={{ color: 'black', fontSize: 20 }}
+						>
 							<div
 								className={css`
 									margin-left: 10px;
@@ -127,12 +138,18 @@ const App = () => {
 						</Menu.SubMenu>
 						<Menu.Item>
 							<Link to="/contact-us">
-								<span className={css`color: black;`}>Contact Us</span>
+								<span className={css`color: black;`}>
+									<Typography.Title className={css`color: black;`} level={3}>
+										Contact Us
+									</Typography.Title>
+								</span>
 							</Link>
 						</Menu.Item>
 						<Menu.Item>
 							<Link to="/login">
-								<span className={css`color: black;`}>Login / Register</span>
+								<Typography.Title className={css`color: black;`} level={3}>
+									Login / Register
+								</Typography.Title>
 							</Link>
 						</Menu.Item>
 					</Menu>

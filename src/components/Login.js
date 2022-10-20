@@ -21,7 +21,7 @@ const required = (value) => {
 	}
 };
 
-function Login() {
+export const Login = () => {
 	const navigate = useNavigate();
 
 	const form = useRef();
@@ -80,7 +80,7 @@ function Login() {
 		>
 			<div
 				className={css`
-					padding-top: 500px;
+					padding-top: 300px;
 					padding-right: 300px;
 					padding-left: 300px;
 					margin-right: 400px;
@@ -147,6 +147,6 @@ function Login() {
 			<SiteFooter />
 		</div>
 	);
-}
+};
 
 export default Login;

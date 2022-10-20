@@ -50,8 +50,8 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
 		},
 		{
 			title: 'POSITION',
-			dataIndex: 'POSITION',
-			key: 'POSITION'
+			dataIndex: 'POS',
+			key: 'POS'
 		},
 		{
 			title: 'PLAYER GRADE',

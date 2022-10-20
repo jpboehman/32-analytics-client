@@ -100,6 +100,25 @@ export const NBATeamEPSSPage = () => {
 		}
 	];
 
+	const Background = () => {
+		return (
+			<div
+				style={{
+					backgroundImage: `url(${require('../../assets/NBATeamEPSS.png')})`,
+					height: '80vh',
+					backgroundPosition: 'center',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'cover'
+				}}
+			>
+				<Typography.Title level={1} style={{ margin: 30 }}>
+					{fixedHeaderText}
+				</Typography.Title>
+				<TeamEPSSDesc />
+			</div>
+		);
+	};
+
 	return (
 		<div
 			className={css`
@@ -108,10 +127,11 @@ export const NBATeamEPSSPage = () => {
 			`}
 		>
 			<SubscribeToday />
-			<Typography.Title level={1} style={{ margin: 30 }}>
+			<Background />
+			{/* <Typography.Title level={1} style={{ margin: 30 }}>
 				{fixedHeaderText}
 			</Typography.Title>
-			<TeamEPSSDesc style={{  }} />
+			<TeamEPSSDesc /> */}
 			<Divider />
 			<div>{nbaTeamEPSS.length ? <Table dataSource={nbaTeamEPSS} columns={columns} /> : <SmallLoader />}</div>
 			<SiteFooter />
