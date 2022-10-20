@@ -7,7 +7,6 @@ import Papa from 'papaparse';
 import SmallLoader from '../common/Loaders/SmallLoader';
 import SiteFooter from '../common/static/SiteFooter';
 import SubscribeToday from '../common/static/SubscribeToday';
-import TeamEPSSDesc from '../common/static/teamEPSSStatistics';
 
 // TODO: Add images to background of text content
 export const NBATeamEPSSPage = () => {
@@ -104,17 +103,27 @@ export const NBATeamEPSSPage = () => {
 		return (
 			<div
 				style={{
-					backgroundImage: `url(${require('../../assets/NBATeamEPSS.png')})`,
-					height: '80vh',
+					backgroundImage: `url(${require('../../assets/NBA_EPS.png')})`,
+					height: '30vh',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover'
 				}}
 			>
-				<Typography.Title level={1} style={{ margin: 30 }}>
+				<Typography.Title level={1} style={{ color: 'white', marginLeft: 20 }}>
 					{fixedHeaderText}
 				</Typography.Title>
-				<TeamEPSSDesc />
+				<Typography.Title style={{ color: 'white', marginLeft: 20 }} level={5}>
+					--------------------------------------------------------
+				</Typography.Title>
+				<Typography.Title level={4} style={{ color: 'white', marginLeft: 20, maxWidth: 750 }}>
+					Efficient Production Score Spread (EPSS) is the difference or spread between a team’s Efficient
+					Production Score (EPS) and their opponent’s EPS. The EPSS stat is our way to measure team
+					performance. Historically, a team’s EPSS and win percentage are strongly correlated.
+				</Typography.Title>
+				<Typography.Title level={4} style={{ color: 'white', marginLeft: 20, maxWidth: 750 }}>
+					EPSS = (Team EPS – Opponent EPS)
+				</Typography.Title>
 			</div>
 		);
 	};
@@ -128,10 +137,6 @@ export const NBATeamEPSSPage = () => {
 		>
 			<SubscribeToday />
 			<Background />
-			{/* <Typography.Title level={1} style={{ margin: 30 }}>
-				{fixedHeaderText}
-			</Typography.Title>
-			<TeamEPSSDesc /> */}
 			<Divider />
 			<div>{nbaTeamEPSS.length ? <Table dataSource={nbaTeamEPSS} columns={columns} /> : <SmallLoader />}</div>
 			<SiteFooter />
