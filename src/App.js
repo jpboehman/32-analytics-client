@@ -17,6 +17,7 @@ import BoardModerator from './components/BoardModerator';
 import BoardAdmin from './components/BoardAdmin';
 import OurStatsExplained from './components/OurStatsExplained';
 import StatsAndGrades from './components/StatsAndGrades';
+import Subscribe from './components/subscribe/Subscribe';
 import NBAPlayerSeasonGradesAndEPSPage from './components/NBAPlayerSeasonGradesAndEPS/NBAPlayerSeasonGradesAndEPSPage';
 import NBATeamEPSSPage from './components/NBATeamEPSS/NBATeamEPSSPage';
 import { Menu, Typography } from 'antd';
@@ -33,6 +34,7 @@ const App = () => {
 	const [ showModeratorBoard, setShowModeratorBoard ] = useState(false);
 	const [ showAdminBoard, setShowAdminBoard ] = useState(false);
 	const [ currentUser, setCurrentUser ] = useState(undefined);
+	console.log(currentUser);
 
 	useEffect(() => {
 		const user = AuthService.getCurrentUser();
@@ -42,6 +44,7 @@ const App = () => {
 			setShowModeratorBoard(user.roles.includes('ROLE_MODERATOR'));
 			setShowAdminBoard(user.roles.includes('ROLE_ADMIN'));
 		}
+		console.log(user);
 
 		EventBus.on('logout', () => {
 			logOut();
@@ -109,7 +112,7 @@ const App = () => {
 									margin-top: 20px;
 								`}
 							>
-								<Link to="/stats-and-grades">NBA Statistics And Grades</Link>
+								<span>NBA Statistics And Grades</span>
 								<Menu.ItemGroup key="NBA" className={css`margin-bottom: 20px;`}>
 									<Link to="/nba-player-season-grades-eps">
 										<Menu.Item key="nbaPlayer">NBA Player Season Grades and EPS</Menu.Item>
@@ -121,7 +124,7 @@ const App = () => {
 										<Menu.Item key="nbaExpectedWins">NBA Expected Wins</Menu.Item>
 									</Link>
 								</Menu.ItemGroup>
-								<Link to="/stats-and-grades">NCAA Statistics And Grades</Link>
+								<span>NCAA Statistics And Grades</span>
 								<Menu.ItemGroup key="NCAA">
 									<Link to="/ncaa-player-season-grades-eps">
 										<Menu.Item key="ncaaPlayer">NCAA Player Season Grades and EPS</Menu.Item>
@@ -161,6 +164,7 @@ const App = () => {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/contact-us" element={<ContactUs />} />
+					<Route path="/subscribe" element={<Subscribe />} />
 					<Route path="/home" element={<Home />} />
 					{/* // Ensure that the login page is the inital landing page */}
 					<Route path="/login" element={<Login />} />
