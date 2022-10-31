@@ -5,16 +5,17 @@ const API_URL = 'http://localhost:8080/api/test/';
 
 const getPublicContent = () => axios.get(`${API_URL}all`);
 
-const getUserBoard = () => axios.get(`${API_URL}user`, { headers: authHeader() });
+const getPublicUser = () => axios.get(`${API_URL}user`, { headers: authHeader() });
 
-const getModeratorBoard = () => axios.get(`${API_URL}mod`, { headers: authHeader() });
+// change to getSubsribedUserBoard
+const getSubscribedUser = () => axios.get(`${API_URL}mod`, { headers: authHeader() });
 
 const getAdminBoard = () => axios.get(`${API_URL}admin`, { headers: authHeader() });
 
 const UserService = {
   getPublicContent,
-  getUserBoard,
-  getModeratorBoard,
+  getPublicUser,
+  getSubscribedUser,
   getAdminBoard,
 };
 

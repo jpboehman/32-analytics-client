@@ -7,7 +7,7 @@ function BoardUser() {
   const [content, setContent] = useState('');
 
   useEffect(() => {
-    UserService.getUserBoard().then(
+    UserService.getPublicUser().then(
       (response) => {
         setContent(response.data);
       },
