@@ -1,16 +1,12 @@
-import axios from 'axios';
-import authHeader from './auth-header';
+import { generalRequest, userRequest } from './httpService';
 
-const API_URL = 'http://localhost:8080/api/test/';
+const getPublicContent = () => generalRequest.get('/test/all');
 
-const getPublicContent = () => axios.get(`${API_URL}all`);
+const getPublicUser = () => userRequest.get('/test/user');
 
-const getPublicUser = () => axios.get(`${API_URL}user`, { headers: authHeader() });
+const getSubscribedUser = () => userRequest.get('/test/mod');
 
-// change to getSubsribedUserBoard
-const getSubscribedUser = () => axios.get(`${API_URL}mod`, { headers: authHeader() });
-
-const getAdminBoard = () => axios.get(`${API_URL}admin`, { headers: authHeader() });
+const getAdminBoard = () => userRequest.get('/test/admin');
 
 const UserService = {
   getPublicContent,

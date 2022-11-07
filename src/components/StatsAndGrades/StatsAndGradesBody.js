@@ -41,8 +41,6 @@ export const StatsAndGradesBody = () => {
 	return (
 		<div
 			className={css`
-				margin-left: 250px;
-				margin-right: 200px;
 			`}
 		>
 			<Typography.Title level={1} style={{ margin: 30 }}>

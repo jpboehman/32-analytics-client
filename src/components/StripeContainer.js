@@ -3,17 +3,17 @@ import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { FillOutOurSubscribeForm } from './subscribe/Subscribe';
 
-const PUBLIC_KEY =
-	'pk_live_51JaUD3GNQwOLqf8vLR0Q4G3Wsq95Y0TBXrkcoMKtrTTPhhJNRCSVaxyBhyiGGa4ERqM05RFkmTN9y0AfX39k5H8j00TncYXAOC';
+const PUBLIC_KEY = process.env.REACT_APP_STRIPE;
+// 'pk_test_51JaUD3GNQwOLqf8vi4zKh9oT6oSRkWvlwlZ9uKNTXAr1Kbz4s87O1901NU1h6tvkyhgSWcCT5BXDLYIzPiNa1NAr00I4LKDEai';
 
-const stripeTestPromise = loadStripe(PUBLIC_KEY);
+const stripePromise = loadStripe(PUBLIC_KEY);
 
 export const StripeContainer = () => {
-	return (
-		<Elements stripe={stripeTestPromise}>
-			<FillOutOurSubscribeForm />
-		</Elements>
-	);
+  return (
+    <Elements stripe={stripePromise}>
+      <FillOutOurSubscribeForm />
+    </Elements>
+  );
 };
 
 export default StripeContainer;

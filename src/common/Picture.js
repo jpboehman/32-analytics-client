@@ -1,41 +1,45 @@
 import React from 'react';
 import { css } from '@emotion/css';
-import { Button, Layout, Image, Typography, Divider, Row, Col, Card } from 'antd';
-const { Text, Link, Title } = Typography;
+import { Image, Divider } from 'antd';
 
 export const Picture = () => (
-	<div
-		className={css`
-			margin: 3%;
-			position: relative;
-		`}
-	>
-		{/* <Image src={require('../../../assets/StephCurrey.jpeg')} /> */}
-		<Image src={require('../assets/StephCurrey.jpeg')} width={1500} />
+  <div
+    className={css`
+      position: relative;
+    `}
+  >
+    {/* <Image src={require('../../../assets/StephCurrey.jpeg')} /> */}
+    <Image
+      src={require('../assets/StephCurrey.jpeg')}
+      style={{ width: '100vw', height: '40vh', objectFit: 'cover' }}
+    />
 
-		<h1
-			className={css`
-				position: absolute;
-				top: 400px;
-				left: 400px;
-				color: white;
-			`}
-		>
-			Analysis Beyond The Box Score
-		</h1>
-		<Divider style={{ borderWidth: 2, borderColor: '#7cb305' }} />
-
-		<Title
-			level={3}
-			className={css`
-				position: absolute;
-				bottom: 20px;
-				left: 10px;
-			`}
-		>
-			A computer science portal
-		</Title>
-	</div>
+    <h1
+      className={css`
+        position: absolute;
+        top: 100px;
+        left: 400px;
+        color: white;
+        padding: 20px;
+        font-size: 40px;
+        @media only screen and (max-width: 900px) {
+          font-size: 20px;
+          padding: 5px;
+        }
+        @media only screen and (max-width: 600px) {
+          font-size: 18px;
+          padding: 3px;
+        }
+        @media only screen and (max-width: 480px) {
+          font-size: 13px;
+          padding: 2px;
+        }
+      `}
+    >
+      Analysis Beyond The Box Score
+    </h1>
+    <Divider style={{ borderWidth: 2, borderColor: 'khaki' }} />
+  </div>
 );
 
 export default Picture;
