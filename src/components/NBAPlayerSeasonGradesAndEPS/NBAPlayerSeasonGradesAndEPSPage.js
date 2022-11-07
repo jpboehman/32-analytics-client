@@ -46,12 +46,10 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
           marginTop: -80,
         }}
       >
-        <Typography.Title level={1} style={{ color: 'white', marginLeft: 20 }}>
+        <Typography.Title level={1} style={{ color: 'white', marginLeft: 20, marginTop: 100, paddingTop: 15 }}>
           {fixedHeaderText}
         </Typography.Title>
-        <Typography.Title style={{ color: 'white', marginLeft: 20 }} level={5}>
-          --------------------------------------------------------
-        </Typography.Title>
+        <Divider />
       </div>
     );
   };
@@ -62,9 +60,7 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
         padding: 10px;
       `}
     >
-      <Typography.Title level={1} style={{ margin: 30 }}>
-        {fixedHeaderText}
-      </Typography.Title>
+      
       <Divider />
       {!currentUser && <SubscribeToday />}
       <Background />

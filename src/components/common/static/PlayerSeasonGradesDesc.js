@@ -15,7 +15,7 @@ export const PlayerSeasonGradesDesc = ({ leagueType }) => (
       title={
         leagueType === 'NCAA'
           ? 'What are NCAA Player Season Grades?'
-          : 'What are NBA Player Season Grades'
+          : 'What are NBA Player Season Grades?'
       }
       bordered
       style={{ margin: 30 }}
