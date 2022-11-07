@@ -12,70 +12,58 @@ import ScrollToTop from '../../common/scroll/SrollToTop';
 
 // TODO: Add images to background of text content
 export const NCAAPlayerSeasonGradesAndEPSPage = () => {
-  const [ncaaPlayerRatings, setNCAAPlayerRatings] = useState([]);
-  const currentUser = useSelector((state) => state.currentUser?.payload);
-  useEffect(() => {
-    // Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
-    Papa.parse(
-      'https://docs.google.com/spreadsheets/d/1BM4XgtUD2Z48lQlgvlBw-IoVLbKEr7HhvpefHN5JHsA/pub?output=csv',
-      {
-        download: true,
-        header: true,
-        complete: (results) => {
-          if (results.data.length > 100) {
-            setNCAAPlayerRatings(results.data.slice(0, 100));
-          } else {
-            setNCAAPlayerRatings(results.data);
-          }
-        },
-      }
-    );
-  }, []);
+	const [ ncaaPlayerRatings, setNCAAPlayerRatings ] = useState([]);
+	const currentUser = useSelector((state) => state.currentUser.payload);
+	useEffect(() => {
+		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
+		Papa.parse(
+			'https://docs.google.com/spreadsheets/d/1BM4XgtUD2Z48lQlgvlBw-IoVLbKEr7HhvpefHN5JHsA/pub?output=csv',
+			{
+				download: true,
+				header: true,
+				complete: (results) => {
+					if (results.data.length > 100) {
+						setNCAAPlayerRatings(results.data.slice(0, 100));
+					} else {
+						setNCAAPlayerRatings(results.data);
+					}
+				}
+			}
+		);
+	}, []);
 
-  const fixedHeaderText = 'NCAA Player Season Grades & EPS';
+	const fixedHeaderText = 'NCAA Player Season Grades & EPS';
 
-  const Background = () => {
-    return (
-      <div
-        style={{
-          backgroundImage: `url(${require('../../assets/NCAA_PLAYER_GRADES_EPS.png')})`,
-          height: '60vh',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          marginTop: -60,
-        }}
-      >
-        <Typography.Title level={1} style={{ color: 'white', marginLeft: 20 }}>
-          {fixedHeaderText}
-        </Typography.Title>
-        <Typography.Title style={{ color: 'white', marginLeft: 20 }} level={5}>
-          --------------------------------------------------------
-        </Typography.Title>
-      </div>
-    );
-  };
+	const Background = () => {
+		return (
+			<div
+				style={{
+					backgroundImage: `url(${require('../../assets/NCAA_PLAYER_GRADES_EPS.png')})`,
+					height: '60vh',
+					backgroundPosition: 'center',
+					backgroundRepeat: 'no-repeat',
+					backgroundSize: 'cover',
+					marginTop: -50
+				}}
+			>
+				<Typography.Title level={1} style={{ color: 'white', marginLeft: 20, marginTop: 115 }}>
+					{fixedHeaderText}
+				</Typography.Title>
+			</div>
+		);
+	};
 
-  return (
-    <div
-      className={css`
-        padding: 10px;
-      `}
-    >
-      <Typography.Title level={1} style={{ margin: 30 }}>
-        {fixedHeaderText}
-      </Typography.Title>
-      <Background />
-      {!currentUser && <SubscribeToday />}
-      <Divider />
-      <PlayerSeasonGradesDesc leagueType='NCAA' />
-      {currentUser && (
-        <div>{ncaaPlayerRatings.length ? <Datatable5 /> : <SmallLoader />}</div>
-      )}
-      <ScrollToTop />
-      <Footer />
-    </div>
-  );
+	return (
+		<div className={css`padding: 10px;`}>
+			<Background />
+			{!currentUser && <SubscribeToday />}
+			<Divider />
+			<PlayerSeasonGradesDesc leagueType="NCAA" />
+			{currentUser && <div>{ncaaPlayerRatings.length ? <Datatable5 /> : <SmallLoader />}</div>}
+			<ScrollToTop />
+			<Footer />
+		</div>
+	);
 };
 
 export default NCAAPlayerSeasonGradesAndEPSPage;

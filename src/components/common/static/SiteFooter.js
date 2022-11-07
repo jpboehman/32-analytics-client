@@ -75,7 +75,7 @@ export const SiteFooter = () => (
           </Menu.Item>
           <Menu.Item>
             <Link to='/ncaa-player-season-grades-eps'>
-              <Menu.Item key='ncaaaPlayerEps'>
+              <Menu.Item key='ncaaPlayerEps'>
                 <span
                   className={css`
                     color: black;
