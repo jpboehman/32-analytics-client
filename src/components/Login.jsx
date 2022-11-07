@@ -80,18 +80,20 @@ export const Login = () => {
       <div
         className={css`
           padding-top: 300px;
-          padding-right: 300px;
-          padding-left: 300px;
+          padding-right: 150px;
+          padding-left: 150px;
+          padding-bottom: 75px;
           margin-right: 400px;
           margin-left: 400px;
+          
         `}
       >
         <Card title={`Login`}>
           <Form
             onSubmit={handleLogin}
             ref={form}
-            labelCol={{ span: 4 }}
-            wrapperCol={{ span: 14 }}
+            // labelCol={{ span: 4 }}
+            // wrapperCol={{ span: 14 }}
             layout='vertical'
             size='default'
           >
