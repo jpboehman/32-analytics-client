@@ -14,7 +14,7 @@ const { Title } = Typography;
 // TODO: Add images to background of text content
 export const NCAAExpectedWinsPage = () => {
 	const [ ncaaExpectedWins, setNcaaExpectedWins ] = useState([]);
-	const currentUser = useSelector((state) => state.currentUser.payload || null);
+	const currentUser = useSelector((state) => state.currentUser?.payload);
 
 	// effect to fetch data from google spreadzheets
 	useEffect(() => {

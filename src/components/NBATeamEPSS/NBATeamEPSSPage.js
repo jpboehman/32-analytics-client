@@ -15,7 +15,7 @@ import Datatable3 from '../dataTables/3/Datatable3';
 export const NBATeamEPSSPage = () => {
 	const [ nbaTeamEPSS, setNBATeamEPSS ] = useState([]);
 	const { Content } = Layout;
-	const currentUser = useSelector((state) => state.currentUser.payload || null);
+	const currentUser = useSelector((state) => state.currentUser?.payload);
 	useEffect(() => {
 		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
 		Papa.parse(

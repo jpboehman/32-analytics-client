@@ -17,7 +17,7 @@ const { Title } = Typography;
 export const NBAExpectedWinsPage = () => {
 	const [ nbaExpectedWins, setNbaExpectedWins ] = useState([]);
 
-	const currentUser = useSelector((state) => state.currentUser.payload || null);
+	const currentUser = useSelector((state) => state.currentUser?.payload);
 	useEffect(() => {
 		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
 		Papa.parse(
