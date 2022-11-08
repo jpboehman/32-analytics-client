@@ -132,6 +132,7 @@ const App = () => {
                 <Menu.ItemGroup
                   key='NBA'
                   className={css`
+                    margin-top: 10px;
                     margin-bottom: 20px;
                     color: purple;
                   `}
