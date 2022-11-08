@@ -10,5 +10,5 @@ const TOKEN = data?.accessToken;
 export const generalRequest = axios.create({});
 
 export const userRequest = axios.create({
-  headers: { 'x-access-token': TOKEN },
+  headers: { 'x-access-token': TOKEN, },
 });
