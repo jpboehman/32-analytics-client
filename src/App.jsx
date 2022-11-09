@@ -35,7 +35,6 @@ const App = () => {
   const currentUser = useSelector((state) => state.currentUser?.payload);
   const [confirmCurrentUser, setConfirmCurrentUser] = useState(false);
   const dispatch = useDispatch();
-  //   console.log(currentUser);
 
   useEffect(() => {
     if (currentUser) {
@@ -132,8 +131,8 @@ const App = () => {
                 <Menu.ItemGroup
                   key='NBA'
                   className={css`
-
-                    margin;
+                    padding: 10px;
+                    
                     color: purple;
                   `}
                 >
