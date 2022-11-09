@@ -79,13 +79,20 @@ export const Login = () => {
     >
       <div
         className={css`
-          padding-top: 300px;
-          padding-right: 150px;
-          padding-left: 150px;
-          padding-bottom: 75px;
-          margin-right: 400px;
-          margin-left: 400px;
-          
+          padding: 20px;
+          font-size: 40px;
+          @media only screen and (max-width: 900px) {
+            font-size: 20px;
+            padding: 5px;
+          }
+          @media only screen and (max-width: 600px) {
+            font-size: 18px;
+            padding: 3px;
+          }
+          @media only screen and (max-width: 480px) {
+            font-size: 13px;
+            padding: 2px;
+          }
         `}
       >
         <Card title={`Login`}>
