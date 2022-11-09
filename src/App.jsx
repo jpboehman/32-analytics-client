@@ -124,14 +124,14 @@ const App = () => {
               <div
                 className={css`
                   margin-left: 10px;
-                  margin-top: 20px;
+                  margin-top: 50px;
                 `}
               >
                 <span>NBA Statistics And Grades</span>
                 <Menu.ItemGroup
                   key='NBA'
                   className={css`
-                    margin-top: 75px;
+
                     color: purple;
                   `}
                 >
