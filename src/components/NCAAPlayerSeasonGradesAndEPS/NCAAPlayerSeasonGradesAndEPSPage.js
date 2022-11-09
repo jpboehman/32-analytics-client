@@ -13,7 +13,7 @@ import ScrollToTop from '../../common/scroll/SrollToTop';
 // TODO: Add images to background of text content
 export const NCAAPlayerSeasonGradesAndEPSPage = () => {
 	const [ ncaaPlayerRatings, setNCAAPlayerRatings ] = useState([]);
-	const currentUser = useSelector((state) => state.currentUser.payload);
+	const currentUser = useSelector((state) => state.currentUser?.payload);
 	useEffect(() => {
 		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
 		Papa.parse(
