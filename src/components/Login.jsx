@@ -79,23 +79,15 @@ export const Login = () => {
     >
       <div
         className={css`
-          padding: 20px;
-          font-size: 40px;
-          @media only screen and (max-width: 900px) {
-            font-size: 20px;
-            padding: 5px;
-          }
-          @media only screen and (max-width: 600px) {
-            font-size: 18px;
-            padding: 3px;
-          }
-          @media only screen and (max-width: 480px) {
-            font-size: 13px;
-            padding: 2px;
-          }
+          margin-top: 50px;
+          padding: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: center;
         `}
       >
-        <Card title={`Login`}>
+        <Card title={Login}>
           <Form
             onSubmit={handleLogin}
             ref={form}
@@ -104,7 +96,14 @@ export const Login = () => {
             layout='vertical'
             size='default'
           >
-            <div className='form-group'>
+            <div
+              className={css`
+                width: 500px;
+                margin: 20px;
+                @media only screen and (max-width: 500px) {
+                  width: 350px;
+              `}
+            >
               <label
                 htmlFor='username'
                 className={css`
@@ -124,7 +123,14 @@ export const Login = () => {
               />
             </div>
 
-            <div className='form-group'>
+            <div
+              className={css`
+                width: 500px;
+                margin: 20px;
+                @media only screen and (max-width: 500px) {
+                  width: 350px;
+              `}
+            >
               <label
                 htmlFor='password'
                 className={css`
@@ -144,7 +150,15 @@ export const Login = () => {
               />
             </div>
 
-            <div className='form-group'>
+            <div
+              className={css`
+                width: 500px;
+                margin: 20px;
+        
+                @media only screen and (max-width: 500px) {
+                  width: 350px;
+              `}
+            >
               <button className='btn btn-primary btn-block' disabled={loading}>
                 {loading && (
                   <span className='spinner-border spinner-border-sm' />
@@ -152,21 +166,9 @@ export const Login = () => {
                 <span>Login</span>
               </button>
             </div>
-
-            {message && (
-              <div className='form-group'>
-                <div className='alert alert-danger' role='alert'>
-                  {!currentUser ? message : 'something went wrong'}
-                </div>
-              </div>
-            )}
-
-            <CheckButton style={{ display: 'none' }} ref={checkBtn} />
-          </Form>
-        </Card>
-      </div>
-      <Footer />
-    </div>
+            </Form>
+            </Card>
+            </div>
   );
 };
 
