@@ -149,7 +149,7 @@ const App = () => {
                     </Menu.Item>
                   </NavLink>
                 </Menu.ItemGroup>
-                <span>NCAA Statistics And Grades</span>
+                <span className={css`margin-top: 10px;`}>NCAA Statistics And Grades</span>
                 <Menu.ItemGroup key='NCAA'>
                   <NavLink to='/ncaa-player-season-grades-eps'>
                     <Menu.Item key='ncaaPlayer'>
