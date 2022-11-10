@@ -235,7 +235,7 @@ const OurMission = () => {
 					</Card>
 					<Card title="Efficient Production Score Spread" className={css`width: 25%;`}>
 						<img
-							src={require('../../../assets/NBA_Brooklyn.jpeg')}
+							src={require('../../../assets/Booker_Paul.jpeg')}
 							style={{ maxWidth: 200, marginRight: 10 }}
 						/>
 						<Divider />
