@@ -52,7 +52,7 @@ export const Login = () => {
 
     form.current.validateAll();
 
-    if (checkBtn.current?.context._errors.length === 0) {
+    if (checkBtn.current.context._errors.length === 0) {
       login(dispatch, { username, password });
       if (currentUser) {
         setLoading(false);
