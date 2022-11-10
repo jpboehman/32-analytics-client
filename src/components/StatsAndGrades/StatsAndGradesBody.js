@@ -85,7 +85,7 @@ export const StatsAndGradesBody = () => {
 					<Typography.Text>{efficientProductionScoreDescription}</Typography.Text>
 				</Card>
 				<Card title="Efficient Production Score Spread" style={{ width: 350 }}>
-					<img src={require('../../assets/NBA_Brooklyn.jpeg')} style={{ maxWidth: 280, marginRight: 10 }} />
+					<img src={require('../../assets/Booker_Paul.jpeg')} style={{ maxWidth: 280, marginRight: 10 }} />
 					<Divider />
 					<Typography.Text>{efficientProductionScoreSpreadDescription}</Typography.Text>
 				</Card>
