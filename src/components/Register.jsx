@@ -125,7 +125,6 @@ function Register() {
 			/>
 			<div
 				className={css`
-					margin-top: 50px;
 					padding: 50px;
 					display: flex;
 					justify-content: center;
