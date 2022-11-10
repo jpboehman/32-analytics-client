@@ -120,7 +120,7 @@ function Register() {
 					height: '100px',
 					width: '100px',
 					objectFit: 'cover',
-					marginLeft: '50%'
+					marginLeft: '50%',
 					marginTop: 20,
 				}}
 			/>
