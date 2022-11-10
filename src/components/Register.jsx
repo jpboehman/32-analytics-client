@@ -106,7 +106,7 @@ function Register() {
 				}
 			}
 		};
-		checkBtn?.current?.context?._errors?.length === 0 && register();
+		checkBtn.current.context._errors.length === 0 && register();
 	};
 
 	return (
