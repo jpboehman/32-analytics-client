@@ -112,6 +112,17 @@ function Register() {
 
 	return (
 		<div className="col-md-12">
+			<img
+				src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+				alt="profile-img"
+				style={{
+					marginTop: '100px',
+					height: '100px',
+					width: '100px',
+					objectFit: 'cover',
+					marginLeft: '40%'
+				}}
+			/>
 			<div
 				className={css`
 					margin-top: 50px;
@@ -122,18 +133,6 @@ function Register() {
 					margin-bottom: center;
 				`}
 			>
-				<img
-					src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-					alt="profile-img"
-					style={{
-						marginTop: '100px',
-						height: '100px',
-						width: '100px',
-						objectFit: 'cover',
-						marginLeft: '40%'
-					}}
-				/>
-
 				<Card title={Register}>
 					<Form onSubmit={handleRegister} ref={form}>
 						<div>
