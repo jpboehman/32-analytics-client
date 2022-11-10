@@ -106,15 +106,19 @@ function Register() {
 				}
 			}
 		};
-		checkBtn.current.context._errors.length === 0 && register();
+		checkBtn?.current?.context?._errors?.length === 0 && register();
 	};
 
 	return (
 		<div className="col-md-12">
 			<div
 				className={css`
-					margin-left: 400px;
-					margin-right: 400px;
+					margin-top: 50px;
+					padding: 50px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-bottom: center;
 				`}
 			>
 				<img
@@ -129,57 +133,59 @@ function Register() {
 					}}
 				/>
 
-				<Form onSubmit={handleRegister} ref={form}>
-					<div>
-						<div className="form-group">
-							<label htmlFor="username">Username</label>
-							<Input
-								type="text"
-								className="form-control"
-								name="username"
-								value={username}
-								onChange={onChangeUsername}
-								validations={[ required, vusername ]}
-							/>
-						</div>
+				<Card title={Register}>
+					<Form onSubmit={handleRegister} ref={form}>
+						<div>
+							<div className="form-group">
+								<label htmlFor="username">Username</label>
+								<Input
+									type="text"
+									className="form-control"
+									name="username"
+									value={username}
+									onChange={onChangeUsername}
+									validations={[ required, vusername ]}
+								/>
+							</div>
 
-						<div className="form-group">
-							<label htmlFor="email">Email</label>
-							<Input
-								type="text"
-								className="form-control"
-								name="email"
-								value={email}
-								onChange={onChangeEmail}
-								validations={[ required, validEmail ]}
-							/>
-						</div>
+							<div className="form-group">
+								<label htmlFor="email">Email</label>
+								<Input
+									type="text"
+									className="form-control"
+									name="email"
+									value={email}
+									onChange={onChangeEmail}
+									validations={[ required, validEmail ]}
+								/>
+							</div>
 
-						<div className="form-group">
-							<label htmlFor="password">Password</label>
-							<Input
-								type="password"
-								className="form-control"
-								name="password"
-								value={password}
-								onChange={onChangePassword}
-								validations={[ required, vpassword ]}
-							/>
-						</div>
+							<div className="form-group">
+								<label htmlFor="password">Password</label>
+								<Input
+									type="password"
+									className="form-control"
+									name="password"
+									value={password}
+									onChange={onChangePassword}
+									validations={[ required, vpassword ]}
+								/>
+							</div>
 
-						<div className="form-group">
-							<button className="btn btn-primary btn-block">Sign Up</button>
-						</div>
-					</div>
-					{message && (
-						<div className="form-group">
-							<div className={successful ? 'alert alert-success' : 'alert alert-danger'} role="alert">
-								{message}
+							<div className="form-group">
+								<button className="btn btn-primary btn-block">Sign Up</button>
 							</div>
 						</div>
-					)}
-					<CheckButton style={{ display: 'none' }} ref={checkBtn} />
-				</Form>
+						{message && (
+							<div className="form-group">
+								<div className={successful ? 'alert alert-success' : 'alert alert-danger'} role="alert">
+									{message}
+								</div>
+							</div>
+						)}
+						<CheckButton style={{ display: 'none' }} ref={checkBtn} />
+					</Form>
+				</Card>
 			</div>
 		</div>
 	);
