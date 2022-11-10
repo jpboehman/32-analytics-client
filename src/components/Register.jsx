@@ -117,11 +117,10 @@ function Register() {
 				alt="profile-img"
 				className="profile-img-card"
 				style={{
-					height: '100px',
+					paddingTop: 20,
 					width: '100px',
 					objectFit: 'cover',
-					marginLeft: '50%',
-					marginTop: 20,
+					marginLeft: '50%'
 				}}
 			/>
 
