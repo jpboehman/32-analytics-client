@@ -112,18 +112,6 @@ function Register() {
 
 	return (
 		<div>
-			<img
-				src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-				alt="profile-img"
-				className="profile-img-card"
-				style={{
-					paddingTop: 20,
-					width: '100px',
-					objectFit: 'cover',
-					marginLeft: '50%'
-				}}
-			/>
-
 			<div
 				className={css`
 					padding-top: 300px;
@@ -133,7 +121,7 @@ function Register() {
 					margin-left: 400px;
 				`}
 			>
-				<Card title={`Register`}>
+				<Card title={`Register for a 32Analytics subscription`}>
 					<Form
 						onSubmit={handleRegister}
 						ref={form}
@@ -193,6 +181,7 @@ function Register() {
 					</Form>
 				</Card>
 			</div>
+			<Footer />
 		</div>
 	);
 }
