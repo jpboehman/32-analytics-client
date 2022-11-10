@@ -7,6 +7,8 @@ import { generalRequest } from '../services/httpService';
 import { Card } from 'antd';
 import { css } from '@emotion/css';
 
+import Footer from './common/static/Footer';
+
 const required = (value) => {
 	if (!value) {
 		return (
