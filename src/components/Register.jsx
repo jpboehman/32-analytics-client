@@ -3,6 +3,7 @@ import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 import { css } from '@emotion/css';
+import { Card } from 'antd';
 import { isEmail } from 'validator';
 import { generalRequest } from '../services/httpService';
 
