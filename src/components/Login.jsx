@@ -94,6 +94,7 @@ export const Login = () => {
             // wrapperCol={{ span: 14 }}
             layout='vertical'
             size='default'
+            className={css`margin-bottom: 15px;`}
           >
             <div className='form-group'>
               <label

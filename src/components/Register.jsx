@@ -4,6 +4,8 @@ import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 import { isEmail } from 'validator';
 import { generalRequest } from '../services/httpService';
+import { Card } from 'antd';
+import { css } from '@emotion/css';
 
 const required = (value) => {
 	if (!value) {
@@ -123,57 +125,65 @@ function Register() {
 					}}
 				/>
 
-				<Form onSubmit={handleRegister} ref={form}>
-					<div>
-						<div className="form-group">
-							<label htmlFor="username">Username</label>
-							<Input
-								type="text"
-								className="form-control"
-								name="username"
-								value={username}
-								onChange={onChangeUsername}
-								validations={[ required, vusername ]}
-							/>
-						</div>
+				<Card title={`Register`}>
+					<Form
+						onSubmit={handleRegister}
+						ref={form}
+						layout="vertical"
+						size="default"
+						className={css`margin-bottom: 15px;`}
+					>
+						<div>
+							<div className="form-group">
+								<label htmlFor="username">Username</label>
+								<Input
+									type="text"
+									className="form-control"
+									name="username"
+									value={username}
+									onChange={onChangeUsername}
+									validations={[ required, vusername ]}
+								/>
+							</div>
 
-						<div className="form-group">
-							<label htmlFor="email">Email</label>
-							<Input
-								type="text"
-								className="form-control"
-								name="email"
-								value={email}
-								onChange={onChangeEmail}
-								validations={[ required, validEmail ]}
-							/>
-						</div>
+							<div className="form-group">
+								<label htmlFor="email">Email</label>
+								<Input
+									type="text"
+									className="form-control"
+									name="email"
+									value={email}
+									onChange={onChangeEmail}
+									validations={[ required, validEmail ]}
+								/>
+							</div>
 
-						<div className="form-group">
-							<label htmlFor="password">Password</label>
-							<Input
-								type="password"
-								className="form-control"
-								name="password"
-								value={password}
-								onChange={onChangePassword}
-								validations={[ required, vpassword ]}
-							/>
-						</div>
+							<div className="form-group">
+								<label htmlFor="password">Password</label>
+								<Input
+									type="password"
+									className="form-control"
+									name="password"
+									value={password}
+									onChange={onChangePassword}
+									validations={[ required, vpassword ]}
+								/>
+							</div>
 
-						<div className="form-group">
-							<button className="btn btn-primary btn-block">Sign Up</button>
-						</div>
-					</div>
-					{message && (
-						<div className="form-group">
-							<div className={successful ? 'alert alert-success' : 'alert alert-danger'} role="alert">
-								{message}
+							<div className="form-group">
+								<button className="btn btn-primary btn-block">Sign Up</button>
 							</div>
 						</div>
-					)}
-					<CheckButton style={{ display: 'none' }} ref={checkBtn} />
-				</Form>
+						{message && (
+							<div className="form-group">
+								<div className={successful ? 'alert alert-success' : 'alert alert-danger'} role="alert">
+									{message}
+								</div>
+							</div>
+						)}
+						<CheckButton style={{ display: 'none' }} ref={checkBtn} />
+					</Form>
+				</Card>
 			</div>
 		</div>
 	);
