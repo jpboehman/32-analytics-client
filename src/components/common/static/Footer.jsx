@@ -7,6 +7,7 @@ import { FcPhone } from 'react-icons/fc';
 import { MdAlternateEmail } from 'react-icons/md';
 import { Link, useNavigate } from 'react-router-dom';
 import image from '../../../assets/hardwood3chop.jpeg';
+import Typography from 'antd/lib/typography/Typography';
 
 const Container = styled.div`
 	display: flex;
@@ -166,13 +167,7 @@ const Footer = () => {
 			<Right>
 				<Title>Contact</Title>
 				<ContactItem>
-					<ImLocation style={{ marginRight: '10px' }} /> New York, New York
-				</ContactItem>
-				<ContactItem>
-					<FcPhone style={{ marginRight: '10px' }} /> +1 123 1234 123
-				</ContactItem>
-				<ContactItem>
-					<MdAlternateEmail style={{ marginRight: '10px' }} /> 32analytics@gmail.com
+					<Typography>32analytics@gmail.com</Typography>
 				</ContactItem>
 				<Button onClick={handleClick}>Subcribe</Button>
 			</Right>
