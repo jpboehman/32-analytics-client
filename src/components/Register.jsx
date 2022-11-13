@@ -116,7 +116,7 @@ function Register() {
 		<div>
 			<div
 				className={css`
-					padding: 10px;
+					padding: 20px;
 					display: flex;
 					justify-content: center;
 					align-items: center;
