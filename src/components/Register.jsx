@@ -116,11 +116,9 @@ function Register() {
 		<div>
 			<div
 				className={css`
-					padding-top: 300px;
-					padding-right: 300px;
-					padding-left: 300px;
-					margin-right: 400px;
-					margin-left: 400px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
 				`}
 			>
 				<Card title={`Register for a 32Analytics subscription`}>
