@@ -79,7 +79,8 @@ export const Login = () => {
     >
       <div
         className={css`
-          display: flex;
+            padding: 10px;
+            display: flex;
             justify-content: center;
             align-items: center;
         `}
