@@ -7,6 +7,7 @@ import SubscribeToday from '../common/static/SubscribeToday';
 import PlayerSeasonGradesDesc from '../common/static/PlayerSeasonGradesDesc';
 import Footer from '../common/static/Footer';
 import { useSelector } from 'react-redux';
+import chosenYear from '../common/static/statisticalSeasons'
 import Datatable5 from '../dataTables/5/Datatable5';
 import ScrollToTop from '../../common/scroll/SrollToTop';
 
@@ -88,8 +89,6 @@ export const NCAAPlayerSeasonGradesAndEPSPage = () => {
 		);
 	};
 
-	console.log(selectedYear)
-
 	return (
 		<div className={css`padding: 10px;`}>
 			<Background />
@@ -106,14 +105,5 @@ export const NCAAPlayerSeasonGradesAndEPSPage = () => {
 	);
 };
 
-// Evum for filtering on seasons
-const chosenYear = {
-	20172018: '2017-2018',
-	20182019: '2018-2019',
-	20192020: '2019-2020',
-	20202021: '2020-2021',
-	20212022: '2021-2022',
-	20222023: '2022-2023',
-}
 
 export default NCAAPlayerSeasonGradesAndEPSPage;
