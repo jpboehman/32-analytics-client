@@ -3,24 +3,30 @@ import Papa from 'papaparse';
 import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { v4 as uuidv4 } from 'uuid';
+import SmallLoader from '../../common/Loaders/SmallLoader';
 
 const Datatable = ({ selectedSeason }) => {
 	const [ nbaPlayerRatings, setNBAPlayerRatings ] = useState([]);
+	const [ isLoading, setIsLoading ] = useState(false);
 	const seasonUrl = mapSeasonUrl(selectedSeason);
-	useEffect(() => {
-		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
-		Papa.parse(seasonUrl, {
-			download: true,
-			header: true,
-			complete: (results) => {
-				if (results.data.length > 100) {
-					setNBAPlayerRatings(results.data.slice(0, 100));
-				} else {
-					setNBAPlayerRatings(results.data);
+	useEffect(
+		() => {
+			setIsLoading(true);
+			Papa.parse(seasonUrl, {
+				download: true,
+				header: true,
+				complete: (results) => {
+					if (results.data.length > 100) {
+						setNBAPlayerRatings(results.data.slice(0, 100));
+					} else {
+						setNBAPlayerRatings(results.data);
+					}
 				}
-			}
-		});
-	}, [seasonUrl]);
+			});
+			setIsLoading(false);
+		},
+		[ seasonUrl ]
+	);
 
 	const columns = [
 		{ field: 'PLAYER', headerName: 'PLAYER', width: 200 },
@@ -38,17 +44,23 @@ const Datatable = ({ selectedSeason }) => {
 		{ field: 'BLK', headerName: 'BLK', width: 100 }
 	];
 	return (
-		<div className="datatable">
-			<DataGrid
-				className="datagrid"
-				rows={nbaPlayerRatings}
-				columns={columns}
-				getRowId={(nbaPlayerRatings) => uuidv4(nbaPlayerRatings)}
-				pageSize={10}
-				rowsPerPageOptions={[ 10 ]}
-				disableSelectionOnClick
-				style={{ background: '#eee', fontWeight: 600, color: 'black' }}
-			/>
+		<div>
+			{isLoading ? (
+				<SmallLoader />
+			) : (
+				<div className="datatable">
+					<DataGrid
+						className="datagrid"
+						rows={nbaPlayerRatings}
+						columns={columns}
+						getRowId={(nbaPlayerRatings) => uuidv4(nbaPlayerRatings)}
+						pageSize={10}
+						rowsPerPageOptions={[ 10 ]}
+						disableSelectionOnClick
+						style={{ background: '#eee', fontWeight: 600, color: 'black' }}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };

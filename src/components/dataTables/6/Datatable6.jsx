@@ -3,15 +3,16 @@ import Papa from 'papaparse';
 import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { v4 as uuidv4 } from 'uuid';
+import SmallLoader from '../../common/Loaders/SmallLoader';
 
 const Datatable = ({ selectedSeason }) => {
 	const [ ncaaTeamEpss, setNcaaTeamEpss ] = useState([]);
+	const [ isLoading, setIsLoading ] = useState(false);
 	const seasonUrl = mapSeasonUrl(selectedSeason);
-	useEffect(() => {
-		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
-		Papa.parse(
-			seasonUrl,
-			{
+	useEffect(
+		() => {
+			setIsLoading(true);
+			Papa.parse(seasonUrl, {
 				download: true,
 				header: true,
 				complete: (results) => {
@@ -21,9 +22,11 @@ const Datatable = ({ selectedSeason }) => {
 						setNcaaTeamEpss(results.data);
 					}
 				}
-			}
-		);
-	}, [seasonUrl]);
+			});
+			setIsLoading(false);
+		},
+		[ seasonUrl ]
+	);
 
 	const columns = [
 		{ field: 'School', headerName: 'SCHOOL', width: 200 },
@@ -43,17 +46,23 @@ const Datatable = ({ selectedSeason }) => {
 		{ field: 'Tm TOV', headerName: 'Tm TOV', width: 100 }
 	];
 	return (
-		<div className="datatable">
-			<DataGrid
-				className="datagrid"
-				rows={ncaaTeamEpss}
-				columns={columns}
-				getRowId={(ncaaTeamEpss) => uuidv4(ncaaTeamEpss)}
-				pageSize={10}
-				rowsPerPageOptions={[ 10 ]}
-				disableSelectionOnClick
-				style={{ background: '#eee', fontWeight: 600, color: 'black' }}
-			/>
+		<div>
+			{isLoading ? (
+				<SmallLoader />
+			) : (
+				<div className="datatable">
+					<DataGrid
+						className="datagrid"
+						rows={ncaaTeamEpss}
+						columns={columns}
+						getRowId={(ncaaTeamEpss) => uuidv4(ncaaTeamEpss)}
+						pageSize={10}
+						rowsPerPageOptions={[ 10 ]}
+						disableSelectionOnClick
+						style={{ background: '#eee', fontWeight: 600, color: 'black' }}
+					/>
+				</div>
+			)}
 		</div>
 	);
 };
@@ -83,8 +92,7 @@ const ncaaTeamEPSSUrls = {
 	2020: 'https://docs.google.com/spreadsheets/d/11oKug1LY1DuVuui3HyXwq44blRyAClLOdekXuuv3aWg/pub?gid=827193655&single=true&output=csv',
 	2019: 'https://docs.google.com/spreadsheets/d/11oKug1LY1DuVuui3HyXwq44blRyAClLOdekXuuv3aWg/pub?gid=1908155642&single=true&output=csv',
 	2018: 'https://docs.google.com/spreadsheets/d/11oKug1LY1DuVuui3HyXwq44blRyAClLOdekXuuv3aWg/pub?gid=2022840876&single=true&output=csv',
-	2017: 'https://docs.google.com/spreadsheets/d/11oKug1LY1DuVuui3HyXwq44blRyAClLOdekXuuv3aWg/pub?gid=334024478&single=true&output=csv',
+	2017: 'https://docs.google.com/spreadsheets/d/11oKug1LY1DuVuui3HyXwq44blRyAClLOdekXuuv3aWg/pub?gid=334024478&single=true&output=csv'
 };
-
 
 export default Datatable;

@@ -8,26 +8,26 @@ import SmallLoader from '../../common/Loaders/SmallLoader';
 const Datatable = ({ selectedSeason }) => {
 	const [ nbaExpectedWins, setNbaExpectedWins ] = useState([]);
 	const seasonUrl = mapSeasonUrl(selectedSeason);
-	 const [isLoading, setIsLoading ] = useState(false);
-  useEffect(() => {
-    setIsLoading(true)
-    // Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
-    Papa.parse(
-      seasonUrl,
-      {
-        download: true,
-        header: true,
-        complete: (results) => {
-          if (results.data.length > 100) {
-            setNbaExpectedWins(results.data.slice(0, 100));
-          } else {
-            setNbaExpectedWins(results.data);
-          }
-        },
-      }
-    );
-    setIsLoading(false);
-  }, [seasonUrl]);
+	const [ isLoading, setIsLoading ] = useState(false);
+	useEffect(
+		() => {
+			setIsLoading(true);
+			// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
+			Papa.parse(seasonUrl, {
+				download: true,
+				header: true,
+				complete: (results) => {
+					if (results.data.length > 100) {
+						setNbaExpectedWins(results.data.slice(0, 100));
+					} else {
+						setNbaExpectedWins(results.data);
+					}
+				}
+			});
+			setIsLoading(false);
+		},
+		[ seasonUrl ]
+	);
 
 	const columns = [
 		{ field: 'Team', headerName: 'TEAM', width: 200 },
@@ -44,43 +44,47 @@ const Datatable = ({ selectedSeason }) => {
 	];
 
 	return (
-		<>
-		{isLoading ? <SmallLoader /> : <div className="datatable">
-			<DataGrid
-				className="datagrid"
-				rows={nbaExpectedWins}
-				columns={columns}
-				getRowId={(nbaExpectedWins) => uuidv4(nbaExpectedWins)}
-				pageSize={10}
-				rowsPerPageOptions={[ 10 ]}
-				disableSelectionOnClick
-				style={{ background: '#eee', fontWeight: 600, color: 'black' }}
-			/>
-		</div>}
-		</>
+		<div>
+			{isLoading ? (
+				<SmallLoader />
+			) : (
+				<div className="datatable">
+					<DataGrid
+						className="datagrid"
+						rows={nbaExpectedWins}
+						columns={columns}
+						getRowId={(nbaExpectedWins) => uuidv4(nbaExpectedWins)}
+						pageSize={10}
+						rowsPerPageOptions={[ 10 ]}
+						disableSelectionOnClick
+						style={{ background: '#eee', fontWeight: 600, color: 'black' }}
+					/>
+				</div>
+			)}
+		</div>
 	);
 };
 
 const mapSeasonUrl = (season) => {
 	switch (season) {
 		case '2022-2023':
-			return nbaPlayerGradesAndEPSUrls[2022];
+			return nbaExpectedWinsUrls[2022];
 		case '2021-2022':
-			return nbaPlayerGradesAndEPSUrls[2021];
+			return nbaExpectedWinsUrls[2021];
 		case '2020-2021':
-			return nbaPlayerGradesAndEPSUrls[2020];
+			return nbaExpectedWinsUrls[2020];
 		case '2019-2020':
-			return nbaPlayerGradesAndEPSUrls[2019];
+			return nbaExpectedWinsUrls[2019];
 		case '2018-2019':
-			return nbaPlayerGradesAndEPSUrls[2018];
+			return nbaExpectedWinsUrls[2018];
 		case '2017-2018':
-			return nbaPlayerGradesAndEPSUrls[2017];
+			return nbaExpectedWinsUrls[2017];
 		default:
-			return nbaPlayerGradesAndEPSUrls[2022];
+			return nbaExpectedWinsUrls[2022];
 	}
 };
 
-const nbaPlayerGradesAndEPSUrls = {
+const nbaExpectedWinsUrls = {
 	2022: 'https://docs.google.com/spreadsheets/d/1agjPAvpjw0EGOKZURP_gK-tYV1dtKmxxRPlr8eyydgQ/pub?gid=42602509&single=true&output=csv',
 	2021: 'https://docs.google.com/spreadsheets/d/1agjPAvpjw0EGOKZURP_gK-tYV1dtKmxxRPlr8eyydgQ/pub?gid=0&single=true&output=csv',
 	2020: 'https://docs.google.com/spreadsheets/d/1agjPAvpjw0EGOKZURP_gK-tYV1dtKmxxRPlr8eyydgQ/pub?gid=1712098413&single=true&output=csv',

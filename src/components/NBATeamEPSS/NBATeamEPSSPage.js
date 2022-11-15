@@ -18,7 +18,6 @@ export const NBATeamEPSSPage = () => {
 	const [ selectedYear, setSelectedYear ] = useState(chosenYear[20222023])
 	const currentUser = useSelector((state) => state.currentUser?.payload);
 	useEffect(() => {
-		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
 		Papa.parse(
 			'https://docs.google.com/spreadsheets/d/1rhrtbW6Sgc8VOBK0OkTsCGl4ridKuEewc4BL-6VVYyE/pub?output=csv',
 			{
