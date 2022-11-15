@@ -3,30 +3,31 @@ import Papa from 'papaparse';
 import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { v4 as uuidv4 } from 'uuid';
+import SmallLoader from '../../common/Loaders/SmallLoader';
 
 const Datatable = ({ selectedSeason }) => {
 	const [ nbaExpectedWins, setNbaExpectedWins ] = useState([]);
 	const seasonUrl = mapSeasonUrl(selectedSeason);
-	useEffect(
-		() => {
-			// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
-			Papa.parse(
-				seasonUrl,
-				{
-					download: true,
-					header: true,
-					complete: (results) => {
-						if (results.data.length > 100) {
-							setNbaExpectedWins(results.data.slice(0, 100));
-						} else {
-							setNbaExpectedWins(results.data);
-						}
-					}
-				}
-			);
-		},
-		[ seasonUrl ]
-	);
+	 const [isLoading, setIsLoading ] = useState(false);
+  useEffect(() => {
+    setIsLoading(true)
+    // Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
+    Papa.parse(
+      seasonUrl,
+      {
+        download: true,
+        header: true,
+        complete: (results) => {
+          if (results.data.length > 100) {
+            setNbaExpectedWins(results.data.slice(0, 100));
+          } else {
+            setNbaExpectedWins(results.data);
+          }
+        },
+      }
+    );
+    setIsLoading(false);
+  }, [seasonUrl]);
 
 	const columns = [
 		{ field: 'Team', headerName: 'TEAM', width: 200 },
@@ -43,7 +44,8 @@ const Datatable = ({ selectedSeason }) => {
 	];
 
 	return (
-		<div className="datatable">
+		<>
+		{isLoading ? <SmallLoader /> : <div className="datatable">
 			<DataGrid
 				className="datagrid"
 				rows={nbaExpectedWins}
@@ -54,7 +56,8 @@ const Datatable = ({ selectedSeason }) => {
 				disableSelectionOnClick
 				style={{ background: '#eee', fontWeight: 600, color: 'black' }}
 			/>
-		</div>
+		</div>}
+		</>
 	);
 };
 

@@ -3,11 +3,14 @@ import Papa from 'papaparse';
 import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { v4 as uuidv4 } from 'uuid';
+import SmallLoader from '../../common/Loaders/SmallLoader';
 
 const Datatable = ({ selectedSeason }) => {
   const [ncaaExpectedWins, setNcaaExpectedWins] = useState([]);
   const seasonUrl = mapSeasonUrl(selectedSeason);
+  const [isLoading, setIsLoading ] = useState(false);
   useEffect(() => {
+    setIsLoading(true)
     // Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
     Papa.parse(
       seasonUrl,
@@ -23,7 +26,8 @@ const Datatable = ({ selectedSeason }) => {
         },
       }
     );
-  }, []);
+    setIsLoading(false);
+  }, [seasonUrl]);
 
   const columns = [
     { field: 'School', headerName: 'SCHOOL', width: 200 },
@@ -39,7 +43,8 @@ const Datatable = ({ selectedSeason }) => {
     { field: 'Actual Win %', headerName: 'ACTUAL WIN %', width: 100 },
   ];
   return (
-    <div className='datatable'>
+    <>
+    {isLoading ? <SmallLoader /> : <div className='datatable'>
       <DataGrid
         className='datagrid'
         rows={ncaaExpectedWins}
@@ -50,7 +55,8 @@ const Datatable = ({ selectedSeason }) => {
         disableSelectionOnClick
         style={{ background: '#eee', fontWeight: 600, color: 'black' }}
       />
-    </div>
+    </div>}
+    </>
   );
 };
 
