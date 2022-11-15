@@ -17,13 +17,13 @@ const { Title } = Typography;
 // TODO: Add images to background of text content
 export const NBAExpectedWinsPage = () => {
 	const [ nbaExpectedWins, setNbaExpectedWins ] = useState([]);
-	const [ selectedYear, setSelectedYear ] = useState(chosenYear[20222023])
+	const [selectedYear, setSelectedYear] = useState(chosenYear[20222023])
 
 	const currentUser = useSelector((state) => state.currentUser?.payload);
 	useEffect(() => {
 		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
 		Papa.parse(
-			selectedYear,
+			'https://docs.google.com/spreadsheets/d/1agjPAvpjw0EGOKZURP_gK-tYV1dtKmxxRPlr8eyydgQ/pub?output=csv',
 			{
 				download: true,
 				header: true,

@@ -10,17 +10,20 @@ const Datatable = ({ selectedSeason }) => {
 	useEffect(
 		() => {
 			// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
-			Papa.parse(seasonUrl, {
-				download: true,
-				header: true,
-				complete: (results) => {
-					if (results.data.length > 100) {
-						setNbaExpectedWins(results.data.slice(0, 100));
-					} else {
-						setNbaExpectedWins(results.data);
+			Papa.parse(
+				seasonUrl,
+				{
+					download: true,
+					header: true,
+					complete: (results) => {
+						if (results.data.length > 100) {
+							setNbaExpectedWins(results.data.slice(0, 100));
+						} else {
+							setNbaExpectedWins(results.data);
+						}
 					}
 				}
-			});
+			);
 		},
 		[ seasonUrl ]
 	);
@@ -67,7 +70,7 @@ const mapSeasonUrl = (season) => {
 			return nbaPlayerGradesAndEPSUrls[2019];
 		case '2018-2019':
 			return nbaPlayerGradesAndEPSUrls[2018];
-		case '2017-2019':
+		case '2017-2018':
 			return nbaPlayerGradesAndEPSUrls[2017];
 		default:
 			return nbaPlayerGradesAndEPSUrls[2022];
@@ -80,7 +83,7 @@ const nbaPlayerGradesAndEPSUrls = {
 	2020: 'https://docs.google.com/spreadsheets/d/1agjPAvpjw0EGOKZURP_gK-tYV1dtKmxxRPlr8eyydgQ/pub?gid=1712098413&single=true&output=csv',
 	2019: 'https://docs.google.com/spreadsheets/d/1agjPAvpjw0EGOKZURP_gK-tYV1dtKmxxRPlr8eyydgQ/pub?gid=1001954197&single=true&output=csv',
 	2018: 'https://docs.google.com/spreadsheets/d/1agjPAvpjw0EGOKZURP_gK-tYV1dtKmxxRPlr8eyydgQ/pub?gid=550998690&single=true&output=csv',
-	2017: 'https://docs.google.com/spreadsheets/d/1agjPAvpjw0EGOKZURP_gK-tYV1dtKmxxRPlr8eyydgQ/pub?gid=1575698862&single=true&output=csv',
+	2017: 'https://docs.google.com/spreadsheets/d/1agjPAvpjw0EGOKZURP_gK-tYV1dtKmxxRPlr8eyydgQ/pub?gid=1575698862&single=true&output=csv'
 };
 
 export default Datatable;

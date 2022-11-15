@@ -6,15 +6,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 const Datatable = ({ selectedSeason }) => {
 	const [ ncaaPlayerRatings, setNCAAPlayerRatings ] = useState([]);
-  console.log(selectedSeason);
 	const seasonUrl = mapSeasonUrl(selectedSeason);
-  console.log(seasonUrl);
 
 	useEffect(() => {
-		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
-
 		Papa.parse(
-			// Changed this - fix more after walk!
 			seasonUrl,
 			{
 				download: true,
@@ -75,7 +70,7 @@ const mapSeasonUrl = (season) => {
 			return ncaaPlayerGradesAndEPSUrls[2019];
 		case '2018-2019':
 			return ncaaPlayerGradesAndEPSUrls[2018];
-		case '2017-2019':
+		case '2017-2018':
 			return ncaaPlayerGradesAndEPSUrls[2017];
 		default:
 			return ncaaPlayerGradesAndEPSUrls[2022];
