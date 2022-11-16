@@ -26,11 +26,7 @@ export const NCAAExpectedWinsPage = () => {
 				download: true,
 				header: true,
 				complete: (results) => {
-					if (results.data.length > 100) {
-						setNcaaExpectedWins(results.data.slice(0, 100));
-					} else {
-						setNcaaExpectedWins(results.data);
-					}
+					setNcaaExpectedWins(results.data);
 				}
 			}
 		);
@@ -82,8 +78,6 @@ export const NCAAExpectedWinsPage = () => {
 				<Typography.Title
 					level={1}
 					style={{
-						display: 'flex',
-						justifyContent: 'center',
 						marginBotttom: 5,
 						color: 'white'
 					}}

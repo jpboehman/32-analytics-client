@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import Papa from 'papaparse';
 import SmallLoader from '../common/Loaders/SmallLoader';
 import SubscribeToday from '../common/static/SubscribeToday';
-import PlayerSeasonGradesDesc from '../common/static/PlayerSeasonGradesDesc';
+import TeamEPSSDesc from '../common/static/TeamEPSSDesc';
 import Footer from '../common/static/Footer';
 import Datatable6 from '../dataTables/6/Datatable6';
 import chosenYear from '../common/static/statisticalSeasons';
@@ -13,8 +13,8 @@ import ScrollToTop from '../../common/scroll/SrollToTop';
 
 // TODO: Add images to background of text content
 export const NCAATeamEPSSPage = () => {
-	const [ ncaaTeamEpss, setNcaaTeamEpss ] = useState([]);
-	const [ selectedYear, setSelectedYear ] = useState(chosenYear[20222023]);
+	const [ncaaTeamEpss, setNcaaTeamEpss] = useState([]);
+	const [selectedYear, setSelectedYear] = useState(chosenYear[20222023]);
 	const currentUser = useSelector((state) => state.currentUser?.payload);
 	useEffect(() => {
 		// Correctly fetches data from NBA Player Season Grades spreadsheet. Work on limiting the items returned
@@ -24,11 +24,7 @@ export const NCAATeamEPSSPage = () => {
 				download: true,
 				header: true,
 				complete: (results) => {
-					if (results.data.length > 100) {
-						setNcaaTeamEpss(results.data.slice(0, 100));
-					} else {
-						setNcaaTeamEpss(results.data);
-					}
+					setNcaaTeamEpss(results.data);
 				}
 			}
 		);
@@ -92,9 +88,9 @@ export const NCAATeamEPSSPage = () => {
 			<Background />
 			{!currentUser && <SubscribeToday />}
 			<Divider />
-			<PlayerSeasonGradesDesc leagueType="NCAA" />
+			<TeamEPSSDesc />
 			{currentUser && <SeasonSelector />}
-			{currentUser && <div>{ncaaTeamEpss.length ? <Datatable6 selectedSeason={selectedYear}/> : <SmallLoader />}</div>}
+			{currentUser && <div>{ncaaTeamEpss.length ? <Datatable6 selectedSeason={selectedYear} /> : <SmallLoader />}</div>}
 			<ScrollToTop />
 			<Footer />
 		</div>

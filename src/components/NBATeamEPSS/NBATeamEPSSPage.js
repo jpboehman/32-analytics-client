@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/css';
 
-import { Button, Card,	Layout, Divider, Menu, Typography } from 'antd';
+import { Button, Card, Divider, Menu, Typography } from 'antd';
 
 import Papa from 'papaparse';
 import SmallLoader from '../common/Loaders/SmallLoader';
@@ -24,11 +24,7 @@ export const NBATeamEPSSPage = () => {
 				download: true,
 				header: true,
 				complete: (results) => {
-					if (results.data.length > 100) {
-						setNBATeamEPSS(results.data.slice(0, 100));
-					} else {
-						setNBATeamEPSS(results.data);
-					}
+					setNBATeamEPSS(results.data);
 				}
 			}
 		);
@@ -36,8 +32,7 @@ export const NBATeamEPSSPage = () => {
 
 	const fixedHeaderText = 'NBA Team EPSS';
 
-	const SeasonSelector = () => {
-		// Place seasonMenu in a Card
+	const SeasonSelector = () => { 
 		return (
 			<div>
 				<Card title='Select season:'>
@@ -78,7 +73,7 @@ export const NBATeamEPSSPage = () => {
 					marginTop: 65
 				}}
 			>
-				<Typography.Title level={1} style={{ color: 'white', marginLeft: 20 }}>
+				<Typography.Title level={1} style={{ color: 'white' }}>
 					{fixedHeaderText}
 				</Typography.Title>
 			</div>
