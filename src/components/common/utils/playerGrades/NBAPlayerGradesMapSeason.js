@@ -10,7 +10,7 @@ const mapSeasonUrl = (season) => {
             return nbaPlayerGradesAndEPSUrls[2019];
         case '2018-2019':
             return nbaPlayerGradesAndEPSUrls[2018];
-        case '2017-2019':
+        case '2017-2018':
             return nbaPlayerGradesAndEPSUrls[2017];
         default:
             return nbaPlayerGradesAndEPSUrls[2022];
