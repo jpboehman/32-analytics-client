@@ -65,12 +65,11 @@ export const NBATeamEPSSPage = () => {
 		return (
 			<div
 				style={{
-					backgroundImage: `url(${require('../../assets/NBA_TEAM_EPSS.png')})`,
-					height: '60vh',
+					backgroundImage: `url(${require('../../assets/NbaTeamEPSSShared.jpeg')})`,
+					height: '80vh',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
-					marginTop: 65
 				}}
 			>
 				<Typography.Title level={1} style={{ color: 'white' }}>

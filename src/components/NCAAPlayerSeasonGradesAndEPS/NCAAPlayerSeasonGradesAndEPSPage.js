@@ -74,17 +74,13 @@ export const NCAAPlayerSeasonGradesAndEPSPage = () => {
 		return (
 			<div
 				style={{
-					backgroundImage: `url(${require('../../assets/NCAA_PLAYER_GRADES_EPS.png')})`,
-					height: '60vh',
+					backgroundImage: `url(${require('../../assets/NCAAPlayerSeasonGrades.jpeg')})`,
+					height: '80vh',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
-					marginTop: -50
 				}}
 			>
-				<Typography.Title level={1} style={{ color: 'white', marginLeft: 20, marginTop: 115 }}>
-					{fixedHeaderText}
-				</Typography.Title>
 			</div>
 		);
 	};

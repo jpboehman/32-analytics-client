@@ -32,7 +32,6 @@ export const NCAAExpectedWinsPage = () => {
 		);
 	}, []);
 
-	const fixedHeaderText = 'NCAA Expected Wins';
 	const SeasonSelector = () => {
 		// Place seasonMenu in a Card
 		return (
@@ -67,23 +66,14 @@ export const NCAAExpectedWinsPage = () => {
 		return (
 			<div
 				style={{
-					backgroundImage: `url(${require('../../assets/NCAA_EXPECTED_WINS.png')})`,
-					height: '50vh',
+					backgroundImage: `url(${require('../../assets/NCAAExpectedWins.jpeg')})`,
+					height: '80vh',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
 					marginTop: 65
 				}}
 			>
-				<Typography.Title
-					level={1}
-					style={{
-						marginBotttom: 5,
-						color: 'white'
-					}}
-				>
-					{fixedHeaderText}
-				</Typography.Title>
 			</div>
 		);
 	};

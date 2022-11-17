@@ -30,7 +30,6 @@ export const NCAATeamEPSSPage = () => {
 		);
 	}, []);
 
-	const fixedHeaderText = 'NCAA Team EPSS';
 	const SeasonSelector = () => {
 		// Place seasonMenu in a Card
 		return (
@@ -65,20 +64,13 @@ export const NCAATeamEPSSPage = () => {
 		return (
 			<div
 				style={{
-					backgroundImage: `url(${require('../../assets/NCAA_TEAM_EPSS.png')})`,
-					height: '60vh',
+					backgroundImage: `url(${require('../../assets/NCAATeamEPSSSpread.jpeg')})`,
+					height: '80vh',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
-					marginTop: -50
 				}}
 			>
-				<Typography.Title
-					level={1}
-					style={{ color: '#fff', marginTop: 105, display: 'flex', justifyContent: 'center' }}
-				>
-					{fixedHeaderText}
-				</Typography.Title>
 			</div>
 		);
 	};

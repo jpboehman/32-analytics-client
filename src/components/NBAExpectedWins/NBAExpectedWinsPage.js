@@ -74,17 +74,14 @@ export const NBAExpectedWinsPage = () => {
 		return (
 			<div
 				style={{
-					backgroundImage: `url(${require('../../assets/NBA_EXPECTED_WINS.png')})`,
-					height: '50vh',
+					backgroundImage: `url(${require('../../assets/NBAExpectedWins.jpeg')})`,
+					height: '70vh',
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
 					marginTop: 55
 				}}
-			>
-				<Typography.Title level={1} style={{ marginLeft: 20, marginTop: 20, color: 'white' }}>
-					{fixedHeaderText}
-				</Typography.Title>
+			>	
 			</div>
 		);
 	};

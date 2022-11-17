@@ -70,17 +70,13 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
     return (
       <div
         style={{
-          backgroundImage: `url(${require('../../assets/NBA_PLAYER_GRADES_EPS.png')})`,
-          height: '60vh',
+          backgroundImage: `url(${require('../../assets/NBAPlayerSeasonGrades.jpeg')})`,
+          height: '80vh',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          marginTop: -80,
         }}
       >
-        <Typography.Title level={1} style={{ color: 'white', marginLeft: 20, marginTop: 100, paddingTop: 15 }}>
-          {fixedHeaderText}
-        </Typography.Title>
         <Divider />
       </div>
     );

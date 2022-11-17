@@ -29,28 +29,22 @@ export function AboutUsHeader() {
 }
 
 const Background = () => {
-	const fixedHeaderText = 'Analysis Beyond the Box Score';
 	return (
 		<div
 			style={{
-				backgroundImage: `url(${require('../../../assets/StephCurrey.jpeg')})`,
-				height: '60vh',
+				backgroundImage: `url(${require('../../../assets/NBA_PLAYER_GRADES_EPS.png')})`,
+				height: '95vh',
 				backgroundPosition: 'center',
 				backgroundRepeat: 'no-repeat',
 				backgroundSize: 'cover',
-				marginTop: -50
 			}}
 		>
-			<Typography.Title level={1} style={{ color: 'white', marginTop: 100, padding: 15 }}>
-				{fixedHeaderText}
-			</Typography.Title>
 			<Divider />
 		</div>
 	);
 };
 
 const About32Analytics = () => {
-	const about32 = 'About 32 Analytics';
 	return (
 		<div style={{ textAlign: 'center', justifyContent: 'center' }}>
 			<Typography.Title
@@ -82,7 +76,6 @@ const About32Analytics = () => {
 	);
 };
 
-// Return header with image as background
 const OurFounding = () => {
 	const ourFounding = 'OUR FOUNDING';
 	const ourFoundingDescription = `32 Analytics was founded by two former managers and one former Graduate Assistant at
