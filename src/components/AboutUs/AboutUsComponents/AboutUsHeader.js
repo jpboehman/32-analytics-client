@@ -32,8 +32,8 @@ const Background = () => {
 	return (
 		<div
 			style={{
-				backgroundImage: `url(${require('../../../assets/32_Analytics_Home_Page.jpeg')})`,
-				height: '100vh',
+				backgroundImage: `url(${require('../../../assets/Home_Image.jpeg')})`,
+				height: '90vh',
 				backgroundPosition: 'center',
 				backgroundRepeat: 'no-repeat',
 				backgroundSize: 'cover',
