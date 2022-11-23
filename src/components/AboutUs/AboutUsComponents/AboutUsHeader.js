@@ -33,7 +33,7 @@ const Background = () => {
 		<div
 			style={{
 				backgroundImage: `url(${require('../../../assets/32_Analytics_Home_Page.jpeg')})`,
-				height: '80vh',
+				height: '100vh',
 				backgroundPosition: 'center',
 				backgroundRepeat: 'no-repeat',
 				backgroundSize: 'cover',

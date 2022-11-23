@@ -16,7 +16,7 @@ export const Home = () => {
 	return (
 		<div className={css`width: 100%;`}>
 			<Layout>
-				<Content style={{ padding: '5px 20px', margin: '0px' }}>
+				<Content style={{ margin: '0px' }}>
 					<div
 						className={css`
 							min-height: 60vh;
