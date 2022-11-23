@@ -32,8 +32,8 @@ const Background = () => {
 	return (
 		<div
 			style={{
-				backgroundImage: `url(${require('../../../assets/NBA_PLAYER_GRADES_EPS.png')})`,
-				height: '95vh',
+				backgroundImage: `url(${require('../../../assets/32_Analytics_Home_Page.jpeg')})`,
+				height: '80vh',
 				backgroundPosition: 'center',
 				backgroundRepeat: 'no-repeat',
 				backgroundSize: 'cover',
@@ -70,7 +70,6 @@ const About32Analytics = () => {
 					}
 				`}
 			>
-				<img src={require('../../../assets/32AnalyticsLogoFULL.png')} alt="" style={{ maxWidth: 400 }} />
 			</Typography.Title>
 		</div>
 	);
