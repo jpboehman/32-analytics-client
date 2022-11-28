@@ -25,12 +25,12 @@ function Profile() {
             <Descriptions.Item label='Account type'>
               <strong>Premium</strong>
             </Descriptions.Item>
-            <Descriptions.Item label='Permissions'>
+            {/* <Descriptions.Item label='Permissions'>
               {currentUserData.roles &&
                 currentUserData.roles.map((role, index) => (
                   <li key={index}>{role}</li>
                 ))}
-            </Descriptions.Item>
+            </Descriptions.Item> */}
           </Descriptions>
         </PageHeader>
       </div>
