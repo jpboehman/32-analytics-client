@@ -86,6 +86,7 @@ export const FillOutOurSubscribeForm = () => {
 				}
 			} catch (error) {
 				console.log('Error', error);
+				setStripeErrorMessage(error.message);
 			}
 		} else {
 			console.log(error.message);
