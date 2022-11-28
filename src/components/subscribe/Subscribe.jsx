@@ -86,11 +86,10 @@ export const FillOutOurSubscribeForm = () => {
 				}
 			} catch (error) {
 				console.log('Error', error);
-				setStripeErrorMessage(error.message);
 			}
 		} else {
 			console.log(error.message);
-			setStripeErrorMessage(error.message);
+			setStripeErrorMessage(`Payment failed - please double-check information and try again.`);
 		}
 	};
 
