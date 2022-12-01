@@ -5,11 +5,12 @@ import { DataGrid } from '@mui/x-data-grid';
 import { v4 as uuidv4 } from 'uuid';
 import mapSeasonUrl from '../../common/utils/playerGrades/NBAPlayerGradesMapSeason';
 import SmallLoader from '../../common/Loaders/SmallLoader';
+import chosenYear from '../../common/static/statisticalSeasons';
 
-const Datatable = ({ selectedSeason }) => {
+const Datatable = ({ selectedSeason, isSubscribed }) => {
 	const [ nbaPlayerRatings, setNBAPlayerRatings ] = useState([]);
 	const [ isLoading, setIsLoading ] = useState(false);
-	const seasonUrl = mapSeasonUrl(selectedSeason);
+	const seasonUrl = mapSeasonUrl(selectedSeason) || chosenYear[20222023];
 	useEffect(
 		() => {
 			setIsLoading(true);
@@ -17,7 +18,11 @@ const Datatable = ({ selectedSeason }) => {
 				download: true,
 				header: true,
 				complete: (results) => {
-					setNBAPlayerRatings(results.data);
+					if (isSubscribed) {
+						setNBAPlayerRatings(results.data);
+					} else {
+						setNBAPlayerRatings(results.data.slice(0, 5));
+					}
 				}
 			});
 			setIsLoading(false);

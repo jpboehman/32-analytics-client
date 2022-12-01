@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import mapSeasonUrl from '../../common/utils/expectedWins/NBAExpectedWinsMapSeason';
 import SmallLoader from '../../common/Loaders/SmallLoader';
 
-const Datatable = ({ selectedSeason }) => {
+const Datatable = ({ selectedSeason, isSubscribed }) => {
 	const [ nbaExpectedWins, setNbaExpectedWins ] = useState([]);
 	const seasonUrl = mapSeasonUrl(selectedSeason);
 	const [ isLoading, setIsLoading ] = useState(false);
@@ -18,10 +18,10 @@ const Datatable = ({ selectedSeason }) => {
 				download: true,
 				header: true,
 				complete: (results) => {
-					if (results.data.length > 100) {
-						setNbaExpectedWins(results.data.slice(0, 100));
-					} else {
+					if (isSubscribed) {
 						setNbaExpectedWins(results.data);
+					} else {
+						setNbaExpectedWins(results.data.slice(0, 5));
 					}
 				}
 			});
@@ -65,6 +65,5 @@ const Datatable = ({ selectedSeason }) => {
 		</div>
 	);
 };
-
 
 export default Datatable;

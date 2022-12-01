@@ -16,7 +16,7 @@ const { Title } = Typography;
 
 // TODO: Add images to background of text content
 export const NBAExpectedWinsPage = () => {
-	const [ nbaExpectedWins, setNbaExpectedWins ] = useState([]);
+	const [nbaExpectedWins, setNbaExpectedWins] = useState([]);
 	const [selectedYear, setSelectedYear] = useState(chosenYear[20222023])
 
 	const currentUser = useSelector((state) => state.currentUser?.payload);
@@ -81,7 +81,7 @@ export const NBAExpectedWinsPage = () => {
 					backgroundSize: 'cover',
 					marginTop: 55
 				}}
-			>	
+			>
 			</div>
 		);
 	};
@@ -93,7 +93,8 @@ export const NBAExpectedWinsPage = () => {
 			<Divider />
 			<NBAxpectedWinsDesc leagueType="NBA" />
 			{currentUser && <SeasonSelector />}
-			{currentUser && <div>{nbaExpectedWins.length ? <Datatable1 selectedSeason={selectedYear}/> : <SmallLoader />}</div>}
+			{currentUser && <div>{nbaExpectedWins.length ? <Datatable1 selectedSeason={selectedYear} isSubscribed={true} /> : <SmallLoader />}</div>}
+			{!currentUser && <div>{nbaExpectedWins.length ? <Datatable1 selectedSeason={selectedYear} isSubscribed={false} /> : <SmallLoader />}</div>}
 			<ScrollToTop />
 			<Footer />
 		</div>

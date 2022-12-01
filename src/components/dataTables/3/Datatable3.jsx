@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import mapSeasonUrl from '../../common/utils/teamEPSS/NBATeamEPSSMapSeason';
 import SmallLoader from '../../common/Loaders/SmallLoader';
 
-const Datatable = ({ selectedSeason }) => {
+const Datatable = ({ selectedSeason, isSubscribed }) => {
 	const [ nbaTeamEPSS, setNBATeamEPSS ] = useState([]);
 	const [ isLoading, setIsLoading ] = useState(false);
 	const seasonUrl = mapSeasonUrl(selectedSeason);
@@ -18,7 +18,11 @@ const Datatable = ({ selectedSeason }) => {
 				download: true,
 				header: true,
 				complete: (results) => {
-					setNBATeamEPSS(results.data);
+					if (isSubscribed) {
+						setNBATeamEPSS(results.data);
+					} else {
+						setNBATeamEPSS(results.data.slice(0, 5));
+					}
 				}
 			});
 			setIsLoading(false);
@@ -37,7 +41,7 @@ const Datatable = ({ selectedSeason }) => {
 		{ field: 'Tm FG%', headerName: 'Tm FG%', width: 100 },
 		{ field: 'Tm 3FG%', headerName: 'Tm 3FG%', width: 100 },
 		{ field: 'Tm FT%', headerName: 'Tm FT%', width: 100 },
-		{ field: 'Tm Reb', headerName: 'Tm Reb', width: 100 },
+		{ field: 'Tm REB', headerName: 'Tm REB', width: 100 },
 		{ field: 'Tm AST', headerName: 'Tm AST', width: 100 },
 		{ field: 'Tm STL', headerName: 'Tm STL', width: 100 }
 	];
@@ -62,7 +66,5 @@ const Datatable = ({ selectedSeason }) => {
 		</div>
 	);
 };
-
-
 
 export default Datatable;

@@ -3,10 +3,10 @@ import Papa from 'papaparse';
 import { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { v4 as uuidv4 } from 'uuid';
-import mapSeasonUrl from '../../common/utils/teamEPSS/NCAATeamEPSSMapSeason'
+import mapSeasonUrl from '../../common/utils/teamEPSS/NCAATeamEPSSMapSeason';
 import SmallLoader from '../../common/Loaders/SmallLoader';
 
-const Datatable = ({ selectedSeason }) => {
+const Datatable = ({ selectedSeason, isSubscribed }) => {
 	const [ ncaaTeamEpss, setNcaaTeamEpss ] = useState([]);
 	const [ isLoading, setIsLoading ] = useState(false);
 	const seasonUrl = mapSeasonUrl(selectedSeason);
@@ -17,7 +17,11 @@ const Datatable = ({ selectedSeason }) => {
 				download: true,
 				header: true,
 				complete: (results) => {
-					setNcaaTeamEpss(results.data);
+					if (isSubscribed) {
+						setNcaaTeamEpss(results.data);
+					} else {
+						setNcaaTeamEpss(results.data.slice(0, 5));
+					}
 				}
 			});
 			setIsLoading(false);

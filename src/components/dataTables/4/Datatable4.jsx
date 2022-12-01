@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 import mapSeasonUrl from '../../common/utils/expectedWins/NCAAExpectedWinsMapSeason';
 import SmallLoader from '../../common/Loaders/SmallLoader';
 
-const Datatable = ({ selectedSeason }) => {
+const Datatable = ({ selectedSeason, isSubscribed }) => {
 	const [ ncaaExpectedWins, setNcaaExpectedWins ] = useState([]);
 	const seasonUrl = mapSeasonUrl(selectedSeason);
 	const [ isLoading, setIsLoading ] = useState(false);
@@ -18,7 +18,11 @@ const Datatable = ({ selectedSeason }) => {
 				download: true,
 				header: true,
 				complete: (results) => {
-					setNcaaExpectedWins(results.data);
+					if (isSubscribed) {
+						setNcaaExpectedWins(results.data);
+					} else {
+						setNcaaExpectedWins(results.data.slice(0, 5));
+					}
 				}
 			});
 			setIsLoading(false);

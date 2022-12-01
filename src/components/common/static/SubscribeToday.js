@@ -33,6 +33,9 @@ const SubscribeToday = () => {
             Subscribe Today for <span style={{ color: 'black' }}>$30</span> to
             Receive Unlimited Access To Our Statistics from the Past 5 Years!
           </Title>
+          <Title level={5} style={{ color: 'brown' }}>
+            NOTE: Unsubscribed users will only see five entries per statistic
+          </Title>
         </Card>
       </div>
     </>

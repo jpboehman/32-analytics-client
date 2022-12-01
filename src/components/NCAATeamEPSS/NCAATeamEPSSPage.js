@@ -82,7 +82,8 @@ export const NCAATeamEPSSPage = () => {
 			<Divider />
 			<TeamEPSSDesc />
 			{currentUser && <SeasonSelector />}
-			{currentUser && <div>{ncaaTeamEpss.length ? <Datatable6 selectedSeason={selectedYear} /> : <SmallLoader />}</div>}
+			{currentUser && <div>{ncaaTeamEpss.length ? <Datatable6 selectedSeason={selectedYear} isSubscribed={true} /> : <SmallLoader />}</div>}
+			{!currentUser && <div>{ncaaTeamEpss.length ? <Datatable6 selectedSeason={selectedYear} isSubscribed={false} /> : <SmallLoader />}</div>}
 			<ScrollToTop />
 			<Footer />
 		</div>

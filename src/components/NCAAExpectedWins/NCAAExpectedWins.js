@@ -85,7 +85,8 @@ export const NCAAExpectedWinsPage = () => {
 			<Divider />
 			<NCAAExpectedWinsDesc leagueType="NCAA" />
 			{currentUser && <SeasonSelector />}
-			{currentUser && <div>{ncaaExpectedWins.length ? <Datatable4 selectedSeason={selectedYear}/> : <SmallLoader />}</div>}
+			{currentUser && <div>{ncaaExpectedWins.length ? <Datatable4 selectedSeason={selectedYear} isSubscribed={true} /> : <SmallLoader />}</div>}
+			{!currentUser && <div>{ncaaExpectedWins.length ? <Datatable4 selectedSeason={selectedYear} isSubscribed={false} /> : <SmallLoader />}</div>}
 			<ScrollToTop />
 			<Footer />
 		</div>

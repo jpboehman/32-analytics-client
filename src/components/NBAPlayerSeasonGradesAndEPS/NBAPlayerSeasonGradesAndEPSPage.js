@@ -24,8 +24,8 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
         download: true,
         header: true,
         complete: (results) => {
-          if (results.data.length > 100) {
-            setNBAPlayerRatings(results.data.slice(0, 100));
+          if (!currentUser) {
+            setNBAPlayerRatings(results.data.slice(0, 5));
           } else {
             setNBAPlayerRatings(results.data);
           }
@@ -33,6 +33,7 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
       }
     );
   }, []);
+  console.log(nbaPlayerRatings)
 
   const fixedHeaderText = 'NBA Player Season Grades & EPS';
 
@@ -88,16 +89,19 @@ export const NBAPlayerSeasonGradesAndEPSPage = () => {
         padding: 10px;
       `}
     >
-      
       <Divider />
-      {!currentUser && <SubscribeToday />}
       <Background />
+      {!currentUser && <SubscribeToday />}
       <PlayerSeasonGradesDesc />
       {currentUser && (
         <SeasonSelector />
       )}
       {currentUser && (
-        <div>{nbaPlayerRatings.length ? <Datatable2 selectedSeason={selectedYear} /> : <SmallLoader />}</div>
+        <div>{nbaPlayerRatings.length ? <Datatable2 selectedSeason={selectedYear} isSubscribed={true} /> : <SmallLoader />}</div>
+      )}
+      
+      {!currentUser && (
+        <div>{nbaPlayerRatings.length ? <Datatable2 selectedSeason={chosenYear[20222023]} isSubscribed={false} /> : <SmallLoader />}</div>
       )}
       <ScrollToTop />
       <Footer />

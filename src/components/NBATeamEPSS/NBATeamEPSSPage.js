@@ -14,8 +14,8 @@ import Datatable3 from '../dataTables/3/Datatable3';
 
 // TODO: Add images to background of text content
 export const NBATeamEPSSPage = () => {
-	const [ nbaTeamEPSS, setNBATeamEPSS ] = useState([]);
-	const [ selectedYear, setSelectedYear ] = useState(chosenYear[20222023])
+	const [nbaTeamEPSS, setNBATeamEPSS] = useState([]);
+	const [selectedYear, setSelectedYear] = useState(chosenYear[20222023])
 	const currentUser = useSelector((state) => state.currentUser?.payload);
 	useEffect(() => {
 		Papa.parse(
@@ -32,7 +32,7 @@ export const NBATeamEPSSPage = () => {
 
 	const fixedHeaderText = 'NBA Team EPSS';
 
-	const SeasonSelector = () => { 
+	const SeasonSelector = () => {
 		return (
 			<div>
 				<Card title='Select season:'>
@@ -87,7 +87,8 @@ export const NBATeamEPSSPage = () => {
 			{currentUser && (
 				<SeasonSelector />
 			)}
-			{currentUser && <div>{nbaTeamEPSS.length ? <Datatable3 selectedSeason={selectedYear}/> : <SmallLoader />}</div>}
+			{currentUser && <div>{nbaTeamEPSS.length ? <Datatable3 selectedSeason={selectedYear} isSubscribed={true} /> : <SmallLoader />}</div>}
+			{!currentUser && <div>{nbaTeamEPSS.length ? <Datatable3 selectedSeason={selectedYear} isSubscribed={false} /> : <SmallLoader />}</div>}
 			<ScrollToTop />
 			<Footer />
 		</div>

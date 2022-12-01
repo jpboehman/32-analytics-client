@@ -94,7 +94,8 @@ export const NCAAPlayerSeasonGradesAndEPSPage = () => {
 			{currentUser && (
 				<SeasonSelector />
 			)}
-			{currentUser && <div>{ncaaPlayerRatings.length ? <Datatable5 selectedSeason={selectedYear} /> : <SmallLoader />}</div>}
+			{currentUser && <div>{ncaaPlayerRatings.length ? <Datatable5 selectedSeason={selectedYear} isSubscribed={true} /> : <SmallLoader />}</div>}
+			{!currentUser && <div>{ncaaPlayerRatings.length ? <Datatable5 selectedSeason={selectedYear} isSubscribed={false} /> : <SmallLoader />}</div>}
 			<ScrollToTop />
 			<Footer />
 		</div>
