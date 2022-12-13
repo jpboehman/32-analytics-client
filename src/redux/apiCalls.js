@@ -31,3 +31,16 @@ export const login = async (dispatch, user) => {
     dispatch(loginFailure(), logout());
   }
 };
+
+export const resetPassword = async (dispatch, user) => {
+  // dispatch(loginStart());
+  try {
+    const res = await generalRequest.post('/auth/reset-password', user);
+    // Redirect user to login page
+    setTimeout(() => {
+      window.location.pathname = '/login';
+    }, 7000);
+  } catch (err) {
+    dispatch(loginFailure(), logout());
+  }
+};

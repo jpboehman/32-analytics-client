@@ -13,6 +13,9 @@ const userSlice = createSlice({
     loginStart: (state) => {
       state.isFetching = true;
     },
+    resetEmailStart: (state) => {
+      state.isResettingPassword = true;
+    },
     loginSuccess: (state, payload) => {
       state.isFetching = false;
       state.currentUser = payload;
@@ -41,6 +44,7 @@ const userSlice = createSlice({
 
 export const {
   loginStart,
+  resetEmailStart,
   loginSuccess,
   loginFailure,
   loginToken,

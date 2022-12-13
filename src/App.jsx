@@ -7,6 +7,7 @@ import './App.css';
 import ContactUs from './components/ContactUs';
 import Login from './components/Login';
 import Register from './components/Register';
+import ResetPassword from './components/ResetPassword';
 import Home from './components/AboutUs/Home';
 import Profile from './components/Profile';
 import BoardUser from './components/BoardUser';
@@ -250,7 +251,12 @@ const App = () => {
               currentUser ? <Navigate exact to='/profile' /> : <Register />
             }
           />
-
+          <Route
+            path='/reset-password'
+            element={
+              <ResetPassword />
+            }
+          />
           <Route path='/stats-and-grades' element={<StatsAndGrades />} />
           <Route
             path='/nba-player-season-grades-eps'
