@@ -1,4 +1,4 @@
-import { Descriptions, PageHeader } from 'antd';
+import { Card, Divider, Descriptions, PageHeader } from 'antd';
 import { css } from '@emotion/css';
 import { useSelector } from 'react-redux';
 import Footer from './common/static/Footer';
@@ -15,8 +15,9 @@ function Profile() {
           subTitle='Analysis Beyond The Box Score'
           className={css`padding; 24px; background-color: #f5f5f5;`}
         >
+          <Card title='Member Information:'>
           <Descriptions size='small' column={3}>
-            <Descriptions.Item label='User'>
+            <Descriptions.Item label='Username'>
               {currentUserData.username}
             </Descriptions.Item>
             <Descriptions.Item label='Email'>
@@ -25,13 +26,8 @@ function Profile() {
             <Descriptions.Item label='Account type'>
               <strong>Premium</strong>
             </Descriptions.Item>
-            {/* <Descriptions.Item label='Permissions'>
-              {currentUserData.roles &&
-                currentUserData.roles.map((role, index) => (
-                  <li key={index}>{role}</li>
-                ))}
-            </Descriptions.Item> */}
           </Descriptions>
+          </Card>
         </PageHeader>
       </div>
       <Footer />

@@ -25,13 +25,15 @@ const required = (value) => {
   }
 };
 
-export const ResetPassword = () => {
+export const PasswordResetSubmit = () => {
   const form = useRef();
   const checkBtn = useRef();
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
-  const [error, setError] = useState(false);
+  const [error, setError] = useState();
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser?.payload);
 
@@ -60,19 +62,18 @@ export const ResetPassword = () => {
             // const { data } = await generalRequest.post(`/auth/reset`, { email });
             const { data } = await axios.post(`http://localhost:8080/api/auth/reset`, { email });
             if (!data) {
-                setMessage('Email not found - please try again');
-                setError(true);
+                setError('Email not found - please try again');
+                setMessage('Email not found - please try again.');
+                return;
             } else {
                 setMessage('Recovery email sent!');
-                setError(false);
             }
           } catch (error) {
+             setMessage('Email not found or network issue, please try again')
              setError('Email not found or network error, please try again.');
           } 
       }
   }
-
-  console.log(error)
 
   return (
     <div
@@ -126,18 +127,14 @@ export const ResetPassword = () => {
                 <span>Send reset email</span>
               </button>
             </div>
+            {message && (
                 <div className='form-group'>
-                    {message && !error && (
-                        <div className='alert alert-success' role='alert'>
-                        {message}
+                    <div className='alert alert-success' role='alert'>
+                    {/* {!currentUser ? message : 'Password reset email sent!'} */}
+                    {message ? message : error}
                     </div>
-                    )}
-                    {error && (
-                        <div className='alert alert-danger' role='alert'>
-                        {error}
-                    </div>
-                    )}
               </div>
+            )}
             <CheckButton style={{ display: 'none' }} ref={checkBtn} />
           </Form>
         </Card>
@@ -147,4 +144,4 @@ export const ResetPassword = () => {
   );
 };
 
-export default ResetPassword;
+export default PasswordResetSubmit;
