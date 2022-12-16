@@ -8,6 +8,7 @@ import ContactUs from './components/ContactUs';
 import Login from './components/Login';
 import Register from './components/Register';
 import ResetPassword from './components/ResetPassword';
+import PasswordResetSubmit from './components/PasswordResetSubmit';
 import Home from './components/AboutUs/Home';
 import Profile from './components/Profile';
 import BoardUser from './components/BoardUser';
@@ -255,6 +256,12 @@ const App = () => {
             path='/reset-password'
             element={
               <ResetPassword />
+            }
+          />
+          <Route
+            path='/reset-password-submit'
+            element={
+              <PasswordResetSubmit />
             }
           />
           <Route path='/stats-and-grades' element={<StatsAndGrades />} />

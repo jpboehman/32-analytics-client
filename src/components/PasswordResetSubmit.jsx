@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -59,17 +59,16 @@ export const PasswordResetSubmit = () => {
           setError('Please enter a valid email address')
       } else {
           try {
-            // const { data } = await generalRequest.post(`/auth/reset`, { email });
-            const { data } = await axios.post(`http://localhost:8080/api/auth/reset`, { email });
+            const { data } = await generalRequest.post(`/auth/reset-password`, { email });
+            // const { data } = await axios.post(`http://localhost:8080/api/auth/reset-password`, { email });
+            console.log(data)
             if (!data) {
                 setError('Email not found - please try again');
-                setMessage('Email not found - please try again.');
                 return;
             } else {
                 setMessage('Recovery email sent!');
             }
           } catch (error) {
-             setMessage('Email not found or network issue, please try again')
              setError('Email not found or network error, please try again.');
           } 
       }
@@ -130,9 +129,15 @@ export const PasswordResetSubmit = () => {
             {message && (
                 <div className='form-group'>
                     <div className='alert alert-success' role='alert'>
-                    {/* {!currentUser ? message : 'Password reset email sent!'} */}
-                    {message ? message : error}
+                    {message}
                     </div>
+              </div>
+            )}
+            {error && (
+             <div className='form-group'>
+                    <div className='alert alert-danger' role='alert'>
+                    {error}
+                </div>
               </div>
             )}
             <CheckButton style={{ display: 'none' }} ref={checkBtn} />

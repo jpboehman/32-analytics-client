@@ -51,6 +51,7 @@ export const ResetPassword = () => {
     setEmail(email);
   };
 
+  // Had this working, fix that again
   const sendEmail = async (e) => {
       e.preventDefault();
       if (!email.length) {
@@ -58,7 +59,7 @@ export const ResetPassword = () => {
       } else {
           try {
             // const { data } = await generalRequest.post(`/auth/reset`, { email });
-            const { data } = await axios.post(`http://localhost:8080/api/auth/reset`, { email });
+            const { data } = await axios.post(`http://localhost:8080/api/auth/reset-password`, { email });
             if (!data) {
                 setMessage('Email not found - please try again');
                 setError(true);
@@ -67,12 +68,11 @@ export const ResetPassword = () => {
                 setError(false);
             }
           } catch (error) {
+              console.log(error)
              setError('Email not found or network error, please try again.');
           } 
       }
   }
-
-  console.log(error)
 
   return (
     <div
