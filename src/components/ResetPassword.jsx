@@ -34,6 +34,7 @@ export const ResetPassword = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
+  const [updated, setUpdated] = useState(false);
   // A react-hook way of obataining query value parameters from the URL
   const { token } = useParams();
   const dispatch = useDispatch();
@@ -47,7 +48,6 @@ export const ResetPassword = () => {
   };
 
   useEffect(() => {
-    
     const tokenValidResponse = async (token) => {
       try {
       // Update this with prod URL
@@ -62,7 +62,6 @@ export const ResetPassword = () => {
         console.log(error);
       }
     }
-
     tokenValidResponse(token);
   }, []);
 
@@ -72,23 +71,26 @@ export const ResetPassword = () => {
 
   const updatePassword = async (event) => {
     event.preventDefault();
-    const {
-      match: {
-        params: { token },
-      },
-    } = this.props;
     try {
       // Will need another route for this
-      const response = await axios.put(
-          `http://localhost:8080/api/auth/reset-password-via-email`,
-          { username, resetPasswordToken: token }
+      const { data } = await axios.put(
+          `http://localhost:8080/api/auth/update-password-via-email`,
+          { username, password, resetPasswordToken: token }
       );
-      console.log(response)
+        if (data) {
+          setUpdated(true);
+          setError(false);
+        } else {
+          setUpdated(false);
+          setError(false);
+        }
     } catch (error) {
+      setError(true);
       console.log(error);
     }
   }
 
+  // TODO:Make sure username is set before showing this screen. IF not, the token isn't valid and redirect to register page
   return (
     <div
       className={css`

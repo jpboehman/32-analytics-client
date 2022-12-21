@@ -6,13 +6,17 @@ import {
   loginData,
   loginToken,
 } from './userRedux';
+import axios from 'axios';
 import { generalRequest } from '../services/httpService';
 import jwt_decode from 'jwt-decode';
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
-    const res = await generalRequest.post('/auth/signin', user);
+    // Once new password, is set,m should we also dispastch this?
+    // const res = await generalRequest.post('/auth/signin', user);
+    // LOCAL:
+    const res = await axios.post('http://localhost:8080/api/auth/signin', user);
     localStorage.setItem('user', JSON.stringify(res.data.accessToken));
     const TOKEN = JSON.parse(localStorage.getItem('user'));
     const decoded = jwt_decode(TOKEN);
@@ -27,19 +31,6 @@ export const login = async (dispatch, user) => {
         window.location.pathname = '/profile';
       }, 2000);
     }
-  } catch (err) {
-    dispatch(loginFailure(), logout());
-  }
-};
-
-export const resetPassword = async (dispatch, user) => {
-  // dispatch(loginStart());
-  try {
-    const res = await generalRequest.post('/auth/reset-password', user);
-    // Redirect user to login page
-    setTimeout(() => {
-      window.location.pathname = '/login';
-    }, 7000);
   } catch (err) {
     dispatch(loginFailure(), logout());
   }
