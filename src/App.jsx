@@ -8,7 +8,7 @@ import ContactUs from './components/ContactUs';
 import Login from './components/Login';
 import Register from './components/Register';
 import ResetPassword from './components/ResetPassword';
-import PasswordResetSubmit from './components/PasswordResetSubmit';
+import PasswordResetSubmit, { ForgotPassword } from './components/ForgotPassword';
 import Home from './components/AboutUs/Home';
 import Profile from './components/Profile';
 import BoardUser from './components/BoardUser';
@@ -253,15 +253,16 @@ const App = () => {
             }
           />
           <Route
-            path='/reset-password'
+            path='/forgot-password'
             element={
-              <ResetPassword />
+              <ForgotPassword />
             }
           />
+          {/* Requiring that the this route is accompanied by a token in the request */}
           <Route
-            path='/reset-password-submit'
+            path='/reset-password-submit/:token'
             element={
-              <PasswordResetSubmit />
+              <ResetPassword />
             }
           />
           <Route path='/stats-and-grades' element={<StatsAndGrades />} />

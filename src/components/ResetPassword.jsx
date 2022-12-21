@@ -1,4 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useParams } from "react-router";
 import { useNavigate } from 'react-router-dom';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
@@ -28,10 +29,13 @@ const required = (value) => {
 export const ResetPassword = () => {
   const form = useRef();
   const checkBtn = useRef();
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
+  // A react-hook way of obataining query value parameters from the URL
+  const { token } = useParams();
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser?.payload);
 
@@ -39,39 +43,50 @@ export const ResetPassword = () => {
     required: '${label} is required!',
     types: {
       email: '${label} is not a valid email!',
-      number: '${label} is not a valid number!',
-    },
-    number: {
-      range: '${label} must be between ${min} and ${max}',
     },
   };
 
-  const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
-
-  // Had this working, fix that again
-  const sendEmail = async (e) => {
-      e.preventDefault();
-      if (!email.length) {
-          setError('Please enter a valid email address')
-      } else {
-          try {
-            // const { data } = await generalRequest.post(`/auth/reset`, { email });
-            const { data } = await axios.post(`http://localhost:8080/api/auth/reset-password`, { email });
-            if (!data) {
-                setMessage('Email not found - please try again');
-                setError(true);
-            } else {
-                setMessage('Recovery email sent!');
-                setError(false);
-            }
-          } catch (error) {
-              console.log(error)
-             setError('Email not found or network error, please try again.');
-          } 
+  useEffect(() => {
+    
+    const tokenValidResponse = async (token) => {
+      try {
+      // Update this with prod URL
+        const { data } = await axios.get(`http://localhost:8080/api/auth/reset`, { 
+          params: {
+          resetPasswordToken: token,
+        }
+      });
+        setUsername(data.username);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
       }
+    }
+
+    tokenValidResponse(token);
+  }, []);
+
+  const onChangePassword = event => {
+    setPassword(event.target.value);
+  }
+
+  const updatePassword = async (event) => {
+    event.preventDefault();
+    const {
+      match: {
+        params: { token },
+      },
+    } = this.props;
+    try {
+      // Will need another route for this
+      const response = await axios.put(
+          `http://localhost:8080/api/auth/reset-password-via-email`,
+          { username, resetPasswordToken: token }
+      );
+      console.log(response)
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -89,9 +104,9 @@ export const ResetPassword = () => {
             align-items: center;
         `}
       >
-        <Card title={`Email`}>
+        <Card title={`Reset Password`}>
           <Form
-            onSubmit={sendEmail}
+            onSubmit={updatePassword}
             ref={form}
             layout='vertical'
             size='default'
@@ -100,20 +115,20 @@ export const ResetPassword = () => {
           >
             <div className='form-group'>
               <label
-                htmlFor='email'
+                htmlFor='password'
                 className={css`
                   margin-right: 5px;
                 `}
               >
-                Email
+                Password
               </label>
               <MailOutlined />
               <Input
                 type='text'
                 className='form-control'
                 name='email'
-                value={email}
-                onChange={onChangeEmail}
+                value={password}
+                onChange={onChangePassword}
                 validations={[required]}
               />
             </div>
@@ -123,7 +138,7 @@ export const ResetPassword = () => {
                 {loading && (
                   <span className='spinner-border spinner-border-sm' />
                 )}
-                <span>Send reset email</span>
+                <span>Set new password</span>
               </button>
             </div>
                 <div className='form-group'>

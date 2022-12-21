@@ -25,7 +25,8 @@ const required = (value) => {
   }
 };
 
-export const PasswordResetSubmit = () => {
+// Used as a forgot password component
+export const ForgotPassword = () => {
   const form = useRef();
   const checkBtn = useRef();
   const [email, setEmail] = useState('');
@@ -59,8 +60,8 @@ export const PasswordResetSubmit = () => {
           setError('Please enter a valid email address')
       } else {
           try {
-            const { data } = await generalRequest.post(`/auth/reset-password`, { email });
-            // const { data } = await axios.post(`http://localhost:8080/api/auth/reset-password`, { email });
+            // const { data } = await generalRequest.post(`/auth/reset-password`, { email });
+            const { data } = await axios.post(`http://localhost:8080/api/auth/forgot-password`, { email });
             console.log(data)
             if (!data) {
                 setError('Email not found - please try again');
@@ -149,4 +150,4 @@ export const PasswordResetSubmit = () => {
   );
 };
 
-export default PasswordResetSubmit;
+export default ForgotPassword;
