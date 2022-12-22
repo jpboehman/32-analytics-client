@@ -10,8 +10,9 @@ import { css } from '@emotion/css';
 import Footer from './common/static/Footer';
 
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
-import { Card } from 'antd';
+import { Button, Card, Divider } from 'antd';
 import { login } from '../redux/apiCalls';
+import ForgotPassword from './ForgotPassword';
 
 const required = (value) => {
   if (!value) {
@@ -79,18 +80,17 @@ export const Login = () => {
     >
       <div
         className={css`
-            padding: 25px;
+            margin: 50px;
+            padding-top: 25px;
             display: flex;
             justify-content: center;
             align-items: center;
         `}
       >
-        <Card title={`Login`}>
+        <Card title={`Login`} >
           <Form
             onSubmit={handleLogin}
             ref={form}
-            // labelCol={{ span: 4 }}
-            // wrapperCol={{ span: 14 }}
             layout='vertical'
             size='default'
             className={css`margin-bottom: 15px;`}
@@ -142,6 +142,8 @@ export const Login = () => {
                 )}
                 <span>Login</span>
               </button>
+              <Divider />
+              <Button type='link' href='forgot-password'>Forgot Password?</Button>
             </div>
             {message && (
               <div className='form-group'>

@@ -13,10 +13,10 @@ import jwt_decode from 'jwt-decode';
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {
-    // Once new password, is set,m should we also dispastch this?
-    // const res = await generalRequest.post('/auth/signin', user);
     // LOCAL:
-    const res = await axios.post('http://localhost:8080/api/auth/signin', user);
+    // const res = await axios.post('http://localhost:8080/api/auth/signin', user);
+    // PROD:
+    const res = await generalRequest.post('/auth/signin', user);
     localStorage.setItem('user', JSON.stringify(res.data.accessToken));
     const TOKEN = JSON.parse(localStorage.getItem('user'));
     const decoded = jwt_decode(TOKEN);
