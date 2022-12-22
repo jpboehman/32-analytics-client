@@ -55,7 +55,6 @@ export const ResetPassword = () => {
         }
       });
         setUsername(data.username);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }
@@ -74,9 +73,14 @@ export const ResetPassword = () => {
         username, password, resetPasswordToken: token
       })
         if (data) {
+          setMessage('Password updated successfully!');
           setUpdated(true);
           setError(false);
+          setTimeout(() => {
+							window.location.pathname = '/login';
+						}, 2000);
         } else {
+          setMessage('Password reset unsuccessful, please try again')
           setUpdated(false);
           setError(false);
         }
@@ -122,9 +126,9 @@ export const ResetPassword = () => {
               </label>
               <MailOutlined />
               <Input
-                type='text'
+                type='password'
                 className='form-control'
-                name='email'
+                name='password'
                 value={password}
                 onChange={onChangePassword}
                 validations={[required]}
@@ -140,7 +144,7 @@ export const ResetPassword = () => {
               </button>
             </div>
                 <div className='form-group'>
-                    {message && !error && (
+                    {updated && !error && (
                         <div className='alert alert-success' role='alert'>
                         {message}
                     </div>
