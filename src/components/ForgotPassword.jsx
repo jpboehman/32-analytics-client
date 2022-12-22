@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
-import { useDispatch, useSelector } from 'react-redux';
 
 // import AuthService from '../services/auth.service';
 import axios from 'axios';
@@ -11,9 +10,9 @@ import { css } from '@emotion/css';
 import { generalRequest } from '../services/httpService';
 import Footer from './common/static/Footer';
 
-import { LockOutlined, MailOutlined } from '@ant-design/icons';
+import { MailOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
-import { login, resetPassword } from '../redux/apiCalls';
+import { login } from '../redux/apiCalls';
 
 const required = (value) => {
   if (!value) {
@@ -30,13 +29,9 @@ export const ForgotPassword = () => {
   const form = useRef();
   const checkBtn = useRef();
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState();
-  const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.currentUser?.payload);
 
   const validateMessages = {
     required: '${label} is required!',

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from "react-router";
-import { useNavigate } from 'react-router-dom';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
@@ -50,8 +49,7 @@ export const ResetPassword = () => {
   useEffect(() => {
     const tokenValidResponse = async (token) => {
       try {
-      // Update this with prod URL
-        const { data } = await axios.get(`http://localhost:8080/api/auth/reset`, { 
+      const { data } = await generalRequest.get(`/auth/reset`, { 
           params: {
           resetPasswordToken: token,
         }
@@ -63,7 +61,7 @@ export const ResetPassword = () => {
       }
     }
     tokenValidResponse(token);
-  }, []);
+  }, [token]);
 
   const onChangePassword = event => {
     setPassword(event.target.value);
@@ -72,7 +70,7 @@ export const ResetPassword = () => {
   const updatePassword = async (event) => {
     event.preventDefault();
     try {
-      // Will need another route for this
+      // Updating the current password en
       const { data } = await axios.put(
           `http://localhost:8080/api/auth/update-password-via-email`,
           { username, password, resetPasswordToken: token }

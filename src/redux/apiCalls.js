@@ -6,7 +6,6 @@ import {
   loginData,
   loginToken,
 } from './userRedux';
-import axios from 'axios';
 import { generalRequest } from '../services/httpService';
 import jwt_decode from 'jwt-decode';
 
