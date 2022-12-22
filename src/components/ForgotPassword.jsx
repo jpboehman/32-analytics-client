@@ -61,7 +61,7 @@ export const ForgotPassword = () => {
                 setError('Email not found - please try again');
                 return;
             } else {
-                setMessage('Recovery email sent!');
+                setMessage('Recovery email sent! Please validate through the link provided');
             }
           } catch (error) {
              setError('Email not found or network error, please try again.');

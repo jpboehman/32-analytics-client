@@ -5,7 +5,6 @@ import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import AuthService from '../services/auth.service';
 import axios from 'axios';
 import { css } from '@emotion/css';
 import { generalRequest } from '../services/httpService';
@@ -149,7 +148,7 @@ export const ResetPassword = () => {
                         {message}
                     </div>
                     )}
-                    {error && (
+                    {!updated && error(
                         <div className='alert alert-danger' role='alert'>
                         {error}
                     </div>
