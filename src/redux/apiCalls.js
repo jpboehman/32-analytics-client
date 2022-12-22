@@ -16,6 +16,7 @@ export const login = async (dispatch, user) => {
     // const res = await axios.post('http://localhost:8080/api/auth/signin', user);
     // PROD:
     const res = await generalRequest.post('/auth/signin', user);
+    console.log(res);
     localStorage.setItem('user', JSON.stringify(res.data.accessToken));
     const TOKEN = JSON.parse(localStorage.getItem('user'));
     const decoded = jwt_decode(TOKEN);
