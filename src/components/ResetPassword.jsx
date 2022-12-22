@@ -70,11 +70,9 @@ export const ResetPassword = () => {
   const updatePassword = async (event) => {
     event.preventDefault();
     try {
-      // Updating the current password en
-      const { data } = await axios.put(
-          `http://localhost:8080/api/auth/update-password-via-email`,
-          { username, password, resetPasswordToken: token }
-      );
+      const { data } = await generalRequest.put(`/auth/update-password-via-email`, {
+        username, password, resetPasswordToken: token
+      })
         if (data) {
           setUpdated(true);
           setError(false);

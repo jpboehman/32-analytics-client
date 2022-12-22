@@ -55,8 +55,7 @@ export const ForgotPassword = () => {
           setError('Please enter a valid email address')
       } else {
           try {
-            // const { data } = await generalRequest.post(`/auth/reset-password`, { email });
-            const { data } = await axios.post(`http://localhost:8080/api/auth/forgot-password`, { email });
+            const { data } = await generalRequest.post(`/auth/reset-password`, { email });
             console.log(data)
             if (!data) {
                 setError('Email not found - please try again');
