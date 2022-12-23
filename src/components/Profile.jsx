@@ -13,6 +13,7 @@ function Profile() {
       const { data } = await generalRequest.post('/auth/create-customer-portal-session', { 
         params: { email }
       });
+      console.log(data);
       window.location = data.redirectUrl
     } catch (error) {
       console.log(error)
