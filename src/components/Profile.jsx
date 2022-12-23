@@ -8,10 +8,10 @@ function Profile() {
   const currentUserData = useSelector((state) => state.data?.payload);
 
   const onSubmit = async () => {
-    const { id, username, email } = currentUserData;
+    const { email } = currentUserData;
     try {
       const { data } = await generalRequest.post('/auth/create-customer-portal-session', { 
-        params: { id, username, email }
+        params: { email }
       });
       window.location = data.redirectUrl
     } catch (error) {
