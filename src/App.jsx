@@ -84,6 +84,24 @@ const App = () => {
               backgroundImage: `url(${require('../src/assets/hardwood3chop.jpeg')})`,
             }}
           >
+            {confirmCurrentUser && (
+              <Menu.Item to="/profile">
+              <NavLink>
+                <Button
+                  className={css`
+                    border-radius: 10px;
+                    background-color: brown;
+                    color: white;
+                    :hover {
+                      cursor: pointer;
+                    }
+                  `}
+                >
+                  Profile
+                </Button>
+              </NavLink>
+            </Menu.Item>
+            )}
             <Menu.Item>
               <NavLink to='/'>
                 <Typography.Title
@@ -235,7 +253,6 @@ const App = () => {
         <Content />
       </Layout>
       <div>
-        {/* TODO: Determine what routes to keep and what to refactor */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/contact-us' element={<ContactUs />} />

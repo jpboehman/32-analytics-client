@@ -1,11 +1,24 @@
-import { Card, Divider, Descriptions, PageHeader } from 'antd';
+import { Button, Card, Divider, Descriptions, PageHeader } from 'antd';
 import { css } from '@emotion/css';
 import { useSelector } from 'react-redux';
 import Footer from './common/static/Footer';
+import { generalRequest } from '../services/httpService';
 
-// This is the current entry point for the applicaiton - start editing here!
 function Profile() {
   const currentUserData = useSelector((state) => state.data?.payload);
+
+  const onSubmit = async () => {
+    console.log(currentUserData)
+    const { id, username, email } = currentUserData;
+    try {
+      const { data } = await generalRequest.post('/api/create-customer-portal-session', { 
+        params: { id, username, email }
+      });
+      window.location = data.redirectUrl
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -27,6 +40,12 @@ function Profile() {
               <strong>Premium</strong>
             </Descriptions.Item>
           </Descriptions>
+          </Card>
+          <Divider />
+          <Card title='Manage Subscription'>
+            <Button onClick={onSubmit}>
+              Edit payment information and manage subscription status
+            </Button>
           </Card>
         </PageHeader>
       </div>

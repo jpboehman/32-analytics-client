@@ -45,6 +45,7 @@ export const ResetPassword = () => {
     },
   };
 
+  // Validates that the user has a valid token when accessing the site
   useEffect(() => {
     const tokenValidResponse = async (token) => {
       try {
@@ -89,7 +90,7 @@ export const ResetPassword = () => {
     }
   }
 
-  // TODO:Make sure username is set before showing this screen. IF not, the token isn't valid and redirect to register page
+  // TODO: Make sure username is set before showing this screen. IF not, the token isn't valid and redirect to register page
   return (
     <div
       className={css`
@@ -105,7 +106,8 @@ export const ResetPassword = () => {
             align-items: center;
         `}
       >
-        <Card title={`Reset Password`}>
+        {token && (
+          <Card title={`Reset Password`}>
           <Form
             onSubmit={updatePassword}
             ref={form}
@@ -133,7 +135,6 @@ export const ResetPassword = () => {
                 validations={[required]}
               />
             </div>
-
             <div className='form-group'>
               <button className='btn btn-primary btn-block' disabled={loading}>
                 {loading && (
@@ -157,6 +158,7 @@ export const ResetPassword = () => {
             <CheckButton style={{ display: 'none' }} ref={checkBtn} />
           </Form>
         </Card>
+        )}
       </div>
       <Footer />
     </div>
