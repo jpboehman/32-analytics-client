@@ -12,7 +12,7 @@ import Footer from './common/static/Footer';
 
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import { Card } from 'antd';
-import { login, resetPassword } from '../redux/apiCalls';
+import { login } from '../redux/apiCalls';
 
 const required = (value) => {
   if (!value) {

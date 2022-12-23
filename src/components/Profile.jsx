@@ -10,7 +10,7 @@ function Profile() {
   const onSubmit = async () => {
     const { id, username, email } = currentUserData;
     try {
-      const { data } = await generalRequest.post('/create-customer-portal-session', { 
+      const { data } = await generalRequest.post('/auth/create-customer-portal-session', { 
         params: { id, username, email }
       });
       window.location = data.redirectUrl
