@@ -8,10 +8,9 @@ function Profile() {
   const currentUserData = useSelector((state) => state.data?.payload);
 
   const onSubmit = async () => {
-    console.log(currentUserData)
     const { id, username, email } = currentUserData;
     try {
-      const { data } = await generalRequest.post('/api/create-customer-portal-session', { 
+      const { data } = await generalRequest.post('/create-customer-portal-session', { 
         params: { id, username, email }
       });
       window.location = data.redirectUrl
