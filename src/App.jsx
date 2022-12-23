@@ -85,8 +85,8 @@ const App = () => {
             }}
           >
             {confirmCurrentUser && (
-              <Menu.Item to="/profile">
-              <NavLink>
+              <Menu.Item>
+              <NavLink to='/profile'>
                 <Button
                   className={css`
                     border-radius: 10px;
