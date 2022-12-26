@@ -3,6 +3,7 @@ import { css } from '@emotion/css';
 import { useSelector } from 'react-redux';
 import Footer from './common/static/Footer';
 import { generalRequest } from '../services/httpService';
+import axios from 'axios';
 
 function Profile() {
   const currentUserData = useSelector((state) => state.data?.payload);
@@ -10,13 +11,16 @@ function Profile() {
   const onSubmit = async () => {
     const { email } = currentUserData;
     try {
+      // LOCAL: Debugging candidate
+      // const { data } = await axios.post('http://localhost:8080/api/auth/create-customer-portal-session', { 
+      //   params: { email }
+      // });
       const { data } = await generalRequest.post('/auth/create-customer-portal-session', { 
         params: { email }
       });
-      console.log(data);
-      window.location = data.redirectUrl
+      window.location = data.redirectUrl;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 
