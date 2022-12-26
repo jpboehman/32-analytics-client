@@ -82,7 +82,7 @@ export const ResetPassword = () => {
         } else {
           setMessage('Password reset unsuccessful, please try again')
           setUpdated(false);
-          setError(false);
+          setError(true);
         }
     } catch (error) {
       setError(true);
