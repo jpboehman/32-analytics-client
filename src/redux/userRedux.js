@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+// Creating global Redux state object with create slice
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -9,12 +9,9 @@ const userSlice = createSlice({
     isFetching: false,
     error: false,
   },
-  reducers: {
+  reducers: { // Reducers are actions that are dispatched in order to update the app's global state
     loginStart: (state) => {
       state.isFetching = true;
-    },
-    resetEmailStart: (state) => {
-      state.isResettingPassword = true;
     },
     loginSuccess: (state, payload) => {
       state.isFetching = false;

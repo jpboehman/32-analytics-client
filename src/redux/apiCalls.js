@@ -9,6 +9,7 @@ import {
 import { generalRequest } from '../services/httpService';
 import jwt_decode from 'jwt-decode';
 
+// Login is a great example of a function that dispatches multiple actions to update the global state
 export const login = async (dispatch, user) => {
   dispatch(loginStart());
   try {

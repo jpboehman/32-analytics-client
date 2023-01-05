@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'; // Will import useDispatch hook and useSelector hook into component that updates global state
 
 // import AuthService from '../services/auth.service';
 import { css } from '@emotion/css';
@@ -33,6 +33,7 @@ export const Login = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
+   // useSelector allows us to access Redux's global state values and place them into local variables
   const currentUser = useSelector((state) => state.currentUser?.payload);
 
   const onChangeUsername = (e) => {
@@ -54,7 +55,7 @@ export const Login = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      login(dispatch, { username, password });
+      login(dispatch, { username, password }); // Passing in dispatch because it allows us to update state within that function
       if (currentUser) {
         setLoading(false);
         setMessage('success');
@@ -134,7 +135,6 @@ export const Login = () => {
                 validations={[required]}
               />
             </div>
-
             <div className='form-group'>
               <button className='btn btn-primary btn-block' disabled={loading}>
                 {loading && (

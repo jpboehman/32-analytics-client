@@ -36,7 +36,7 @@ const App = () => {
   const { Header, Content } = Layout;
   const currentUser = useSelector((state) => state.currentUser?.payload);
   const [confirmCurrentUser, setConfirmCurrentUser] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // Is wired up to the global store slice we initialized as the Provider
 
   useEffect(() => {
     if (currentUser) {
