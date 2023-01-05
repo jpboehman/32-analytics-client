@@ -72,6 +72,7 @@ export const ResetPassword = () => {
   };
 
   const updatePassword = async (event) => {
+    event.preventDefault();
     if (password !== confirmPassword) {
       // Throw error
       setMessage(`Please ensure both passwords are the same`);
@@ -79,7 +80,6 @@ export const ResetPassword = () => {
       setUpdated(false);
       return;
     }
-    event.preventDefault();
     
     try {
       const { data } = await generalRequest.put(`/auth/update-password-via-email`, {
