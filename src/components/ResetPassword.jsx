@@ -162,7 +162,7 @@ export const ResetPassword = () => {
                 className='form-control'
                 name='confirmPassword'
                 value={confirmPassword}
-                onChange={onChangePassword}
+                onChange={onChangeConfirmPassword}
                 validations={[required]}
               />
             </div>
