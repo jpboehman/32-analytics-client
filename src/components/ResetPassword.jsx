@@ -29,7 +29,6 @@ export const ResetPassword = () => {
   const checkBtn = useRef();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
@@ -65,22 +64,10 @@ export const ResetPassword = () => {
 
   const onChangePassword = event => {
     setPassword(event.target.value);
-  };
-
-  const onChangeConfirmPassword = event => {
-    setConfirmPassword(event.target.value);
-  };
+  }
 
   const updatePassword = async (event) => {
     event.preventDefault();
-    if (password !== confirmPassword) {
-      // Throw error
-      setMessage(`Please ensure both passwords are the same`);
-      setError(true);
-      setUpdated(false);
-      return;
-    }
-    
     try {
       const { data } = await generalRequest.put(`/auth/update-password-via-email`, {
         username, password, resetPasswordToken: token
@@ -149,25 +136,6 @@ export const ResetPassword = () => {
               />
             </div>
             <div className='form-group'>
-              <label
-                htmlFor='confirmPassword'
-                className={css`
-                  margin-right: 5px;
-                `}
-              >
-                Confirm password
-              </label>
-              <MailOutlined />
-              <Input
-                type='password'
-                className='form-control'
-                name='confirmPassword'
-                value={confirmPassword}
-                onChange={onChangeConfirmPassword}
-                validations={[required]}
-              />
-            </div>
-            <div className='form-group'>
               <button className='btn btn-primary btn-block' disabled={loading}>
                 {loading && (
                   <span className='spinner-border spinner-border-sm' />
@@ -183,7 +151,7 @@ export const ResetPassword = () => {
                     )}
                     {!updated && error && (
                         <div className='alert alert-danger' role='alert'>
-                        {error || message}
+                        {error}
                     </div>
                     )}
               </div>
