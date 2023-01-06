@@ -36,6 +36,7 @@ export const ResetPassword = () => {
   // A react-hook way of obataining query value parameters from the URL
   const { token } = useParams();
   const dispatch = useDispatch();
+
   const currentUser = useSelector((state) => state.currentUser?.payload);
 
   const validateMessages = {
