@@ -18,7 +18,7 @@ const required = (value) => {
   if (!value) {
     return (
       <div className='alert alert-danger' role='alert'>
-        This field is required.
+      This field is required.
       </div>
     );
   }
@@ -36,7 +36,7 @@ export const ResetPassword = () => {
   // A react-hook way of obataining query value parameters from the URL
   const { token } = useParams();
   const dispatch = useDispatch();
-
+  // useSelector as a method to access the global Redux state object
   const currentUser = useSelector((state) => state.currentUser?.payload);
 
   const validateMessages = {

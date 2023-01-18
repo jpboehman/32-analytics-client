@@ -28,23 +28,18 @@ export const Login = () => {
   const form = useRef();
   const checkBtn = useRef();
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // Solid practice is making pieces of state objects rather than multiple separate variables
+  const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
    // useSelector allows us to access Redux's global state values and place them into local variables
   const currentUser = useSelector((state) => state.currentUser?.payload);
 
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
-  };
-
-  const onChangePassword = (e) => {
-    const password = e.target.value;
-    setPassword(password);
-  };
+  const onChangeInput = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+    console.log(`The form that was updated is ${e.target.name} and the value is: ${e.target.value}`)
+  }
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -55,6 +50,7 @@ export const Login = () => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
+      const { username, password } = formData;
       login(dispatch, { username, password }); // Passing in dispatch because it allows us to update state within that function
       if (currentUser) {
         setLoading(false);
@@ -110,8 +106,8 @@ export const Login = () => {
                 type='text'
                 className='form-control'
                 name='username'
-                value={username}
-                onChange={onChangeUsername}
+                value={formData.username}
+                onChange={onChangeInput}
                 validations={[required]}
               />
             </div>
@@ -130,8 +126,8 @@ export const Login = () => {
                 type='password'
                 className='form-control'
                 name='password'
-                value={password}
-                onChange={onChangePassword}
+                value={formData.password}
+                onChange={onChangeInput}
                 validations={[required]}
               />
             </div>
