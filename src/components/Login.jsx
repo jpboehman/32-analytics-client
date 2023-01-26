@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Form from 'react-validation/build/form';
 import Input from 'react-validation/build/input';
 import CheckButton from 'react-validation/build/button';
@@ -12,7 +11,6 @@ import Footer from './common/static/Footer';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Card, Divider } from 'antd';
 import { login } from '../redux/apiCalls';
-import ForgotPassword from './ForgotPassword';
 
 const required = (value) => {
   if (!value) {
@@ -38,7 +36,6 @@ export const Login = () => {
 
   const onChangeInput = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    console.log(`The form that was updated is ${e.target.name} and the value is: ${e.target.value}`)
   }
 
   const handleLogin = (e) => {

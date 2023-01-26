@@ -3,7 +3,7 @@ import { css } from '@emotion/css';
 import { useSelector } from 'react-redux';
 import Footer from './common/static/Footer';
 import { generalRequest } from '../services/httpService';
-import axios from 'axios';
+// import axios from 'axios'; -> LOCAL
 
 function Profile() {
   const currentUserData = useSelector((state) => state.data?.payload);
