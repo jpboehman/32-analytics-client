@@ -173,7 +173,7 @@ export const FillOutOurSubscribeForm = () => {
 										/>
 									</Form.Item>
 									<Form.Item
-										// className={css`width: 500px;`}
+										className={css`width: 500px;`}
 										label="Payment Information"
 										rules={[
 											{
