@@ -80,7 +80,7 @@ const OurFounding = () => {
 	const ourFoundingDescription = `32 Analytics was founded by two former managers and one former Graduate Assistant at
 								Marquette University Men’s basketball. Having first hand experience of the value
 								statistics provide in college basketball, what was once a passion project quickly turned
-								into an opportunity to provide the world with the data we have created.`;
+								into an opportunity to provide the rest of the world with the data we have created.`;
 
 	return (
 		<div className={css``}>
